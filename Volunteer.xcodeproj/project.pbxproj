@@ -22,6 +22,9 @@
 		7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1E723157C4A00FA0D36 /* DataService.swift */; };
 		7449BD1D23166842007F8DC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */; };
 		7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7449BD1E2316797E007F8DC4 /* BaseViewController.swift */; };
+		74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D844231824E20091EDE3 /* SWRevealViewController.m */; };
+		74E6D847231829F70091EDE3 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D846231829F70091EDE3 /* SideMenuVC.swift */; };
+		74E6D849231832CD0091EDE3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D848231832CC0091EDE3 /* GradientView.swift */; };
 		E8A88A5B6895724A0886AF97 /* Pods_Volunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A41547663DE023280DAFB2 /* Pods_Volunteer.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,11 @@
 		7427D1E723157C4A00FA0D36 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7449BD1E2316797E007F8DC4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Volunteer-Bridging-Header.h"; sourceTree = "<group>"; };
+		74E6D843231824E20091EDE3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		74E6D844231824E20091EDE3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		74E6D846231829F70091EDE3 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		74E6D848231832CC0091EDE3 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		822D75B8DE5EE7EC37B3B92D /* Pods-Volunteer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer/Pods-Volunteer.debug.xcconfig"; sourceTree = "<group>"; };
 		8AE53C5F52EC454E8EE96953 /* Pods-Volunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer/Pods-Volunteer.release.xcconfig"; sourceTree = "<group>"; };
 		D2A41547663DE023280DAFB2 /* Pods_Volunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Volunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +98,7 @@
 		7427D1C223157C4400FA0D36 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
+				74E6D841231824C70091EDE3 /* Supporting Files */,
 				7427D1E023157C4A00FA0D36 /* Services */,
 				7427D1DF23157C4A00FA0D36 /* Utilities */,
 				7427D1D823157C4A00FA0D36 /* Controller */,
@@ -115,6 +124,7 @@
 		7427D1D723157C4A00FA0D36 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				74E6D848231832CC0091EDE3 /* GradientView.swift */,
 				7427D1D923157C4A00FA0D36 /* CustomTextField.swift */,
 				7427D1DB23157C4A00FA0D36 /* CustomButton.swift */,
 				7427D1DD23157C4A00FA0D36 /* CustomView.swift */,
@@ -130,6 +140,7 @@
 				7427D1E323157C4A00FA0D36 /* LoginVC.swift */,
 				7449BD1E2316797E007F8DC4 /* BaseViewController.swift */,
 				740AC0A82316ACF3005621C9 /* HomeVC.swift */,
+				74E6D846231829F70091EDE3 /* SideMenuVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,6 +159,16 @@
 				7427D1E723157C4A00FA0D36 /* DataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		74E6D841231824C70091EDE3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74E6D843231824E20091EDE3 /* SWRevealViewController.h */,
+				74E6D844231824E20091EDE3 /* SWRevealViewController.m */,
+				74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D01DB44B3C7382A701DC3165 /* Frameworks */ = {
@@ -192,6 +213,7 @@
 				TargetAttributes = {
 					7427D1BF23157C4400FA0D36 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -291,13 +313,16 @@
 				7427D1DE23157C4A00FA0D36 /* CustomView.swift in Sources */,
 				7427D1DC23157C4A00FA0D36 /* CustomButton.swift in Sources */,
 				7427D1E623157C4A00FA0D36 /* LoginCustomTextField.swift in Sources */,
+				74E6D849231832CD0091EDE3 /* GradientView.swift in Sources */,
 				7427D1E423157C4A00FA0D36 /* LoginVC.swift in Sources */,
 				7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */,
 				7427D1C623157C4400FA0D36 /* SignUpVC.swift in Sources */,
+				74E6D847231829F70091EDE3 /* SideMenuVC.swift in Sources */,
 				7427D1C423157C4400FA0D36 /* AppDelegate.swift in Sources */,
 				7427D1DA23157C4A00FA0D36 /* CustomTextField.swift in Sources */,
 				740AC0A92316ACF3005621C9 /* HomeVC.swift in Sources */,
 				7427D1E223157C4A00FA0D36 /* Constants.swift in Sources */,
+				74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +469,7 @@
 			baseConfigurationReference = 822D75B8DE5EE7EC37B3B92D /* Pods-Volunteer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Volunteer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -452,6 +478,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hadyhammad.Volunteer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Volunteer/Supporting Files/Volunteer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,6 +490,7 @@
 			baseConfigurationReference = 8AE53C5F52EC454E8EE96953 /* Pods-Volunteer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Volunteer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,6 +499,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hadyhammad.Volunteer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Volunteer/Supporting Files/Volunteer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
