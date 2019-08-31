@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeVC: UIViewController {
-
+    
     @IBOutlet weak var menuBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()

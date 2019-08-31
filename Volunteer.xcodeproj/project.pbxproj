@@ -22,9 +22,12 @@
 		7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1E723157C4A00FA0D36 /* DataService.swift */; };
 		7449BD1D23166842007F8DC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */; };
 		7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7449BD1E2316797E007F8DC4 /* BaseViewController.swift */; };
+		74826B4223197F19002DF2B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826B4123197F19002DF2B9 /* User.swift */; };
 		74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D844231824E20091EDE3 /* SWRevealViewController.m */; };
 		74E6D847231829F70091EDE3 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D846231829F70091EDE3 /* SideMenuVC.swift */; };
 		74E6D849231832CD0091EDE3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D848231832CC0091EDE3 /* GradientView.swift */; };
+		74EA1F33231A7CC000195C34 /* MakePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA1F32231A7CC000195C34 /* MakePostVC.swift */; };
+		74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE5FE723187A9E007D1251 /* ProfileVC.swift */; };
 		E8A88A5B6895724A0886AF97 /* Pods_Volunteer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2A41547663DE023280DAFB2 /* Pods_Volunteer.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,11 +49,14 @@
 		7427D1E723157C4A00FA0D36 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7449BD1E2316797E007F8DC4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		74826B4123197F19002DF2B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Volunteer-Bridging-Header.h"; sourceTree = "<group>"; };
 		74E6D843231824E20091EDE3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		74E6D844231824E20091EDE3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		74E6D846231829F70091EDE3 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		74E6D848231832CC0091EDE3 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		74EA1F32231A7CC000195C34 /* MakePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePostVC.swift; sourceTree = "<group>"; };
+		74FE5FE723187A9E007D1251 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		822D75B8DE5EE7EC37B3B92D /* Pods-Volunteer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer/Pods-Volunteer.debug.xcconfig"; sourceTree = "<group>"; };
 		8AE53C5F52EC454E8EE96953 /* Pods-Volunteer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volunteer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Volunteer/Pods-Volunteer.release.xcconfig"; sourceTree = "<group>"; };
 		D2A41547663DE023280DAFB2 /* Pods_Volunteer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Volunteer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +123,7 @@
 		7427D1D523157C4A00FA0D36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74826B4123197F19002DF2B9 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +148,8 @@
 				7449BD1E2316797E007F8DC4 /* BaseViewController.swift */,
 				740AC0A82316ACF3005621C9 /* HomeVC.swift */,
 				74E6D846231829F70091EDE3 /* SideMenuVC.swift */,
+				74FE5FE723187A9E007D1251 /* ProfileVC.swift */,
+				74EA1F32231A7CC000195C34 /* MakePostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,9 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */,
 				7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */,
 				7427D1DE23157C4A00FA0D36 /* CustomView.swift in Sources */,
 				7427D1DC23157C4A00FA0D36 /* CustomButton.swift in Sources */,
+				74EA1F33231A7CC000195C34 /* MakePostVC.swift in Sources */,
+				74826B4223197F19002DF2B9 /* User.swift in Sources */,
 				7427D1E623157C4A00FA0D36 /* LoginCustomTextField.swift in Sources */,
 				74E6D849231832CD0091EDE3 /* GradientView.swift in Sources */,
 				7427D1E423157C4A00FA0D36 /* LoginVC.swift in Sources */,

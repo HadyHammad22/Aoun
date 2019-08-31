@@ -56,13 +56,13 @@ class SignUpVC: BaseViewController {
     }
     
     @IBAction func buMale(_ sender: Any) {
-        self.gender = "male"
+        self.gender = "Male"
         self.male.setImage(checked, for: .normal)
         self.female.setImage(unChecked, for: .normal)
     }
     
     @IBAction func buFemale(_ sender: Any) {
-        self.gender = "female"
+        self.gender = "Female"
         self.female.setImage(checked, for: .normal)
         self.male.setImage(unChecked, for: .normal)
     }

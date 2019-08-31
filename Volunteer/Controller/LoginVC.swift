@@ -18,22 +18,29 @@ class LoginVC:BaseViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let _ = UserDefaults.standard.string(forKey: KEY_UID){
+            let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+            self.present(home, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func buLogin(_ sender: Any) {
-        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        self.present(home, animated: true, completion: nil)
-        //        if validData(){
-        //            guard let email = email.text, let pwd = password.text else{return}
-        //            Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
-        //                if error == nil{
-        //                    self.showAlertsuccess(title: "Login Successfully")
-        //                    self.finishEnterData()
-        //                     let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        //                    self.present(home, animated: true, completion: nil)
-        //                }else{
-        //                    self.showAlertWiring(title: "User not exist please Sign Up ")
-        //                }
-        //            })
-        //        }
+        if validData(){
+            guard let email = email.text, let pwd = password.text else{return}
+            Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
+                if error == nil{
+                    self.showAlertsuccess(title: "Login Successfully")
+                    UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)
+                    self.finishEnterData()
+                    let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    self.present(home, animated: true, completion: nil)
+                }else{
+                    self.showAlertWiring(title: "User not exist please Sign Up ")
+                }
+            })
+        }
     }
     
     @IBAction func buLoginWithFacebook(_ sender: Any) {

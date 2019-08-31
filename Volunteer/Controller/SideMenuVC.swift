@@ -9,7 +9,8 @@
 import UIKit
 
 class SideMenuVC: UIViewController{
-
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
@@ -23,10 +24,13 @@ class SideMenuVC: UIViewController{
     
     @IBAction func buMakePost(_ sender: Any) {
         print("Make Post")
+        let makePostVC = storyboard?.instantiateViewController(withIdentifier: "MakePostVC") as! MakePostVC
+        self.present(makePostVC, animated: true, completion: nil)
     }
     
     @IBAction func buProfile(_ sender: Any) {
-        print("Profile")
+        let profileVC = storyboard?.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        self.present(profileVC, animated: true, completion: nil)
     }
     
     @IBAction func buNotifications(_ sender: Any) {
@@ -43,6 +47,9 @@ class SideMenuVC: UIViewController{
     
     @IBAction func buLogOut(_ sender: Any) {
         print("Log Out")
+        UserDefaults.standard.removeObject(forKey: KEY_UID)
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        self.present(loginVC, animated: true, completion: nil)
     }
     
 }
