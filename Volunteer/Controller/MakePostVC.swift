@@ -8,12 +8,17 @@
 
 import UIKit
 import Firebase
+import MobileCoreServices
+
 class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     var donationType = ["Bloods","Money","Clothes","Food","Others"]
     var imagePicker:UIImagePickerController!
     var effect:UIVisualEffect!
     var type:String?
+    var pdfID:String?
+    var PDF_ID:String?
+    var flag:Bool = false
     
     @IBOutlet weak var type_Picker: UIPickerView!
     @IBOutlet weak var selectType: UIButton!
@@ -109,7 +114,10 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     }
     
     @IBAction func buAddFile(_ sender: Any) {
-        
+        let documentPicker = UIDocumentPickerViewController(documentTypes: [ kUTTypePDF as String ], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
     }
     
     @IBAction func buPost(_ sender: Any) {
@@ -129,6 +137,15 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
             return
         }
         
+        if flag{
+            self.PDF_ID = self.pdfID!
+        }else{
+            self.PDF_ID = "Empty"
+        }
+        
+        guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{return}
+        
+        
         if let img = postImage.jpegData(compressionQuality: 0.2){
             let imgId = NSUUID().uuidString
             let metaData = StorageMetadata()
@@ -140,8 +157,10 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
                 }else{
                     DataService.db.REF_POST_IMAGE.child(imgId).downloadURL(completion: { (url,error) in
                         
-                        self.uploadToFirebase(imageID: url!.absoluteString, donationType: donationType, postText: postText, completeion: {
+                        self.uploadToFirebase(imageID: url!.absoluteString, userID: id, donationType: donationType, pdfUrl: self.PDF_ID!, postText: postText, completeion: {
                             self.Hide_Progress_View()
+                            let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            self.present(home, animated: true, completion: nil)
                             self.showAlertsuccess(title: "Post Sent Successfully")
                         })
                     })
@@ -157,8 +176,8 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
         
     }
     
-    func uploadToFirebase(imageID: String, donationType: String, postText: String, completeion: () -> ()){
-        let post: Dictionary<String,Any> = ["donationType": donationType, "Text": postText,"ImageUrl": imageID,"Likes":0]
+    func uploadToFirebase(imageID: String, userID: String,donationType: String,pdfUrl:String , postText: String, completeion: () -> ()){
+        let post: Dictionary<String,Any> = ["Id": userID,"donationType": donationType, "Text": postText,"ImageUrl": imageID,"PDFURL": pdfUrl,"Likes":0]
         DataService.db.REF_POST.childByAutoId().setValue(post)
         completeion()
     }
@@ -188,3 +207,29 @@ extension MakePostVC:UIPickerViewDelegate, UIPickerViewDataSource{
         Hide_Map_View()
     }
 }
+
+extension MakePostVC: UIDocumentPickerDelegate{
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        do{
+            let data = try Data.init(contentsOf: urls.first!)
+            let fileId = NSUUID().uuidString
+            let metaData = StorageMetadata()
+            metaData.contentType = "application/pdf"
+            
+            DataService.db.REF_POST_PDF.child(fileId).putData(data, metadata: metaData, completion: { (metadata,error) in
+                print("File Uploaded Successfully")
+                if error != nil{
+                    self.showAlertWiring(title: "Unable to upload PDF")
+                }else{
+                    DataService.db.REF_POST_PDF.child(fileId).downloadURL(completion: { (url,error) in
+                        self.pdfID = url!.absoluteString
+                        self.flag = true
+                    })
+                }
+                
+            })
+        }catch{
+            
+        }
+    }}

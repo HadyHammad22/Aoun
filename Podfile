@@ -14,5 +14,6 @@ target 'Volunteer' do
   pod 'FacebookLogin'
   pod 'FacebookCore'
   pod 'SwiftMessages'
+  pod 'TableViewReloadAnimation'
 
 end

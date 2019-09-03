@@ -18,6 +18,7 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var password: CustomTextField!
     @IBOutlet weak var male: UIButton!
     @IBOutlet weak var female: UIButton!
+    @IBOutlet weak var saveBtn: CustomButton!
     var gender:String? = "empty"
     
     let checked = UIImage(named: "radioSign 1x")
@@ -98,6 +99,7 @@ class ProfileVC: BaseViewController {
     }
     
     func enableComponent(){
+        saveBtn.isUserInteractionEnabled = true
         email.isUserInteractionEnabled = true
         name.isUserInteractionEnabled = true
         city.isUserInteractionEnabled = true
@@ -108,6 +110,7 @@ class ProfileVC: BaseViewController {
     }
     
     func disableComponent(){
+        saveBtn.isUserInteractionEnabled = false
         email.isUserInteractionEnabled = false
         name.isUserInteractionEnabled = false
         city.isUserInteractionEnabled = false

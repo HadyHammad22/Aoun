@@ -92,6 +92,7 @@ PODS:
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
+  - TableViewReloadAnimation (0.0.5)
 
 DEPENDENCIES:
   - FacebookCore
@@ -101,6 +102,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - SwiftMessages
+  - TableViewReloadAnimation
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -122,6 +124,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - SwiftMessages
+    - TableViewReloadAnimation
 
 SPEC CHECKSUMS:
   FacebookCore: 4eee98476cb37a485af5d337eb21f8cd5b3c7e6c
@@ -142,7 +145,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
+  TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: aadbf4c3988afe89ba25f0d2ab96609157d7e734
+PODFILE CHECKSUM: 32d14b73d95eea0a0277c13af6009aa709561809
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.7.4

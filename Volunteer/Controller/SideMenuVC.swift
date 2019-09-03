@@ -17,13 +17,11 @@ class SideMenuVC: UIViewController{
     }
     
     @IBAction func buHome(_ sender: Any) {
-        print("Home")
         let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         self.present(home, animated: true, completion: nil)
     }
     
     @IBAction func buMakePost(_ sender: Any) {
-        print("Make Post")
         let makePostVC = storyboard?.instantiateViewController(withIdentifier: "MakePostVC") as! MakePostVC
         self.present(makePostVC, animated: true, completion: nil)
     }
@@ -38,15 +36,21 @@ class SideMenuVC: UIViewController{
     }
     
     @IBAction func buShareApp(_ sender: Any) {
-        print("Share App")
+        if let myWebsite = NSURL(string: "") {
+            let objectsToShare = ["", myWebsite] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func buCharities(_ sender: Any) {
-        print("Charities")
+        let organizationVC = storyboard?.instantiateViewController(withIdentifier: "OrganizationVC") as! OrganizationVC
+        self.present(organizationVC, animated: true, completion: nil)
     }
     
     @IBAction func buLogOut(_ sender: Any) {
-        print("Log Out")
         UserDefaults.standard.removeObject(forKey: KEY_UID)
         let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         self.present(loginVC, animated: true, completion: nil)

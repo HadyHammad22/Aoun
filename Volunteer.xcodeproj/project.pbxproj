@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,11 @@
 		7449BD1D23166842007F8DC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */; };
 		7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7449BD1E2316797E007F8DC4 /* BaseViewController.swift */; };
 		747945D1231BDB9600B6BC86 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747945D0231BDB9600B6BC86 /* HomeCell.swift */; };
+		747945D3231BFE3900B6BC86 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747945D2231BFE3900B6BC86 /* Post.swift */; };
 		74826B4223197F19002DF2B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826B4123197F19002DF2B9 /* User.swift */; };
+		749EAF97231C0D6200753BFA /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF96231C0D6200753BFA /* Organization.swift */; };
+		749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF98231C0DC000753BFA /* OrganizationVC.swift */; };
+		749EAF9B231C0E1900753BFA /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF9A231C0E1900753BFA /* OrganizationCell.swift */; };
 		74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D844231824E20091EDE3 /* SWRevealViewController.m */; };
 		74E6D847231829F70091EDE3 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D846231829F70091EDE3 /* SideMenuVC.swift */; };
 		74E6D849231832CD0091EDE3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D848231832CC0091EDE3 /* GradientView.swift */; };
@@ -51,7 +55,11 @@
 		7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7449BD1E2316797E007F8DC4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		747945D0231BDB9600B6BC86 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		747945D2231BFE3900B6BC86 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		74826B4123197F19002DF2B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		749EAF96231C0D6200753BFA /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		749EAF98231C0DC000753BFA /* OrganizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationVC.swift; sourceTree = "<group>"; };
+		749EAF9A231C0E1900753BFA /* OrganizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
 		74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Volunteer-Bridging-Header.h"; sourceTree = "<group>"; };
 		74E6D843231824E20091EDE3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		74E6D844231824E20091EDE3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -125,7 +133,9 @@
 		7427D1D523157C4A00FA0D36 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				749EAF96231C0D6200753BFA /* Organization.swift */,
 				74826B4123197F19002DF2B9 /* User.swift */,
+				747945D2231BFE3900B6BC86 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +149,7 @@
 				7427D1DD23157C4A00FA0D36 /* CustomView.swift */,
 				7427D1E523157C4A00FA0D36 /* LoginCustomTextField.swift */,
 				747945D0231BDB9600B6BC86 /* HomeCell.swift */,
+				749EAF9A231C0E1900753BFA /* OrganizationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 				74E6D846231829F70091EDE3 /* SideMenuVC.swift */,
 				74FE5FE723187A9E007D1251 /* ProfileVC.swift */,
 				74EA1F32231A7CC000195C34 /* MakePostVC.swift */,
+				749EAF98231C0DC000753BFA /* OrganizationVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,33 +287,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Volunteer/Pods-Volunteer-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Volunteer/Pods-Volunteer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Volunteer/Pods-Volunteer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Volunteer/Pods-Volunteer-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Volunteer/Pods-Volunteer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7813D2AB0E69C9128BE60F14 /* [CP] Check Pods Manifest.lock */ = {
@@ -331,6 +326,7 @@
 			files = (
 				74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */,
 				7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */,
+				749EAF9B231C0E1900753BFA /* OrganizationCell.swift in Sources */,
 				7427D1DE23157C4A00FA0D36 /* CustomView.swift in Sources */,
 				7427D1DC23157C4A00FA0D36 /* CustomButton.swift in Sources */,
 				74EA1F33231A7CC000195C34 /* MakePostVC.swift in Sources */,
@@ -345,7 +341,10 @@
 				7427D1DA23157C4A00FA0D36 /* CustomTextField.swift in Sources */,
 				740AC0A92316ACF3005621C9 /* HomeVC.swift in Sources */,
 				7427D1E223157C4A00FA0D36 /* Constants.swift in Sources */,
+				747945D3231BFE3900B6BC86 /* Post.swift in Sources */,
+				749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */,
 				747945D1231BDB9600B6BC86 /* HomeCell.swift in Sources */,
+				749EAF97231C0D6200753BFA /* Organization.swift in Sources */,
 				74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
