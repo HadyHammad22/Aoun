@@ -32,7 +32,7 @@ class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource{
             DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot) in
                 if let dict = snapshot.value as? Dictionary<String,Any>{
                     let msg = Message(msg: dict)
-                    if msg.toId == self.postOwnerID!{
+                    if msg.partnerID() == self.postOwnerID!{
                         self.messages.append(msg)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()

@@ -65,7 +65,7 @@ class DataService {
     
     func sendMessgaeToFirebase(msg: String, ownerID: String, completeion: (_ result:Bool)->()){
         guard let fromId = Auth.auth().currentUser?.uid else{return}
-        let dict = ["text":msg, "toId":ownerID, "fromId":fromId]
+        let dict = ["text": msg, "toId": ownerID, "fromId": fromId]
         let childRef = REF_MESSAGES.childByAutoId()
         childRef.updateChildValues(dict, withCompletionBlock: { (error, ref) in
             if error != nil{

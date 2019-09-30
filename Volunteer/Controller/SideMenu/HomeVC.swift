@@ -85,6 +85,12 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             UIImage(named: "chat-box")?.draw(in: CGRect(x: 0, y: 0, width: 60, height: 70))
         }
         
+        if self.posts[indexPath.row].id == Auth.auth().currentUser?.uid{
+            let config = UISwipeActionsConfiguration(actions: [call])
+            config.performsFirstActionWithFullSwipe = false
+            return config
+        }
+        
         let config = UISwipeActionsConfiguration(actions: [chat,call])
         config.performsFirstActionWithFullSwipe = false
         return config    

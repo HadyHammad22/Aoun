@@ -56,7 +56,7 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-        chatVC.postOwnerID = self.messages[indexPath.row].toId!
+        chatVC.postOwnerID = self.messages[indexPath.row].partnerID()
         let nav = UINavigationController(rootViewController: chatVC)
         self.present(nav, animated: true, completion: nil)
     }
