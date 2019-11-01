@@ -9,7 +9,7 @@
 import UIKit
 
 class ChatMessageCell: UITableViewCell {
-  
+    
     enum BubbleType {
         case incoming
         case outgoing
@@ -18,10 +18,19 @@ class ChatMessageCell: UITableViewCell {
     @IBOutlet weak var chatText: UITextView!
     @IBOutlet weak var chatStack: UIStackView!
     @IBOutlet weak var chatView: CustomView!
+    @IBOutlet weak var chatImage: UIImageView!
+    @IBOutlet weak var imageWidth: NSLayoutConstraint!
     
     func configureCell(message: Message, type: BubbleType){
-        self.chatText.text = message.text
-        setupAllignment(bubbleType: type)
+        if let msgText = message.text{
+            self.chatText.text = msgText
+            setupAllignment(bubbleType: type)
+        }
+        
+        if let imageUrl = message.imageUrl{
+            chatText.text = "Image..."
+            setupAllignment(bubbleType: type)
+        }
     }
     
     func setupAllignment(bubbleType: BubbleType){

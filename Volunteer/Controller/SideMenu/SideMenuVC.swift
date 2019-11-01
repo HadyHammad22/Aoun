@@ -8,32 +8,36 @@
 
 import UIKit
 import Firebase
-class SideMenuVC: UIViewController{
+class SideMenuVC: UIViewController {
     
     @IBOutlet weak var notificationView: CustomView!
     @IBOutlet weak var notificationLabel: UILabel!
-    var counter:Int? = 0
+    var counter:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
-        observeUserMessages()
     }
     
-    func observeUserMessages(){
-        guard let uid = Auth.auth().currentUser?.uid else{return}
-        DataService.db.REF_USER_MESSAGES.child(uid).observe(.childAdded, with: { (snapshot)in
-            DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot)in
-                if let dict = snapshot.value as? Dictionary<String,Any>{
-                    let msg = Message(msg: dict)
-                    if let id = msg.partnerID(), id != Auth.auth().currentUser!.uid{
-                        self.counter = self.counter! + 1
-                        print("CCC: ",self.counter!)
-                    }
-                }
-            })
-        })
-        print("DDD: ",counter!)
+    override func viewWillAppear(_ animated: Bool) {
+        print("load observation")
+        observeNotifications()
     }
+    func observeNotifications(){
+        
+        guard let uid = Auth.auth().currentUser?.uid else{return}
+        
+        DataService.db.NOTIFICATION.child(uid).observe(.value, with: { (snapshot) in
+            print(snapshot.childrenCount)
+            if snapshot.childrenCount > 0{
+                self.notificationLabel.text = "\(snapshot.childrenCount)"
+                self.notificationView.isHidden = false
+            }else{
+                self.notificationView.isHidden = true
+            }
+        })
+        
+    }
+    
     @IBAction func buHome(_ sender: Any) {
         let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         self.present(home, animated: true, completion: nil)
@@ -48,6 +52,7 @@ class SideMenuVC: UIViewController{
     }
     
     @IBAction func buShare(_ sender: Any) {
+        
         if let myWebsite = NSURL(string: "") {
             let objectsToShare = ["", myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
@@ -55,10 +60,11 @@ class SideMenuVC: UIViewController{
             activityVC.popoverPresentationController?.sourceView = self.view
             self.present(activityVC, animated: true, completion: nil)
         }
+        
     }
     
     @IBAction func buMessages(_ sender: Any) {
-       performSegue(withIdentifier: "Messages", sender: nil)
+        self.performSegue(withIdentifier: "Messages", sender: nil)
     }
     
     @IBAction func buCharities(_ sender: Any) {

@@ -15,7 +15,6 @@ class LoginVC:BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,9 +26,11 @@ class LoginVC:BaseViewController {
     }
     
     @IBAction func buLogin(_ sender: Any) {
+        print("DSA")
         if validData(){
             guard let email = email.text, let pwd = password.text else{return}
             Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
+                print("ASD")
                 if error == nil{
                     self.showAlertsuccess(title: "Login Successfully")
                     UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)
@@ -38,6 +39,7 @@ class LoginVC:BaseViewController {
                     self.present(home, animated: true, completion: nil)
                 }else{
                     self.showAlertWiring(title: "User not exist please Sign Up ")
+                    return
                 }
             })
         }

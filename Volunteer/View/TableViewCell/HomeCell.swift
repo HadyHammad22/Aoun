@@ -34,24 +34,7 @@ class HomeCell: UITableViewCell {
         likeRef = DataService.db.REF_CURRENT_USERS.child("likes").child(post.postKey)
         self.postText.text = post.postText
         self.DonationType.text = post.type
-        if img != nil{
-            self.postImage.image = img
-        }else{
-            let ref = Storage.storage().reference(forURL: post.imgUrl)
-            ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data,error) in
-                if error != nil{
-                    print("Unable To Download Image From Firebase Storage")
-                }else{
-                    print("Image Downloaded Successfully From Firebase Storage")
-                    if let imgData = data{
-                        if let img = UIImage(data: imgData){
-                            self.postImage.image = img
-                            HomeVC.imageCash.setObject(img, forKey: post.imgUrl as NSString)
-                        }
-                    }
-                }
-            })
-        }
+        self.postImage.downloadImageUsingCache(imgUrl: post.imgUrl)
         
         likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull{

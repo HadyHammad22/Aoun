@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7401ABD1235C42F60052842F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7401ABD0235C42F60052842F /* ImageView.swift */; };
 		740AC0A92316ACF3005621C9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740AC0A82316ACF3005621C9 /* HomeVC.swift */; };
 		7427D1C423157C4400FA0D36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1C323157C4400FA0D36 /* AppDelegate.swift */; };
 		7427D1C623157C4400FA0D36 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1C523157C4400FA0D36 /* SignUpVC.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7401ABD0235C42F60052842F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		740AC0A82316ACF3005621C9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7427D1C023157C4400FA0D36 /* Volunteer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volunteer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7427D1C323157C4400FA0D36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7401ABCF235C42CD0052842F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7401ABD0235C42F60052842F /* ImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7427D1B723157C4300FA0D36 = {
 			isa = PBXGroup;
 			children = (
@@ -128,15 +138,13 @@
 		7427D1C223157C4400FA0D36 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
+				7401ABCF235C42CD0052842F /* Extensions */,
 				74E6D841231824C70091EDE3 /* Supporting Files */,
 				7427D1E023157C4A00FA0D36 /* Services */,
 				7427D1DF23157C4A00FA0D36 /* Utilities */,
 				7427D1D823157C4A00FA0D36 /* Controller */,
 				7427D1D723157C4A00FA0D36 /* View */,
 				7427D1D523157C4A00FA0D36 /* Model */,
-				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
-				7427D1C723157C4400FA0D36 /* Main.storyboard */,
-				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
 				7427D1CC23157C4A00FA0D36 /* LaunchScreen.storyboard */,
 				7427D1CF23157C4A00FA0D36 /* Info.plist */,
 				7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */,
@@ -158,6 +166,8 @@
 		7427D1D723157C4A00FA0D36 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7427D1C723157C4400FA0D36 /* Main.storyboard */,
+				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
 				74B8FFD42337A98A0056F620 /* CustomImageView */,
 				74B8FFD22337968F0056F620 /* AlertMessages */,
 				74B8FFD12337967B0056F620 /* CustomButtons */,
@@ -171,6 +181,7 @@
 		7427D1D823157C4A00FA0D36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
 				74B8FFD3233796CA0056F620 /* SideMenu */,
 				747945CF231BD64700B6BC86 /* Authentication */,
 			);
@@ -401,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7401ABD1235C42F60052842F /* ImageView.swift in Sources */,
 				74E30EA923365715004AC85E /* Message.swift in Sources */,
 				74B8FFCD233796090056F620 /* MessagesCell.swift in Sources */,
 				74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */,
