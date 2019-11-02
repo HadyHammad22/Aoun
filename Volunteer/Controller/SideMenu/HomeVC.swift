@@ -59,51 +59,22 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let call = UIContextualAction(style: .normal, title: nil, handler: { (action,view,nil) in
-            self.loadData(id: self.posts[indexPath.row].id, completion: { (user) in
-                guard let user = user else{return}
-                print(user.phone)
-                guard let url = URL(string: "telprompt://\(user.phone)") else {return}
-                UIApplication.shared.open(url)
-            })
-        })
-        
-        call.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        call.image = UIGraphicsImageRenderer(size: CGSize(width: 60, height: 60)).image { _ in
-            UIImage(named: "call")?.draw(in: CGRect(x: 0, y: 0, width: 60, height: 60))
-        }
-        
-        let chat = UIContextualAction(style: .normal, title: nil, handler: { (action,view,nil) in
-            let chatVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-            chatVC.postOwnerID = self.posts[indexPath.row].id
-            let nav = UINavigationController(rootViewController: chatVC)
-            self.present(nav, animated: true, completion: nil)
-        })
-        chat.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        chat.image = UIGraphicsImageRenderer(size: CGSize(width: 60, height: 70)).image { _ in
-            UIImage(named: "chat-box")?.draw(in: CGRect(x: 0, y: 0, width: 60, height: 70))
-        }
-        
-        if self.posts[indexPath.row].id == Auth.auth().currentUser?.uid{
-            let config = UISwipeActionsConfiguration(actions: [call])
-            config.performsFirstActionWithFullSwipe = false
-            return config
-        }
-        
-        let config = UISwipeActionsConfiguration(actions: [chat,call])
-        config.performsFirstActionWithFullSwipe = false
-        return config    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetails", sender: self.posts[indexPath.row])
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails"{
+            guard let moreDetailsVC = segue.destination as? MoreDetailsVC else {return}
+            if let post = sender as? Post{
+                moreDetailsVC.post = post
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+   
     
-    func loadData(id: String,completion: @escaping (_ user: User?)->()){
-        DataService.db.REF_USERS.child(id).observe(.value, with: { (snapshot) in
-            guard let data = snapshot.value as? Dictionary<String,Any> else{return}
-            let user = User(userData: data)
-            completion(user)
-        })
-    }
 }

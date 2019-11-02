@@ -217,10 +217,10 @@ extension MakePostVC: UIDocumentPickerDelegate{
             metaData.contentType = "application/pdf"
             
             DataService.db.REF_POST_PDF.child(fileId).putData(data, metadata: metaData, completion: { (metadata,error) in
-                print("File Uploaded Successfully")
                 if error != nil{
                     self.showAlertWiring(title: "Unable to upload PDF")
                 }else{
+                    print("File Uploaded Successfully")
                     DataService.db.REF_POST_PDF.child(fileId).downloadURL(completion: { (url,error) in
                         self.pdfID = url!.absoluteString
                         self.flag = true
@@ -229,6 +229,6 @@ extension MakePostVC: UIDocumentPickerDelegate{
                 
             })
         }catch{
-            
+            print("Error in getting data from url")
         }
     }}

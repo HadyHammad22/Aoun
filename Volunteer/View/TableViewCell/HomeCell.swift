@@ -22,11 +22,6 @@ class HomeCell: UITableViewCell {
         let likeTap = UITapGestureRecognizer(target: self, action: #selector(likeTapped))
         likeTap.numberOfTapsRequired = 1
         up.addGestureRecognizer(likeTap)
-        
-        let downloadTap = UITapGestureRecognizer(target: self, action: #selector(downloadTapped))
-        downloadTap.numberOfTapsRequired = 1
-        download.addGestureRecognizer(downloadTap)
-        
     }
     func configureCell(post: Post, img:UIImage? = nil){
         
@@ -58,9 +53,4 @@ class HomeCell: UITableViewCell {
             }
         })
     }
-    
-    @objc func downloadTapped(sender: UIGestureRecognizer){
-        print("Download")
-    }
-    
 }

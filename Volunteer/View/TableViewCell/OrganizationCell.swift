@@ -25,4 +25,5 @@ class OrganizationCell: UITableViewCell {
         info.text = Org.info!
         img.image = UIImage(named: Org.img!)
     }
+    
 }
