@@ -11,14 +11,18 @@ import Firebase
 class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var menuBtn: UIBarButtonItem!
+    
     var messages = [Message]()
     var messagesDictionary = [String:Any]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        
+        menuBtn.target = self.revealViewController()
+        menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
         observeUserMessages()
     }
     

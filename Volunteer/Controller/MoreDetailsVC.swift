@@ -11,7 +11,6 @@ import Firebase
 
 class MoreDetailsVC: UIViewController {
     
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var postImage: CustomImageView!
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var downloadPDF: CustomButton!
@@ -22,7 +21,6 @@ class MoreDetailsVC: UIViewController {
         guard let post = self.post else {return}
         postImage.downloadImageUsingCache(imgUrl: post.imgUrl)
         postText.text = post.postText
-        titleLabel.text = post.type
         if post.pdfUrl == "Empty"{
             self.downloadPDF.isHidden = true
         }else{

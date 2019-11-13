@@ -30,14 +30,9 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     @IBOutlet var progView: CustomView!
     @IBOutlet weak var lblProgress: UILabel!
     @IBOutlet weak var prog: UIProgressView!
-    @IBOutlet weak var menuBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
         self.type_Picker.delegate = self
         self.type_Picker.dataSource = self

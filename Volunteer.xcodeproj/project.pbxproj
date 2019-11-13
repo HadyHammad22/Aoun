@@ -21,6 +21,7 @@
 		7427D1E423157C4A00FA0D36 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1E323157C4A00FA0D36 /* LoginVC.swift */; };
 		7427D1E623157C4A00FA0D36 /* LoginCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1E523157C4A00FA0D36 /* LoginCustomTextField.swift */; };
 		7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7427D1E723157C4A00FA0D36 /* DataService.swift */; };
+		742CB9982378116200B99FC1 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742CB9972378116200B99FC1 /* MainTabBar.swift */; };
 		7445C450236CD05E00DE775E /* MoreDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7445C44F236CD05E00DE775E /* MoreDetailsVC.swift */; };
 		7449BD1D23166842007F8DC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */; };
 		7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7449BD1E2316797E007F8DC4 /* BaseViewController.swift */; };
@@ -62,6 +63,7 @@
 		7427D1E323157C4A00FA0D36 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		7427D1E523157C4A00FA0D36 /* LoginCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCustomTextField.swift; sourceTree = "<group>"; };
 		7427D1E723157C4A00FA0D36 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		742CB9972378116200B99FC1 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		7445C44F236CD05E00DE775E /* MoreDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailsVC.swift; sourceTree = "<group>"; };
 		7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7449BD1E2316797E007F8DC4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,9 @@
 		7427D1C223157C4400FA0D36 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
+				74FF6428236EDBFF00962F7F /* AppDelegate */,
+				74FF6427236EDBF300962F7F /* Resources */,
+				74FF6426236EDBDB00962F7F /* Storyboards */,
 				7401ABCF235C42CD0052842F /* Extensions */,
 				74E6D841231824C70091EDE3 /* Supporting Files */,
 				7427D1E023157C4A00FA0D36 /* Services */,
@@ -147,7 +152,6 @@
 				7427D1D823157C4A00FA0D36 /* Controller */,
 				7427D1D723157C4A00FA0D36 /* View */,
 				7427D1D523157C4A00FA0D36 /* Model */,
-				7427D1CC23157C4A00FA0D36 /* LaunchScreen.storyboard */,
 				7427D1CF23157C4A00FA0D36 /* Info.plist */,
 				7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */,
 			);
@@ -168,8 +172,6 @@
 		7427D1D723157C4A00FA0D36 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7427D1C723157C4400FA0D36 /* Main.storyboard */,
-				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
 				74B8FFD42337A98A0056F620 /* CustomImageView */,
 				74B8FFD22337968F0056F620 /* AlertMessages */,
 				74B8FFD12337967B0056F620 /* CustomButtons */,
@@ -183,10 +185,10 @@
 		7427D1D823157C4A00FA0D36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
 				74B8FFD3233796CA0056F620 /* SideMenu */,
 				747945CF231BD64700B6BC86 /* Authentication */,
 				7445C44F236CD05E00DE775E /* MoreDetailsVC.swift */,
+				742CB9972378116200B99FC1 /* MainTabBar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -292,6 +294,32 @@
 				74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74FF6426236EDBDB00962F7F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7427D1C723157C4400FA0D36 /* Main.storyboard */,
+				7427D1CC23157C4A00FA0D36 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		74FF6427236EDBF300962F7F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
+			);
+			name = Resources;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		74FF6428236EDBFF00962F7F /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		D01DB44B3C7382A701DC3165 /* Frameworks */ = {
@@ -443,6 +471,7 @@
 				749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */,
 				747945D1231BDB9600B6BC86 /* HomeCell.swift in Sources */,
 				747AC1CF2338F4C6004371BE /* BubbleView.swift in Sources */,
+				742CB9982378116200B99FC1 /* MainTabBar.swift in Sources */,
 				74E30EA723363F29004AC85E /* ChatMessageCell.swift in Sources */,
 				749EAF97231C0D6200753BFA /* Organization.swift in Sources */,
 				74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */,
@@ -594,6 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Volunteer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -604,7 +634,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Volunteer/Supporting Files/Volunteer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -615,6 +645,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Volunteer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,7 +655,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Volunteer/Supporting Files/Volunteer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

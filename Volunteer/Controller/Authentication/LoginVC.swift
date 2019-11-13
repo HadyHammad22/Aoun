@@ -26,11 +26,9 @@ class LoginVC:BaseViewController {
     }
     
     @IBAction func buLogin(_ sender: Any) {
-        print("DSA")
         if validData(){
             guard let email = email.text, let pwd = password.text else{return}
             Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
-                print("ASD")
                 if error == nil{
                     self.showAlertsuccess(title: "Login Successfully")
                     UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)

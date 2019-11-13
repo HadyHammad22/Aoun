@@ -12,15 +12,10 @@ import Firebase
 class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var postsTable: UITableView!
-    @IBOutlet weak var menuBtn: UIButton!
     var posts = [Post]()
     static var imageCash: NSCache<NSString, UIImage> = NSCache()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         loadPosts()
     }
     

@@ -19,7 +19,6 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var male: UIButton!
     @IBOutlet weak var female: UIButton!
     @IBOutlet weak var saveBtn: CustomButton!
-    @IBOutlet weak var menuBtn: UIButton!
     
     var gender:String? = "empty"
     
@@ -28,9 +27,6 @@ class ProfileVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         configureProfile()
     }
     

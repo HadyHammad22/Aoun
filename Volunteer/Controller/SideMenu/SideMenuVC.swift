@@ -12,9 +12,11 @@ class SideMenuVC: UIViewController {
     
     @IBOutlet weak var notificationView: CustomView!
     @IBOutlet weak var notificationLabel: UILabel!
+    @IBOutlet weak var userName: UILabel!
     var counter:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUserName()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
     }
     
@@ -22,6 +24,13 @@ class SideMenuVC: UIViewController {
         print("load observation")
         observeNotifications()
     }
+    
+    func setupUserName(){
+        DataService.db.getUserWithId(id: Auth.auth().currentUser!.uid, completion: { user in
+            self.userName.text = user?.name
+        })
+    }
+    
     func observeNotifications(){
         
         guard let uid = Auth.auth().currentUser?.uid else{return}
@@ -40,15 +49,28 @@ class SideMenuVC: UIViewController {
     
     @IBAction func buHome(_ sender: Any) {
         let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        MainTabBar.mainIndex = 0
         self.present(home, animated: true, completion: nil)
     }
     
     @IBAction func buMakePost(_ sender: Any) {
-        performSegue(withIdentifier: "Make_Post", sender: nil)
+        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        MainTabBar.mainIndex = 1
+        self.present(home, animated: true, completion: nil)
     }
     
     @IBAction func buProfile(_ sender: Any) {
-        performSegue(withIdentifier: "Profile", sender: nil)
+        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        MainTabBar.mainIndex = 2
+        self.present(home, animated: true, completion: nil)
+    }
+    
+    @IBAction func buMessages(_ sender: Any) {
+        self.performSegue(withIdentifier: "messages", sender: nil)
+    }
+    
+    @IBAction func buCharities(_ sender: Any) {
+        self.performSegue(withIdentifier: "charities", sender: nil)
     }
     
     @IBAction func buShare(_ sender: Any) {
@@ -61,14 +83,6 @@ class SideMenuVC: UIViewController {
             self.present(activityVC, animated: true, completion: nil)
         }
         
-    }
-    
-    @IBAction func buMessages(_ sender: Any) {
-        self.performSegue(withIdentifier: "Messages", sender: nil)
-    }
-    
-    @IBAction func buCharities(_ sender: Any) {
-        performSegue(withIdentifier: "Organizations", sender: nil)
     }
     
     @IBAction func buLogOut(_ sender: Any) {

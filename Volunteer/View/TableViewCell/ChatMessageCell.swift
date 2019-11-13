@@ -28,6 +28,7 @@ class ChatMessageCell: UITableViewCell {
         }
         
         if let imageUrl = message.imageUrl{
+            print(imageUrl)
             chatText.text = "Image..."
             setupAllignment(bubbleType: type)
         }
