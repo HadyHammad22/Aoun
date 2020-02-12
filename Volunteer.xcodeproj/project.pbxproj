@@ -142,8 +142,6 @@
 		7427D1C223157C4400FA0D36 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
-				74FF6428236EDBFF00962F7F /* AppDelegate */,
-				74FF6427236EDBF300962F7F /* Resources */,
 				74FF6426236EDBDB00962F7F /* Storyboards */,
 				7401ABCF235C42CD0052842F /* Extensions */,
 				74E6D841231824C70091EDE3 /* Supporting Files */,
@@ -152,8 +150,6 @@
 				7427D1D823157C4A00FA0D36 /* Controller */,
 				7427D1D723157C4A00FA0D36 /* View */,
 				7427D1D523157C4A00FA0D36 /* Model */,
-				7427D1CF23157C4A00FA0D36 /* Info.plist */,
-				7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */,
 			);
 			path = Volunteer;
 			sourceTree = "<group>";
@@ -185,10 +181,11 @@
 		7427D1D823157C4A00FA0D36 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				74B8FFD3233796CA0056F620 /* SideMenu */,
+				749E1D5723F4A063000926F7 /* Others */,
+				749E1D5623F4A033000926F7 /* Profile */,
+				749E1D5523F4A007000926F7 /* Chat */,
+				74B8FFD3233796CA0056F620 /* Post */,
 				747945CF231BD64700B6BC86 /* Authentication */,
-				7445C44F236CD05E00DE775E /* MoreDetailsVC.swift */,
-				742CB9972378116200B99FC1 /* MainTabBar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,6 +213,43 @@
 				7427D1E323157C4A00FA0D36 /* LoginVC.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		749E1D5523F4A007000926F7 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				74E30EA423363EF5004AC85E /* ChatVC.swift */,
+				74B8FFCA2337939F0056F620 /* MessagesVC.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		749E1D5623F4A033000926F7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				74FE5FE723187A9E007D1251 /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		749E1D5723F4A063000926F7 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				742CB9972378116200B99FC1 /* MainTabBar.swift */,
+				749EAF98231C0DC000753BFA /* OrganizationVC.swift */,
+				74E6D846231829F70091EDE3 /* SideMenuVC.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		749E1D5823F4A0E2000926F7 /* SWReveal */ = {
+			isa = PBXGroup;
+			children = (
+				74E6D843231824E20091EDE3 /* SWRevealViewController.h */,
+				74E6D844231824E20091EDE3 /* SWRevealViewController.m */,
+				74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */,
+			);
+			path = SWReveal;
 			sourceTree = "<group>";
 		};
 		74B8FFCE233796170056F620 /* TableViewCell */ = {
@@ -264,18 +298,14 @@
 			path = AlertMessages;
 			sourceTree = "<group>";
 		};
-		74B8FFD3233796CA0056F620 /* SideMenu */ = {
+		74B8FFD3233796CA0056F620 /* Post */ = {
 			isa = PBXGroup;
 			children = (
 				740AC0A82316ACF3005621C9 /* HomeVC.swift */,
-				74E6D846231829F70091EDE3 /* SideMenuVC.swift */,
-				74FE5FE723187A9E007D1251 /* ProfileVC.swift */,
 				74EA1F32231A7CC000195C34 /* MakePostVC.swift */,
-				749EAF98231C0DC000753BFA /* OrganizationVC.swift */,
-				74E30EA423363EF5004AC85E /* ChatVC.swift */,
-				74B8FFCA2337939F0056F620 /* MessagesVC.swift */,
+				7445C44F236CD05E00DE775E /* MoreDetailsVC.swift */,
 			);
-			path = SideMenu;
+			path = Post;
 			sourceTree = "<group>";
 		};
 		74B8FFD42337A98A0056F620 /* CustomImageView */ = {
@@ -289,9 +319,11 @@
 		74E6D841231824C70091EDE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				74E6D843231824E20091EDE3 /* SWRevealViewController.h */,
-				74E6D844231824E20091EDE3 /* SWRevealViewController.m */,
-				74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */,
+				749E1D5823F4A0E2000926F7 /* SWReveal */,
+				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
+				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
+				7427D1CF23157C4A00FA0D36 /* Info.plist */,
+				7449BD1C23166841007F8DC4 /* GoogleService-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -303,23 +335,6 @@
 				7427D1CC23157C4A00FA0D36 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		74FF6427236EDBF300962F7F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
-			);
-			name = Resources;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		74FF6428236EDBFF00962F7F /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
-			);
-			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		D01DB44B3C7382A701DC3165 /* Frameworks */ = {
