@@ -29,6 +29,12 @@
 		747945D3231BFE3900B6BC86 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747945D2231BFE3900B6BC86 /* Post.swift */; };
 		747AC1CF2338F4C6004371BE /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747AC1CE2338F4C6004371BE /* BubbleView.swift */; };
 		74826B4223197F19002DF2B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826B4123197F19002DF2B9 /* User.swift */; };
+		749E1D5A23F4A282000926F7 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E1D5923F4A282000926F7 /* UIView.swift */; };
+		749E1D5C23F4A2BF000926F7 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E1D5B23F4A2BF000926F7 /* UITextField.swift */; };
+		749E1D5E23F4A2D0000926F7 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E1D5D23F4A2D0000926F7 /* UILabel.swift */; };
+		749E1D6023F4A2E3000926F7 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E1D5F23F4A2E3000926F7 /* UIButton.swift */; };
+		749E1D6223F4A389000926F7 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E1D6123F4A389000926F7 /* UITableView.swift */; };
+		749E1D6423F4A39A000926F7 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E1D6323F4A39A000926F7 /* UICollectionView.swift */; };
 		749EAF97231C0D6200753BFA /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF96231C0D6200753BFA /* Organization.swift */; };
 		749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF98231C0DC000753BFA /* OrganizationVC.swift */; };
 		749EAF9B231C0E1900753BFA /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF9A231C0E1900753BFA /* OrganizationCell.swift */; };
@@ -71,6 +77,12 @@
 		747945D2231BFE3900B6BC86 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		747AC1CE2338F4C6004371BE /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		74826B4123197F19002DF2B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		749E1D5923F4A282000926F7 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		749E1D5B23F4A2BF000926F7 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		749E1D5D23F4A2D0000926F7 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		749E1D5F23F4A2E3000926F7 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		749E1D6123F4A389000926F7 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		749E1D6323F4A39A000926F7 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		749EAF96231C0D6200753BFA /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		749EAF98231C0DC000753BFA /* OrganizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationVC.swift; sourceTree = "<group>"; };
 		749EAF9A231C0E1900753BFA /* OrganizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
@@ -117,6 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				7401ABD0235C42F60052842F /* ImageView.swift */,
+				749E1D5923F4A282000926F7 /* UIView.swift */,
+				749E1D5B23F4A2BF000926F7 /* UITextField.swift */,
+				749E1D5D23F4A2D0000926F7 /* UILabel.swift */,
+				749E1D5F23F4A2E3000926F7 /* UIButton.swift */,
+				749E1D6123F4A389000926F7 /* UITableView.swift */,
+				749E1D6323F4A39A000926F7 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -461,6 +479,7 @@
 				7401ABD1235C42F60052842F /* ImageView.swift in Sources */,
 				74E30EA923365715004AC85E /* Message.swift in Sources */,
 				74B8FFCD233796090056F620 /* MessagesCell.swift in Sources */,
+				749E1D6223F4A389000926F7 /* UITableView.swift in Sources */,
 				7445C450236CD05E00DE775E /* MoreDetailsVC.swift in Sources */,
 				74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */,
 				7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */,
@@ -471,8 +490,11 @@
 				74EA1F33231A7CC000195C34 /* MakePostVC.swift in Sources */,
 				74826B4223197F19002DF2B9 /* User.swift in Sources */,
 				7427D1E623157C4A00FA0D36 /* LoginCustomTextField.swift in Sources */,
+				749E1D5A23F4A282000926F7 /* UIView.swift in Sources */,
 				74E6D849231832CD0091EDE3 /* GradientView.swift in Sources */,
+				749E1D5C23F4A2BF000926F7 /* UITextField.swift in Sources */,
 				7427D1E423157C4A00FA0D36 /* LoginVC.swift in Sources */,
+				749E1D6423F4A39A000926F7 /* UICollectionView.swift in Sources */,
 				7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */,
 				74E30EA523363EF5004AC85E /* ChatVC.swift in Sources */,
 				7427D1C623157C4400FA0D36 /* SignUpVC.swift in Sources */,
@@ -486,10 +508,12 @@
 				749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */,
 				747945D1231BDB9600B6BC86 /* HomeCell.swift in Sources */,
 				747AC1CF2338F4C6004371BE /* BubbleView.swift in Sources */,
+				749E1D5E23F4A2D0000926F7 /* UILabel.swift in Sources */,
 				742CB9982378116200B99FC1 /* MainTabBar.swift in Sources */,
 				74E30EA723363F29004AC85E /* ChatMessageCell.swift in Sources */,
 				749EAF97231C0D6200753BFA /* Organization.swift in Sources */,
 				74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */,
+				749E1D6023F4A2E3000926F7 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
