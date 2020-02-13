@@ -11,22 +11,22 @@ import Firebase
 class ProfileVC: BaseViewController {
     
     // MARK :- Instance
-    static func instance () -> SignUpVC{
+    static func instance () -> ProfileVC{
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        return storyboard.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
     }
     
     // MARK :- Outlets
-    @IBOutlet weak var emailTxtField:CustomTextField!
-    @IBOutlet weak var nameTxtField: CustomTextField!
-    @IBOutlet weak var cityTxtField: CustomTextField!
-    @IBOutlet weak var phoneTxtField: CustomTextField!
-    @IBOutlet weak var userNameLbl: UILabel!
-    @IBOutlet weak var passwordTxtField: CustomTextField!
+    @IBOutlet weak var emailTxtField:UITextField!
+    @IBOutlet weak var nameTxtField: UITextField!
+    @IBOutlet weak var cityTxtField: UITextField!
+    @IBOutlet weak var phoneTxtField: UITextField!
+    @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
-    @IBOutlet weak var editBtn: UIButton!
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var imageEditView: UIView!
+    @IBOutlet weak var imageEditBtn: UIButton!
     
     // MARK :- LifeCycle
     override func viewDidLoad() {
@@ -37,36 +37,13 @@ class ProfileVC: BaseViewController {
     
     // MARK :- SetupUI
     func setupComponents(){
-        nameTxtField.delegate = self
-        emailTxtField.delegate = self
-        phoneTxtField.delegate = self
-        cityTxtField.delegate = self
-        passwordTxtField.delegate = self
-        userImage.addCornerRadius(userImage.frame.height/2)
-        backView.addCornerRadius(10)
-        backView.addNormalShadow()
-        saveBtn.addBtnCornerRadius(10)
+        saveBtn.addBtnCornerRadius(20)
         saveBtn.addBtnNormalShadow()
-        editBtn.addBtnCornerRadius(10)
-        editBtn.addBtnNormalShadow()
-    }
-    
-    func enableComponent(){
-        saveBtn.isUserInteractionEnabled = true
-        emailTxtField.isUserInteractionEnabled = true
-        nameTxtField.isUserInteractionEnabled = true
-        cityTxtField.isUserInteractionEnabled = true
-        phoneTxtField.isUserInteractionEnabled = true
-        passwordTxtField.isUserInteractionEnabled = true
-    }
-    
-    func disableComponent(){
-        saveBtn.isUserInteractionEnabled = false
-        emailTxtField.isUserInteractionEnabled = false
-        nameTxtField.isUserInteractionEnabled = false
-        cityTxtField.isUserInteractionEnabled = false
-        phoneTxtField.isUserInteractionEnabled = false
-        passwordTxtField.isUserInteractionEnabled = false
+        signOutBtn.addBtnCornerRadius(20)
+        signOutBtn.addBtnNormalShadow()
+        userImage.addCornerRadius(userImage.frame.height/2)
+        imageEditView.addCornerRadius(imageEditView.frame.height/2)
+        imageEditBtn.addBtnCornerRadius(imageEditBtn.frame.height/2)
     }
     
     // MARK :- Load Profile
@@ -87,8 +64,6 @@ class ProfileVC: BaseViewController {
             self.cityTxtField.text = user.city
             self.phoneTxtField.text = user.phone
             self.passwordTxtField.text = user.password
-            self.userNameLbl.text = "@ \(user.name)"
-            
         })
     }
     
@@ -104,17 +79,15 @@ class ProfileVC: BaseViewController {
         let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
         DataService.db.REF_USERS.child(uid).updateChildValues(dataDict, withCompletionBlock: { (error, result) in
             if error == nil{
-                self.showAlertsuccess(title: "Profile Updated Successfully")
-                self.disableComponent()
+                self.showAlertsuccess(title: "Update success")
             }else{
-                self.showAlertWiring(title: "Profile Can't Update")
+                self.showAlertWiring(title: "Update faild")
             }
         })
     }
     
-    // MARK :- Edit
-    @IBAction func buEdit(_ sender: Any) {
-        enableComponent()
+    @IBAction func buSignOut(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: KEY_UID)
+        self.present(LoginVC.instance(), animated: true, completion: nil)
     }
-    
 }
