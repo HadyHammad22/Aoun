@@ -639,14 +639,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Volunteer/Info.plist;
+				INFOPLIST_FILE = "/Users/hadyhammad/Desktop/Aoun/Volunteer/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hadyhammad.Volunteer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Volunteer/Supporting Files/Volunteer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hadyhammad/Desktop/Aoun/Volunteer/Supporting Files/SWReveal/Volunteer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -661,14 +661,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Volunteer/Info.plist;
+				INFOPLIST_FILE = "/Users/hadyhammad/Desktop/Aoun/Volunteer/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hadyhammad.Volunteer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Volunteer/Supporting Files/Volunteer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hadyhammad/Desktop/Aoun/Volunteer/Supporting Files/SWReveal/Volunteer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
