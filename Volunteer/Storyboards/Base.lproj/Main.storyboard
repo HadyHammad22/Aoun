@@ -1153,7 +1153,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msg" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-Qi-QAH">
-                                                                <rect key="frame" x="12.5" y="15" width="25" height="20.000000000000114"/>
+                                                                <rect key="frame" x="12.5" y="15" width="25" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="SQZ-dj-7tp"/>
                                                                     <constraint firstAttribute="width" constant="25" id="wtM-2X-uuR"/>
