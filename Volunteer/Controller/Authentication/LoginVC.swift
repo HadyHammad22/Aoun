@@ -10,27 +10,43 @@ import UIKit
 import Firebase
 class LoginVC:BaseViewController {
     
-    @IBOutlet weak var email: LoginCustomTextField!
-    @IBOutlet weak var password: LoginCustomTextField!
+    // MARK :- Instance
+    static func instance () -> LoginVC{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+    }
     
+    // MARK :- Outlets
+    @IBOutlet weak var emailTxtField: CustomTextField!
+    @IBOutlet weak var passwordTxtField: CustomTextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var topView: UIView!
+    
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if let _ = UserDefaults.standard.string(forKey: KEY_UID){
-            let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-            self.present(home, animated: true, completion: nil)
-        }
+    override func viewDidLayoutSubviews() {
+        setupComponents()
     }
     
+    // MARK :- SetupUI
+    func setupComponents(){
+        emailTxtField.delegate = self
+        passwordTxtField.delegate = self
+        topView.roundedFromSide(corners: [.bottomLeft], cornerRadius: 100)
+        loginBtn.addCornerRadius(20)
+        loginBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
+    }
+
+    // MARK :- Login
     @IBAction func buLogin(_ sender: Any) {
         if validData(){
-            guard let email = email.text, let pwd = password.text else{return}
+            guard let email = emailTxtField.text, let pwd = passwordTxtField.text else{return}
             Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
                 if error == nil{
-                    self.showAlertsuccess(title: "Login Successfully")
+                    self.showAlertsuccess(title: "Login Success")
                     UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)
                     self.finishEnterData()
                     let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
@@ -42,24 +58,24 @@ class LoginVC:BaseViewController {
             })
         }
     }
-    
-    @IBAction func buLoginWithFacebook(_ sender: Any) {
-        print("Login With Facebook")
+    @IBAction func buRegister(_ sender: Any) {
+        self.present(SignUpVC.instance(), animated: true, completion: nil)
     }
     
+    // MARK :- Validations
     func validData() -> Bool {
         
-        if email.text! == ""{
+        if emailTxtField.text! == ""{
             self.showAlertWiring(title: "Please enter the email")
             return false
         }
         
-        if !isValidEmail(testStr: email.text!){
-            self.showAlertWiring(title: "Please enter correct email format")
+        if !(emailTxtField.text!.isValidEmail){
+            self.showAlertWiring(title: "Enter valid email")
             return false
         }
         
-        if password.text! == ""{
+        if passwordTxtField.text! == ""{
             self.showAlertWiring(title: "Please enter the password")
             return false
         }
@@ -68,19 +84,8 @@ class LoginVC:BaseViewController {
     }
     
     func finishEnterData(){
-        self.email.text = ""
-        self.password.text = ""
+        self.emailTxtField.text = ""
+        self.passwordTxtField.text = ""
     }
     
-}
-
-
-extension SignUpVC{
-    // Function To Check The Email Validation
-    func isValidEmail(testStr:String) -> Bool {
-        
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: testStr)
-    }
 }

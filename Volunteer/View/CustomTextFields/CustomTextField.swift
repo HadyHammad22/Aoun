@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class CustomTextField: UITextField {
     
-    let padding = UIEdgeInsets(top: 0, left: 37, bottom: 0, right: 37)
+    let padding = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -67,7 +67,7 @@ class CustomTextField: UITextField {
     func updateView() {
         if let image = leftImage {
             leftViewMode = UITextField.ViewMode.always
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 23, height: 23))
             imageView.contentMode = .scaleAspectFit
             imageView.image = image
             

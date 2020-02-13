@@ -12,7 +12,6 @@ struct User{
     var phone:String
     var city:String
     var email:String
-    var gender:String
     var password:String
     
     init(userData: Dictionary<String,Any>) {
@@ -20,7 +19,6 @@ struct User{
         self.email = userData["email"] as! String
         self.phone = userData["phone"] as! String
         self.city = userData["city"] as! String
-        self.gender = userData["gender"] as! String
         self.password = userData["password"] as! String
     }
 }

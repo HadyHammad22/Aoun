@@ -10,26 +10,66 @@ import UIKit
 import Firebase
 class ProfileVC: BaseViewController {
     
-    @IBOutlet weak var email:CustomTextField!
-    @IBOutlet weak var name: CustomTextField!
-    @IBOutlet weak var city: CustomTextField!
-    @IBOutlet weak var phone: CustomTextField!
-    @IBOutlet weak var nameShow: UILabel!
-    @IBOutlet weak var password: CustomTextField!
-    @IBOutlet weak var male: UIButton!
-    @IBOutlet weak var female: UIButton!
-    @IBOutlet weak var saveBtn: CustomButton!
+    // MARK :- Instance
+    static func instance () -> SignUpVC{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+    }
     
-    var gender:String? = "empty"
+    // MARK :- Outlets
+    @IBOutlet weak var emailTxtField:CustomTextField!
+    @IBOutlet weak var nameTxtField: CustomTextField!
+    @IBOutlet weak var cityTxtField: CustomTextField!
+    @IBOutlet weak var phoneTxtField: CustomTextField!
+    @IBOutlet weak var userNameLbl: UILabel!
+    @IBOutlet weak var passwordTxtField: CustomTextField!
+    @IBOutlet weak var saveBtn: UIButton!
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var userImage: UIImageView!
     
-    let checked = UIImage(named: "radioSign 1x")
-    let unChecked = UIImage(named: "unCheckRadioSign")
-    
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupComponents()
         configureProfile()
     }
     
+    // MARK :- SetupUI
+    func setupComponents(){
+        nameTxtField.delegate = self
+        emailTxtField.delegate = self
+        phoneTxtField.delegate = self
+        cityTxtField.delegate = self
+        passwordTxtField.delegate = self
+        userImage.addCornerRadius(userImage.frame.height/2)
+        backView.addCornerRadius(10)
+        backView.addNormalShadow()
+        saveBtn.addBtnCornerRadius(10)
+        saveBtn.addBtnNormalShadow()
+        editBtn.addBtnCornerRadius(10)
+        editBtn.addBtnNormalShadow()
+    }
+    
+    func enableComponent(){
+        saveBtn.isUserInteractionEnabled = true
+        emailTxtField.isUserInteractionEnabled = true
+        nameTxtField.isUserInteractionEnabled = true
+        cityTxtField.isUserInteractionEnabled = true
+        phoneTxtField.isUserInteractionEnabled = true
+        passwordTxtField.isUserInteractionEnabled = true
+    }
+    
+    func disableComponent(){
+        saveBtn.isUserInteractionEnabled = false
+        emailTxtField.isUserInteractionEnabled = false
+        nameTxtField.isUserInteractionEnabled = false
+        cityTxtField.isUserInteractionEnabled = false
+        phoneTxtField.isUserInteractionEnabled = false
+        passwordTxtField.isUserInteractionEnabled = false
+    }
+    
+    // MARK :- Load Profile
     func loadData(completion: @escaping (_ user: User?)->()){
         guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else{return}
         DataService.db.REF_USERS.child(uid).observe(.value, with: { (snapshot) in
@@ -40,49 +80,28 @@ class ProfileVC: BaseViewController {
     }
     
     func configureProfile(){
-        
         self.loadData(completion: { (user) in
             guard let user = user else{return}
-            self.email.text = user.email
-            self.name.text = user.name
-            self.city.text = user.city
-            self.phone.text = user.phone
-            self.password.text = user.password
-            self.nameShow.text = "@ \(user.name)"
-            
-            if user.gender == "Male"{
-                self.gender = "Male"
-                self.male.setImage(self.checked, for: .normal)
-                self.female.setImage(self.unChecked, for: .normal)
-            }else if user.gender == "Female"{
-                self.gender = "Female"
-                self.female.setImage(self.checked, for: .normal)
-                self.male.setImage(self.unChecked, for: .normal)
-            }
+            self.emailTxtField.text = user.email
+            self.nameTxtField.text = user.name
+            self.cityTxtField.text = user.city
+            self.phoneTxtField.text = user.phone
+            self.passwordTxtField.text = user.password
+            self.userNameLbl.text = "@ \(user.name)"
             
         })
     }
     
-    @IBAction func buMale(_ sender: Any) {
-        self.gender = "Male"
-        self.male.setImage(checked, for: .normal)
-        self.female.setImage(unChecked, for: .normal)
-    }
-    @IBAction func buFemale(_ sender: Any) {
-        self.gender = "Female"
-        self.female.setImage(checked, for: .normal)
-        self.male.setImage(unChecked, for: .normal)
-    }
+    // MARK :- Save
     @IBAction func buSave(_ sender: Any) {
-        guard let email = email.text,
-            let pwd    = password.text,
-            let phone  = phone.text,
-            let city   = city.text,
-            let name   = name.text,
-            let uid    = UserDefaults.standard.string(forKey: KEY_UID),
-            let gender = gender else {return}
+        guard let email = emailTxtField.text,
+            let pwd    = passwordTxtField.text,
+            let phone  = phoneTxtField.text,
+            let city   = cityTxtField.text,
+            let name   = nameTxtField.text,
+            let uid    = UserDefaults.standard.string(forKey: KEY_UID) else {return}
         
-        let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city, "gender": gender]
+        let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
         DataService.db.REF_USERS.child(uid).updateChildValues(dataDict, withCompletionBlock: { (error, result) in
             if error == nil{
                 self.showAlertsuccess(title: "Profile Updated Successfully")
@@ -92,30 +111,10 @@ class ProfileVC: BaseViewController {
             }
         })
     }
+    
+    // MARK :- Edit
     @IBAction func buEdit(_ sender: Any) {
         enableComponent()
-    }
-    
-    func enableComponent(){
-        saveBtn.isUserInteractionEnabled = true
-        email.isUserInteractionEnabled = true
-        name.isUserInteractionEnabled = true
-        city.isUserInteractionEnabled = true
-        phone.isUserInteractionEnabled = true
-        password.isUserInteractionEnabled = true
-        male.isUserInteractionEnabled = true
-        female.isUserInteractionEnabled = true
-    }
-    
-    func disableComponent(){
-        saveBtn.isUserInteractionEnabled = false
-        email.isUserInteractionEnabled = false
-        name.isUserInteractionEnabled = false
-        city.isUserInteractionEnabled = false
-        phone.isUserInteractionEnabled = false
-        password.isUserInteractionEnabled = false
-        male.isUserInteractionEnabled = false
-        female.isUserInteractionEnabled = false
     }
     
 }

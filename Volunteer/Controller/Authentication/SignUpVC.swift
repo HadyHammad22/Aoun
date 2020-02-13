@@ -10,107 +10,101 @@ import UIKit
 import Firebase
 class SignUpVC: BaseViewController {
     
-    @IBOutlet weak var userName: CustomTextField!
-    @IBOutlet weak var userEmail: CustomTextField!
-    @IBOutlet weak var userPhone: CustomTextField!
-    @IBOutlet weak var userCity: CustomTextField!
-    @IBOutlet weak var userPwd: CustomTextField!
-    @IBOutlet weak var userRePwd: CustomTextField!
-    @IBOutlet weak var male: UIButton!
-    @IBOutlet weak var female: UIButton!
-    var gender:String? = "empty"
-    
-    let checked = UIImage(named: "radioSign 1x")
-    let unChecked = UIImage(named: "unCheckRadioSign")
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    // MARK :- Instance
+    static func instance () -> SignUpVC{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
     }
     
+    // MARK :- Outlets
+    @IBOutlet weak var nameTxtField: CustomTextField!
+    @IBOutlet weak var emailTxtField: CustomTextField!
+    @IBOutlet weak var phoneTxtField: CustomTextField!
+    @IBOutlet weak var cityTxtField: CustomTextField!
+    @IBOutlet weak var passwordTxtField: CustomTextField!
+    @IBOutlet weak var signUpBtn: UIButton!
+    @IBOutlet weak var topView: UIView!
+    
+    // MARK :- LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        setupComponents()
+    }
+    
+    // MARK :- SetupUI
+    func setupComponents(){
+        nameTxtField.delegate = self
+        emailTxtField.delegate = self
+        phoneTxtField.delegate = self
+        cityTxtField.delegate = self
+        passwordTxtField.delegate = self
+        topView.roundedFromSide(corners: [.bottomLeft], cornerRadius: 100)
+        signUpBtn.addCornerRadius(20)
+        signUpBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
+    }
+    
+    // MARK :- Registertion
     @IBAction func buSignUp(_ sender: Any) {
-        guard let email = userEmail.text,
-            let pwd    = userPwd.text,
-            let phone  = userPhone.text,
-            let city   = userCity.text,
-            let name   = userName.text,
-            let gender = gender else {return}
+        guard let email = emailTxtField.text,
+            let pwd    = passwordTxtField.text,
+            let phone  = phoneTxtField.text,
+            let city   = cityTxtField.text,
+            let name   = nameTxtField.text else {return}
         
-        let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city, "gender": gender]
+        let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
         
         if validData(){
             Auth.auth().createUser(withEmail: email, password: pwd, completion: { (result, error) in
                 if error == nil{
                     DataService.db.createFirebaseDBUser(uid: result!.user.uid, userData: dataDict)
-                    self.showAlertsuccess(title: "User Created Successfully")
+                    self.showAlertsuccess(title: "Sign up success")
                     self.finishEnterData()
                     let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
                     self.present(login, animated: true, completion: nil)
                     
                 }else{
-                    self.showAlertWiring(title: "User can't created")
+                    self.showAlertWiring(title: "Sign up faild")
                 }
                 
             })
         }
     }
-    
-    @IBAction func buMale(_ sender: Any) {
-        self.gender = "Male"
-        self.male.setImage(checked, for: .normal)
-        self.female.setImage(unChecked, for: .normal)
+    @IBAction func buLogin(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func buFemale(_ sender: Any) {
-        self.gender = "Female"
-        self.female.setImage(checked, for: .normal)
-        self.male.setImage(unChecked, for: .normal)
-    }
-    
-    
+    // MARK :- validations
     func validData() -> Bool {
-        if userName.text! == ""{
-            self.showAlertWiring(title: "Please enter the name to continue")
+        if nameTxtField.text! == ""{
+            self.showAlertWiring(title: "Please enter the name")
             return false
         }
         
-        if userEmail.text! == ""{
-            self.showAlertWiring(title: "Please enter the email to continue")
+        if emailTxtField.text! == ""{
+            self.showAlertWiring(title: "Please enter the email")
             return false
         }
         
-        if !isValidEmail(testStr: userEmail.text!){
-            self.showAlertWiring(title: "Please enter correct email format")
+        if !(emailTxtField.text!.isValidEmail){
+            self.showAlertWiring(title: "Enter valid email")
             return false
         }
         
-        if userPhone.text! == ""{
-            self.showAlertWiring(title: "Please enter the phone to continue")
+        if phoneTxtField.text! == ""{
+            self.showAlertWiring(title: "Please enter the phone")
             return false
         }
         
-        if userCity.text! == ""{
-            self.showAlertWiring(title: "Please enter the city to continue")
+        if cityTxtField.text! == ""{
+            self.showAlertWiring(title: "Please enter the city")
             return false
         }
         
-        if userPwd.text! == ""{
-            self.showAlertWiring(title: "Please enter the password to continue")
-            return false
-        }
-        
-        if userRePwd.text! == ""{
-            self.showAlertWiring(title: "Please enter the password again to continue")
-            return false
-        }
-        
-        if userPwd.text! != userRePwd.text!{
-            self.showAlertWiring(title: "Please check the password")
-            return false
-        }
-        
-        if gender == "empty"{
-            self.showAlertWiring(title: "Please enter the Gender to continue")
+        if passwordTxtField.text! == ""{
+            self.showAlertWiring(title: "Please enter the password")
             return false
         }
         
@@ -119,24 +113,11 @@ class SignUpVC: BaseViewController {
     }
     
     func finishEnterData(){
-        self.userEmail.text = ""
-        self.userName.text = ""
-        self.userPwd.text = ""
-        self.userRePwd.text = ""
-        self.userCity.text = ""
-        self.userPhone.text = ""
+        self.emailTxtField.text = ""
+        self.nameTxtField.text = ""
+        self.passwordTxtField.text = ""
+        self.cityTxtField.text = ""
+        self.phoneTxtField.text = ""
     }
     
 }
-
-
-extension LoginVC{
-    // Function To Check The Email Validation
-    func isValidEmail(testStr:String) -> Bool {
-        
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: testStr)
-    }
-}
-

@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        //... Go To Login Screen
+        if let _ = UserDefaults.standard.string(forKey: KEY_UID) {
+            print("Already Login")
+        }else{
+            //... Go To Main Screen
+            window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = LoginVC.instance()
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
     
