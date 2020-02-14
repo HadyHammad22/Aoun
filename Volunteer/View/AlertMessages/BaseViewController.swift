@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftMessages
 
-class BaseViewController: UIViewController, UITextFieldDelegate {
+class BaseViewController: UIViewController{
     
     //MARK: Alerts
     func showAlertWiring(title: String, body: String = "") {
@@ -80,14 +80,6 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         config.duration = SwiftMessages.Duration.seconds(seconds: 1.5)
         
         SwiftMessages.show(config: config, view: msgView)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor(red: 255/255, green: 147/255, blue: 32/255, alpha: 1).cgColor
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor(red: 214/255, green: 214/255, blue: 214/255, alpha: 1).cgColor
     }
     
 }

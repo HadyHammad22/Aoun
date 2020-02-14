@@ -27,6 +27,10 @@ class ProfileVC: BaseViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var imageEditView: UIView!
     @IBOutlet weak var imageEditBtn: UIButton!
+    @IBOutlet weak var passwordVisibilityBtn: UIButton!
+    
+    // MARK :- Instance Variables
+    var secure = true
     
     // MARK :- LifeCycle
     override func viewDidLoad() {
@@ -84,6 +88,17 @@ class ProfileVC: BaseViewController {
                 self.showAlertWiring(title: "Update faild")
             }
         })
+    }
+    @IBAction func buPasswordVisibility(_ sender: Any) {
+        if secure{
+            passwordTxtField.isSecureTextEntry = false
+            secure = false
+            passwordVisibilityBtn.setImage(UIImage(named: "visibility"), for: .normal)
+        }else{
+            passwordTxtField.isSecureTextEntry = true
+            secure = true
+            passwordVisibilityBtn.setImage(UIImage(named: "visibility_off"), for: .normal)
+        }
     }
     
     @IBAction func buSignOut(_ sender: Any) {

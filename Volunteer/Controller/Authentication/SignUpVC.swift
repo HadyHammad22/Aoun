@@ -22,16 +22,19 @@ class SignUpVC: BaseViewController {
     @IBOutlet weak var phoneTxtField: CustomTextField!
     @IBOutlet weak var cityTxtField: CustomTextField!
     @IBOutlet weak var passwordTxtField: CustomTextField!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var passwordVisibilityBtn: UIButton!
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var topView: UIView!
     
     // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupComponents()
     }
     
     override func viewDidLayoutSubviews() {
-        setupComponents()
+        topView.roundedFromSide(corners: [.bottomLeft], cornerRadius: 100)
     }
     
     // MARK :- SetupUI
@@ -41,7 +44,8 @@ class SignUpVC: BaseViewController {
         phoneTxtField.delegate = self
         cityTxtField.delegate = self
         passwordTxtField.delegate = self
-        topView.roundedFromSide(corners: [.bottomLeft], cornerRadius: 100)
+        passwordView.addBorderWith(width: 1.5, color: UIColor.borderColor)
+        passwordView.addCornerRadius(20)
         signUpBtn.addCornerRadius(20)
         signUpBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
     }
@@ -120,4 +124,22 @@ class SignUpVC: BaseViewController {
         self.phoneTxtField.text = ""
     }
     
+}
+
+extension SignUpVC: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == passwordTxtField{
+            passwordView.layer.borderColor = UIColor.selectedBorderColor.cgColor
+        }else{
+            textField.layer.borderColor = UIColor.selectedBorderColor.cgColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == passwordTxtField{
+            passwordView.layer.borderColor = UIColor.borderColor.cgColor
+        }else{
+            textField.layer.borderColor = UIColor.borderColor.cgColor
+        }
+    }
 }
