@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 class LoginVC:BaseViewController {
     
     // MARK :- Instance
@@ -50,8 +51,10 @@ class LoginVC:BaseViewController {
     // MARK :- Login
     @IBAction func buLogin(_ sender: Any) {
         if validData(){
+            ProgressHUD.show()
             guard let email = emailTxtField.text, let pwd = passwordTxtField.text else{return}
             Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
+                ProgressHUD.dismiss()
                 if error == nil{
                     self.showAlertsuccess(title: "Login Success")
                     UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)

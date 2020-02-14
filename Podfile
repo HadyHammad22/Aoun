@@ -15,5 +15,5 @@ target 'Volunteer' do
   pod 'FacebookCore'
   pod 'SwiftMessages'
   pod 'TableViewReloadAnimation'
-
+  pod 'ProgressHUD'
 end

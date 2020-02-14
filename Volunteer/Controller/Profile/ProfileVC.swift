@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 class ProfileVC: BaseViewController {
     
     // MARK :- Instance
@@ -73,6 +74,7 @@ class ProfileVC: BaseViewController {
     
     // MARK :- Save
     @IBAction func buSave(_ sender: Any) {
+        
         guard let email = emailTxtField.text,
             let pwd    = passwordTxtField.text,
             let phone  = phoneTxtField.text,
@@ -81,7 +83,9 @@ class ProfileVC: BaseViewController {
             let uid    = UserDefaults.standard.string(forKey: KEY_UID) else {return}
         
         let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
+        ProgressHUD.show()
         DataService.db.REF_USERS.child(uid).updateChildValues(dataDict, withCompletionBlock: { (error, result) in
+            ProgressHUD.dismiss()
             if error == nil{
                 self.showAlertsuccess(title: "Update success")
             }else{

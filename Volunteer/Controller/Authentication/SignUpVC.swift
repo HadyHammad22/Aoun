@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ProgressHUD
 class SignUpVC: BaseViewController {
     
     // MARK :- Instance
@@ -59,9 +60,10 @@ class SignUpVC: BaseViewController {
             let name   = nameTxtField.text else {return}
         
         let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
-        
         if validData(){
+            ProgressHUD.show()
             Auth.auth().createUser(withEmail: email, password: pwd, completion: { (result, error) in
+                ProgressHUD.dismiss()
                 if error == nil{
                     DataService.db.createFirebaseDBUser(uid: result!.user.uid, userData: dataDict)
                     self.showAlertsuccess(title: "Sign up success")

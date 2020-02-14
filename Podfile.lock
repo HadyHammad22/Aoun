@@ -89,6 +89,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - ProgressHUD (2.70)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
@@ -101,11 +102,12 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - ProgressHUD
   - SwiftMessages
   - TableViewReloadAnimation
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -123,6 +125,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - ProgressHUD
     - SwiftMessages
     - TableViewReloadAnimation
 
@@ -144,9 +147,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: 32d14b73d95eea0a0277c13af6009aa709561809
+PODFILE CHECKSUM: c2fff385d89bb0eae66dbd86d4de13b36a4be8cd
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.8.4
