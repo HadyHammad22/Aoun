@@ -67,10 +67,10 @@ class SignUpVC: BaseViewController {
                 if error == nil{
                     DataService.db.createFirebaseDBUser(uid: result!.user.uid, userData: dataDict)
                     self.showAlertsuccess(title: "Sign up success")
+                    UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)
                     self.finishEnterData()
-                    let login = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                    self.present(login, animated: true, completion: nil)
-                    
+                    let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                    self.present(home, animated: true, completion: nil)
                 }else{
                     self.showAlertWiring(title: "Sign up faild")
                 }
