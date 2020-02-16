@@ -18,9 +18,13 @@ class MoreDetailsVC: UIViewController {
     }
     
     // MARK :- Outlets
-    @IBOutlet weak var postImage: CustomImageView!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var postTextView: UIView!
     @IBOutlet weak var postText: UITextView!
-    @IBOutlet weak var downloadPDF: CustomButton!
+    @IBOutlet weak var downloadPDFBtn: UIButton!
+    @IBOutlet weak var callBtn: UIButton!
+    @IBOutlet weak var chatBtn: UIButton!
+    
     
     // MARK :- Instance Variables
     var post:Post?
@@ -32,13 +36,17 @@ class MoreDetailsVC: UIViewController {
         postImage.downloadImageUsingCache(imgUrl: post.imgUrl)
         postText.text = post.postText
         if post.pdfUrl == "Empty"{
-            self.downloadPDF.isHidden = true
+            self.downloadPDFBtn.isHidden = true
         }else{
-            self.downloadPDF.isHidden = false
+            self.downloadPDFBtn.isHidden = false
         }
     }
     
     // MARK :- Actions
+    @IBAction func dismissAction() {
+        dismiss(animated: true)
+    }
+    
     @IBAction func buCall(_ sender: Any) {
         
         guard let post = self.post else {return}
