@@ -36,14 +36,14 @@ class HomeCell: UITableViewCell {
         postTextBackView.addBorderWith(width: 0.5, color: .darkGray)
     }
     
-    func configureCell(post: Post, img:UIImage? = nil){
+    func configureCell(post: Post){
         self.post = post
         likeRef = DataService.db.REF_CURRENT_USERS.child("likes").child(post.postKey)
         self.postTextView.text = post.postText
         self.donationTypeLbl.text = post.type
-        self.postImageView.downloadImageUsingCache(imgUrl: post.imgUrl)
+        self.postImageView.setImage(imageUrl: post.imgUrl)
         
-        likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        likeRef.observe(.value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull{
                 self.likeBtn.setImage(UIImage(named: "favorite"), for: .normal)
             }else{

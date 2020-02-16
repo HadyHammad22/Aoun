@@ -32,8 +32,19 @@ class MoreDetailsVC: UIViewController {
     // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let post = self.post else {return}
-        postImage.downloadImageUsingCache(imgUrl: post.imgUrl)
+        setupComponents()
+    }
+    
+    // MARK :- SetupUI
+    func setupComponents(){
+        callBtn.addBtnCornerRadius(20)
+        callBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
+        downloadPDFBtn.addBtnCornerRadius(20)
+        downloadPDFBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
+        chatBtn.addBtnCornerRadius(20)
+        chatBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
+        guard let post = post else {return}
+        postImage.setImage(imageUrl: post.imgUrl)
         postText.text = post.postText
         if post.pdfUrl == "Empty"{
             self.downloadPDFBtn.isHidden = true

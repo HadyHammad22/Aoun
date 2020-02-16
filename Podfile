@@ -16,4 +16,5 @@ target 'Volunteer' do
   pod 'SwiftMessages'
   pod 'TableViewReloadAnimation'
   pod 'ProgressHUD'
+  pod 'SDWebImage'
 end

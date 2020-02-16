@@ -14,7 +14,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var postsTable: UITableView!
     
     var posts = [Post]()
-    static var imageCash: NSCache<NSString, UIImage> = NSCache()
     let transition = PopAnimator()
     
     override var prefersStatusBarHidden: Bool {
@@ -35,11 +34,10 @@ class HomeVC: UIViewController {
         }
     }
     
-    func loadPosts(){
+    func loadPosts() {
         ProgressHUD.show()
-        DataService.db.REF_POST.observe(.value, with: { (snapshot) in
+        DataService.db.REF_POST.observeSingleEvent(of: .value, with: { (snapshot) in
             ProgressHUD.dismiss()
-            self.posts.removeAll()
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
                 for snap in snapshot{
                     if let postDict = snap.value as? Dictionary<String,AnyObject>{
@@ -67,11 +65,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = postsTable.dequeueReusableCell(withIdentifier: "PostCell") as! HomeCell
-        if let img = HomeVC.imageCash.object(forKey: self.posts[indexPath.row].imgUrl as NSString){
-            cell.configureCell(post: self.posts[indexPath.row], img: img)
-        }else{
-            cell.configureCell(post: self.posts[indexPath.row])
-        }
+        cell.configureCell(post: self.posts[indexPath.row])
         return cell
     }
     

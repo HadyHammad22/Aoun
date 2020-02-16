@@ -90,6 +90,9 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - ProgressHUD (2.70)
+  - SDWebImage (5.5.2):
+    - SDWebImage/Core (= 5.5.2)
+  - SDWebImage/Core (5.5.2)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
@@ -103,6 +106,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - ProgressHUD
+  - SDWebImage
   - SwiftMessages
   - TableViewReloadAnimation
 
@@ -126,6 +130,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - ProgressHUD
+    - SDWebImage
     - SwiftMessages
     - TableViewReloadAnimation
 
@@ -148,9 +153,10 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
+  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: c2fff385d89bb0eae66dbd86d4de13b36a4be8cd
+PODFILE CHECKSUM: d42413ccc34f916ba21c6d2e11b1db3bbdb11cdd
 
 COCOAPODS: 1.8.4
