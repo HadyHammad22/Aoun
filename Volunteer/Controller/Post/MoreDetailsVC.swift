@@ -11,11 +11,21 @@ import Firebase
 
 class MoreDetailsVC: UIViewController {
     
+    // MARK :- Instance
+    static func instance () -> MoreDetailsVC{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "MoreDetailsVC") as! MoreDetailsVC
+    }
+    
+    // MARK :- Outlets
     @IBOutlet weak var postImage: CustomImageView!
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var downloadPDF: CustomButton!
     
+    // MARK :- Instance Variables
     var post:Post?
+    
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let post = self.post else {return}
@@ -28,6 +38,7 @@ class MoreDetailsVC: UIViewController {
         }
     }
     
+    // MARK :- Actions
     @IBAction func buCall(_ sender: Any) {
         
         guard let post = self.post else {return}

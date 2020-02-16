@@ -9,11 +9,13 @@
 import UIKit
 import Firebase
 
-class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeVC: UIViewController {
     
     @IBOutlet weak var postsTable: UITableView!
+    
     var posts = [Post]()
     static var imageCash: NSCache<NSString, UIImage> = NSCache()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPosts()
@@ -35,7 +37,10 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.postsTable.reloadData()
         })
     }
-    
+ 
+}
+
+extension HomeVC: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -55,21 +60,22 @@ class HomeVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toDetails", sender: self.posts[indexPath.row])
+        let moreDetailsVC = MoreDetailsVC.instance()
+        moreDetailsVC.post = self.posts[indexPath.row]
+        self.navigationController?.pushViewController(moreDetailsVC, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetails"{
-            guard let moreDetailsVC = segue.destination as? MoreDetailsVC else {return}
-            if let post = sender as? Post{
-                moreDetailsVC.post = post
-            }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -300, 10, 0)
+        //cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 0.75){
+            //cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-   
-    
 }

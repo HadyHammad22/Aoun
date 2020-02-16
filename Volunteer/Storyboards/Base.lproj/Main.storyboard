@@ -477,7 +477,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="postsTable" destination="nX1-lR-xdz" id="jm7-vc-sgq"/>
-                        <segue destination="KQT-Bx-5r8" kind="show" identifier="toDetails" id="kIy-Vu-eSU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeH-Qn-Bv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -487,16 +486,16 @@
         <!--More DetailsVC-->
         <scene sceneID="IQ1-6Y-IRY">
             <objects>
-                <viewController id="KQT-Bx-5r8" customClass="MoreDetailsVC" customModule="Volunteer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoreDetailsVC" id="KQT-Bx-5r8" customClass="MoreDetailsVC" customModule="Volunteer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RtM-u7-l3i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PF3-lv-TJn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="needed" translatesAutoresizingMaskIntoConstraints="NO" id="qrl-bq-vFl" customClass="CustomImageView" customModule="Volunteer" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="15" width="335" height="181"/>
+                                        <rect key="frame" x="20" y="15" width="335" height="194"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="3"/>
@@ -504,10 +503,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rDI-VL-cny" customClass="CustomView" customModule="Volunteer" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="211" width="335" height="199"/>
+                                        <rect key="frame" x="20" y="224" width="335" height="213.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EY4-0g-Woc">
-                                                <rect key="frame" x="8" y="8" width="319" height="183"/>
+                                                <rect key="frame" x="8" y="8" width="319" height="197.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -528,7 +527,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="MYw-kj-uHN">
-                                        <rect key="frame" x="20" y="425" width="335" height="159"/>
+                                        <rect key="frame" x="20" y="452.5" width="335" height="159"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qX-QP-SDl" customClass="CustomButton" customModule="Volunteer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="45"/>
