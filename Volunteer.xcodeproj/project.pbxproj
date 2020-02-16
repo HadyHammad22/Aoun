@@ -32,6 +32,7 @@
 		749EAF97231C0D6200753BFA /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF96231C0D6200753BFA /* Organization.swift */; };
 		749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF98231C0DC000753BFA /* OrganizationVC.swift */; };
 		749EAF9B231C0E1900753BFA /* OrganizationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF9A231C0E1900753BFA /* OrganizationCell.swift */; };
+		74B3C00623F98B9F00D2E14E /* PopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3C00523F98B9F00D2E14E /* PopAnimation.swift */; };
 		74B8FFCB2337939F0056F620 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FFCA2337939F0056F620 /* MessagesVC.swift */; };
 		74B8FFCD233796090056F620 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FFCC233796090056F620 /* MessagesCell.swift */; };
 		74B8FFD62337A9AB0056F620 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FFD52337A9AB0056F620 /* CustomImageView.swift */; };
@@ -81,6 +82,7 @@
 		749EAF96231C0D6200753BFA /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		749EAF98231C0DC000753BFA /* OrganizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationVC.swift; sourceTree = "<group>"; };
 		749EAF9A231C0E1900753BFA /* OrganizationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationCell.swift; sourceTree = "<group>"; };
+		74B3C00523F98B9F00D2E14E /* PopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
 		74B8FFCA2337939F0056F620 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 		74B8FFCC233796090056F620 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
 		74B8FFD52337A9AB0056F620 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				7449BD1E2316797E007F8DC4 /* BaseViewController.swift */,
+				74B3C00523F98B9F00D2E14E /* PopAnimation.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				742CB9982378116200B99FC1 /* MainTabBar.swift in Sources */,
 				74E30EA723363F29004AC85E /* ChatMessageCell.swift in Sources */,
 				749EAF97231C0D6200753BFA /* Organization.swift in Sources */,
+				74B3C00623F98B9F00D2E14E /* PopAnimation.swift in Sources */,
 				74496F3E23F6E97500CD6D2F /* UIColor+Extension.swift in Sources */,
 				74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */,
 				74C4D83C23F56A7D00295734 /* UITextField+Extension.swift in Sources */,
