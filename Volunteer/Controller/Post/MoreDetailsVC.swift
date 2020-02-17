@@ -44,9 +44,9 @@ class MoreDetailsVC: UIViewController {
         chatBtn.addBtnCornerRadius(20)
         chatBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
         guard let post = post else {return}
-        postImage.setImage(imageUrl: post.imgUrl)
-        postText.text = post.postText
-        if post.pdfUrl == "Empty"{
+        postImage.setImage(imageUrl: post.ImageUrl)
+        postText.text = post.Text
+        if post.PDFURL == "Empty"{
             self.downloadPDFBtn.isHidden = true
         }else{
             self.downloadPDFBtn.isHidden = false
@@ -59,42 +59,33 @@ class MoreDetailsVC: UIViewController {
     }
     
     @IBAction func buCall(_ sender: Any) {
-        
         guard let post = self.post else {return}
-        self.loadData(id: post.id, completion: { (user) in
+        DataService.db.getUserWithId(id: post.Id, completion: { (user) in
             guard let user = user else {return}
             print(user.phone)
             guard let url = URL(string: "telprompt://\(user.phone)") else {return}
             UIApplication.shared.open(url)
         })
-        
     }
     
     @IBAction func buChat(_ sender: Any) {
-        
         guard let post = self.post else {return}
         let chatVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-        chatVC.postOwnerID = post.id
+        chatVC.postOwnerID = post.Id
         let nav = UINavigationController(rootViewController: chatVC)
         self.present(nav, animated: true, completion: nil)
-        
     }
     
     @IBAction func buDownloadPDF(_ sender: Any) {
-        
         guard let post = self.post else {return}
         let tmporaryDirectoryURL = FileManager.default.temporaryDirectory
         let localURL = tmporaryDirectoryURL.appendingPathComponent("sample.pdf")
-        
-        Storage.storage().reference(forURL: post.pdfUrl).write(toFile: localURL) { url, error in
-            if let error = error {
-                print("\(error.localizedDescription)")
-            } else {
-                print(url!)
-                self.presentActivityViewController(withUrl: url!)
+        Storage.storage().reference(forURL: post.PDFURL).write(toFile: localURL) { (url, error) in
+            if error == nil {
+                guard let url = url else{return}
+                self.presentActivityViewController(withUrl: url)
             }
         }
-        
     }
     
     func presentActivityViewController(withUrl url: URL) {
@@ -105,15 +96,4 @@ class MoreDetailsVC: UIViewController {
         }
     }
     
-    func loadData(id: String,completion: @escaping (_ user: User?)->()){
-        DataService.db.REF_USERS.child(id).observe(.value, with: { (snapshot) in
-            guard let data = snapshot.value as? Dictionary<String,Any> else{return}
-            let user = User(userData: data)
-            completion(user)
-        })
-    }
-    
-    @IBAction func buBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

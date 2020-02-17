@@ -12,6 +12,22 @@ import MobileCoreServices
 
 class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
+    // MARK :- Outlets
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var selectPictureBtn: UIButton!
+    @IBOutlet weak var type_Picker: UIPickerView!
+    @IBOutlet weak var selectTypeBtn: UIButton!
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var addFileBtn: UIButton!
+    @IBOutlet var mapView: UIView!
+    @IBOutlet weak var postText: UITextView!
+    @IBOutlet weak var VisualEffect: UIVisualEffectView!
+    @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet var progView: UIView!
+    @IBOutlet weak var lblProgress: UILabel!
+    @IBOutlet weak var prog: UIProgressView!
+    
+    // MARK :- Instance Variables
     var donationType = ["Bloods","Money","Clothes","Food","Others"]
     var imagePicker:UIImagePickerController!
     var effect:UIVisualEffect!
@@ -20,32 +36,41 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     var PDF_ID:String?
     var flag:Bool = false
     
-    @IBOutlet weak var type_Picker: UIPickerView!
-    @IBOutlet weak var selectType: UIButton!
-    @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet var mapView: UIView!
-    @IBOutlet weak var postText: UITextView!
-    @IBOutlet weak var VisualEffect: UIVisualEffectView!
-    
-    @IBOutlet var progView: UIView!
-    @IBOutlet weak var lblProgress: UILabel!
-    @IBOutlet weak var prog: UIProgressView!
-    
+    // MARK :- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupComponents()
+    }
+    
+    // MARK :- SetupUI
+    func setupComponents(){
+        backView.addCornerRadius(8)
+        backView.addNormalShadow()
+        mapView.addCornerRadius(8)
+        mapView.addNormalShadow()
+        progView.addCornerRadius(8)
+        progView.addNormalShadow()
+        selectPictureBtn.addBtnCornerRadius(5)
+        selectPictureBtn.addBtnNormalShadow()
+        selectTypeBtn.addBtnCornerRadius(5)
+        selectTypeBtn.addBtnNormalShadow()
+        addFileBtn.addBtnCornerRadius(5)
+        addFileBtn.addBtnNormalShadow()
+        postBtn.addBtnCornerRadius(8)
+        postBtn.addBtnNormalShadow()
+        postText.addCornerRadius(5)
         self.type_Picker.delegate = self
         self.type_Picker.dataSource = self
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.allowsEditing = true
-        
         VisualEffect.isHidden = true
         effect = VisualEffect.effect
         VisualEffect.effect = nil
     }
     
+    // MARK :- Image Picker Delegate
     @IBAction func buSelectPicture(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
@@ -58,11 +83,79 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    
+    // MARK :- Select Donation Type Action
     @IBAction func buSelectType(_ sender: Any) {
         Show_map_View()
     }
     
+    @IBAction func buAddFile(_ sender: Any) {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: [ kUTTypePDF as String ], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func buPost(_ sender: Any) {
+        
+        guard let postImage = postImage.image else{
+            self.showAlertWiring(title: "Image must be selected")
+            return
+        }
+        
+        guard let postText = postText.text, postText != "" else{
+            self.showAlertWiring(title: "Please enter the text")
+            return
+        }
+        
+        guard let donationType = type, donationType != "" else{
+            self.showAlertWiring(title: "Please select donation type")
+            return
+        }
+        
+        if flag{
+            self.PDF_ID = self.pdfID!
+        }else{
+            self.PDF_ID = "Empty"
+        }
+        
+        guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{return}
+        if let img = postImage.jpegData(compressionQuality: 0.2){
+            let imgId = NSUUID().uuidString
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            DataService.db.REF_POST_IMAGE.child(imgId).putData(img, metadata: metaData, completion: { (metadata,error) in
+                if error != nil{
+                    self.showAlertWiring(title: "Unable to upload image")
+                }else{
+                    DataService.db.REF_POST_IMAGE.child(imgId).downloadURL(completion: { (url,error) in
+                        
+                        self.uploadToFirebase(imageID: url!.absoluteString, userID: id, donationType: donationType, pdfUrl: self.PDF_ID!, postText: postText, completeion: {
+                            self.Hide_Progress_View()
+                            let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+                            self.present(home, animated: true, completion: nil)
+                            self.showAlertsuccess(title: "Post Sent Successfully")
+                        })
+                    })
+                }
+            }).observe(.progress, handler: { (snapshot) in
+                self.Show_Progress_View()
+                let num = snapshot.progress!.fractionCompleted
+                self.prog.progress = Float(num)
+                let y = Double(round(100*num)/100)
+                self.lblProgress.text = "\(Int(y*100))%"
+            })
+        }
+        
+    }
+    
+    func uploadToFirebase(imageID: String, userID: String,donationType: String,pdfUrl:String , postText: String, completeion: () -> ()){
+        let post: Dictionary<String,Any> = ["Id": userID,"donationType": donationType, "Text": postText,"ImageUrl": imageID,"PDFURL": pdfUrl,"Likes":0]
+        DataService.db.REF_POST.childByAutoId().setValue(post)
+        completeion()
+    }
+    
+    // MARK :- Pop Up Views
     func Hide_Map_View()
     {
         UIView.animate(withDuration: 0.3) {
@@ -113,74 +206,6 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
         }
     }
     
-    @IBAction func buAddFile(_ sender: Any) {
-        let documentPicker = UIDocumentPickerViewController(documentTypes: [ kUTTypePDF as String ], in: .import)
-        documentPicker.delegate = self
-        documentPicker.allowsMultipleSelection = false
-        present(documentPicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func buPost(_ sender: Any) {
-        
-        guard let postImage = postImage.image else{
-            self.showAlertWiring(title: "Image must be selected")
-            return
-        }
-        
-        guard let postText = postText.text, postText != "" else{
-            self.showAlertWiring(title: "Please enter the text")
-            return
-        }
-        
-        guard let donationType = type, donationType != "" else{
-            self.showAlertWiring(title: "Please select donation type")
-            return
-        }
-        
-        if flag{
-            self.PDF_ID = self.pdfID!
-        }else{
-            self.PDF_ID = "Empty"
-        }
-        
-        guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{return}
-        
-        
-        if let img = postImage.jpegData(compressionQuality: 0.2){
-            let imgId = NSUUID().uuidString
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/jpeg"
-            
-            DataService.db.REF_POST_IMAGE.child(imgId).putData(img, metadata: metaData, completion: { (metadata,error) in
-                if error != nil{
-                    self.showAlertWiring(title: "Unable to upload image")
-                }else{
-                    DataService.db.REF_POST_IMAGE.child(imgId).downloadURL(completion: { (url,error) in
-                        
-                        self.uploadToFirebase(imageID: url!.absoluteString, userID: id, donationType: donationType, pdfUrl: self.PDF_ID!, postText: postText, completeion: {
-                            self.Hide_Progress_View()
-                            let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                            self.present(home, animated: true, completion: nil)
-                            self.showAlertsuccess(title: "Post Sent Successfully")
-                        })
-                    })
-                }
-            }).observe(.progress, handler: { (snapshot) in
-                self.Show_Progress_View()
-                let num = snapshot.progress!.fractionCompleted
-                self.prog.progress = Float(num)
-                let y = Double(round(100*num)/100)
-                self.lblProgress.text = "\(Int(y*100))%"
-            })
-        }
-        
-    }
-    
-    func uploadToFirebase(imageID: String, userID: String,donationType: String,pdfUrl:String , postText: String, completeion: () -> ()){
-        let post: Dictionary<String,Any> = ["Id": userID,"donationType": donationType, "Text": postText,"ImageUrl": imageID,"PDFURL": pdfUrl,"Likes":0]
-        DataService.db.REF_POST.childByAutoId().setValue(post)
-        completeion()
-    }
 }
 
 extension MakePostVC:UIPickerViewDelegate, UIPickerViewDataSource{
@@ -196,7 +221,7 @@ extension MakePostVC:UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectType.setTitle(donationType[row], for: .normal)
+        selectTypeBtn.setTitle(donationType[row], for: .normal)
         self.type = donationType[row]
         Hide_Map_View()
     }
@@ -226,4 +251,6 @@ extension MakePostVC: UIDocumentPickerDelegate{
         }catch{
             print("Error in getting data from url")
         }
-    }}
+    }
+    
+}

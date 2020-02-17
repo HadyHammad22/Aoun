@@ -7,18 +7,10 @@
 //
 
 import Foundation
-struct User{
+struct User: Decodable{
     var name:String
     var phone:String
     var city:String
     var email:String
     var password:String
-    
-    init(userData: Dictionary<String,Any>) {
-        self.name = userData["name"] as! String
-        self.email = userData["email"] as! String
-        self.phone = userData["phone"] as! String
-        self.city = userData["city"] as! String
-        self.password = userData["password"] as! String
-    }
 }

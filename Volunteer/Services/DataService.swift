@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import ProgressHUD
 
 let DB_BASE = Database.database().reference()
 let STORAGE_BASE = Storage.storage().reference()
@@ -119,13 +120,38 @@ class DataService {
     
     func getUserWithId(id: String, completion: @escaping (_ user: User?)->()){
         REF_USERS.child(id).observe(.value, with: { snapshot in
-            guard let dict = snapshot.value as? [String:Any] else{
-                return
+            guard let dict = snapshot.value as? [String:Any] else{return}
+            do{
+                let data = try JSONSerialization.data(withJSONObject: dict, options: [])
+                let user = try JSONDecoder().decode(User.self, from: data)
+                completion(user)
+            }catch let err{
+                print("Error In Decode Data \(err.localizedDescription)")
             }
-            let user = User(userData: dict)
-            completion(user)
-            
         })
     }
+    
+    func getPosts(completion: @escaping (_ posts: [Post]?)->()){
+        var posts = [Post]()
+        ProgressHUD.show()
+        REF_POST.observeSingleEvent(of: .value, with: { (snapshot) in
+            ProgressHUD.dismiss()
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                for snap in snapshot{
+                    if let postDict = snap.value as? Dictionary<String,AnyObject>{
+                        do{
+                            let data = try JSONSerialization.data(withJSONObject: postDict, options: [])
+                            let post = try JSONDecoder().decode(Post.self, from: data)
+                            posts.append(post)
+                        }catch let err{
+                            print("Error In Decode Data \(err.localizedDescription)")
+                        }
+                    }
+                }
+            }
+            posts = posts.sorted(by: { $0.Likes > $1.Likes})
+            completion(posts)
+        })
+    }
+    
 }
-

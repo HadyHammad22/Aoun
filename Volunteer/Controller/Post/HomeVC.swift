@@ -35,30 +35,17 @@ class HomeVC: UIViewController {
     }
     
     func loadPosts() {
-        ProgressHUD.show()
-        DataService.db.REF_POST.observeSingleEvent(of: .value, with: { (snapshot) in
-            ProgressHUD.dismiss()
-            if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                for snap in snapshot{
-                    if let postDict = snap.value as? Dictionary<String,AnyObject>{
-                        let key = snap.key
-                        let post = Post(postKey: key, post: postDict)
-                        self.posts.append(post)
-                    }
-                }
+        DataService.db.getPosts(completion: { (arrayOfPosts) in
+            if let posts = arrayOfPosts {
+                self.posts = posts
+                self.postsTable.reloadData()
             }
-            self.posts = self.posts.sorted(by: { $0.likes > $1.likes})
-            self.postsTable.reloadData()
         })
     }
- 
+    
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
@@ -82,9 +69,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource{
             cell.alpha = 1.0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 350
     }
 }
 

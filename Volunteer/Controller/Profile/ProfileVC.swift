@@ -52,29 +52,22 @@ class ProfileVC: BaseViewController {
     }
     
     // MARK :- Load Profile
-    func loadData(completion: @escaping (_ user: User?)->()){
+    func configureProfile() {
         guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else{return}
-        DataService.db.REF_USERS.child(uid).observe(.value, with: { (snapshot) in
-            guard let data = snapshot.value as? Dictionary<String,Any> else{return}
-            let user = User(userData: data)
-            completion(user)
-        })
-    }
-    
-    func configureProfile(){
-        self.loadData(completion: { (user) in
+        DataService.db.getUserWithId(id: uid, completion: { (user) in
             guard let user = user else{return}
-            self.emailTxtField.text = user.email
-            self.nameTxtField.text = user.name
-            self.cityTxtField.text = user.city
-            self.phoneTxtField.text = user.phone
-            self.passwordTxtField.text = user.password
+            DispatchQueue.main.async {
+                self.emailTxtField.text = user.email
+                self.nameTxtField.text = user.name
+                self.cityTxtField.text = user.city
+                self.phoneTxtField.text = user.phone
+                self.passwordTxtField.text = user.password
+            }
         })
     }
     
     // MARK :- Save
     @IBAction func buSave(_ sender: Any) {
-        
         guard let email = emailTxtField.text,
             let pwd    = passwordTxtField.text,
             let phone  = phoneTxtField.text,

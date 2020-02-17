@@ -11,6 +11,9 @@ import Firebase
 class HomeCell: UITableViewCell {
     
     // MARK :- Outlets
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userNameLbl: UILabel!
+    @IBOutlet weak var postTimeLbl: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var donationTypeLbl: UILabel!
@@ -32,22 +35,26 @@ class HomeCell: UITableViewCell {
     func setupComponents(){
         shadowView.addCornerRadius(10)
         shadowView.addNormalShadow()
-        postTextBackView.addCornerRadius(8)
-        postTextBackView.addBorderWith(width: 0.5, color: .darkGray)
+        userImage.addCornerRadius(userImage.frame.height / 2)
+        postTextBackView.addCornerRadius(5)
+        postTextBackView.addBorderWith(width: 0.3, color: .darkGray)
     }
     
     func configureCell(post: Post){
         self.post = post
         likeRef = DataService.db.REF_CURRENT_USERS.child("likes").child(post.postKey)
-        self.postTextView.text = post.postText
-        self.donationTypeLbl.text = post.type
-        self.postImageView.setImage(imageUrl: post.imgUrl)
-        
+        self.postTextView.text = post.Text
+        self.donationTypeLbl.text = post.donationType
+        self.postImageView.setImage(imageUrl: post.ImageUrl)
+        setupLikes()
+    }
+    
+    func setupLikes() {
         likeRef.observe(.value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull{
-                self.likeBtn.setImage(UIImage(named: "favorite"), for: .normal)
+                self.likeBtn.setImage(UIImage(named: "dislike"), for: .normal)
             }else{
-                self.likeBtn.setImage(UIImage(named: "favorite-1"), for: .normal)
+                self.likeBtn.setImage(UIImage(named: "like"), for: .normal)
             }
         })
     }
@@ -56,11 +63,11 @@ class HomeCell: UITableViewCell {
     @IBAction func buLikeClicked(_ sender: Any) {
         likeRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull{
-                self.likeBtn.setImage(UIImage(named: "favorite-1"), for: .normal)
+                self.likeBtn.setImage(UIImage(named: "like"), for: .normal)
                 self.post.adjustLikes(addLike: true)
                 self.likeRef.setValue(true)
             }else{
-                self.likeBtn.setImage(UIImage(named: "favorite"), for: .normal)
+                self.likeBtn.setImage(UIImage(named: "dislike"), for: .normal)
                 self.post.adjustLikes(addLike: false)
                 self.likeRef.removeValue()
             }

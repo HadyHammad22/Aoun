@@ -23,29 +23,12 @@ class MainTabBar: UITabBarController, UITabBarControllerDelegate{
         
         if MainTabBar.mainIndex == 0{
             selectedIndex = 0
-            self.title = "Home"
         }else if MainTabBar.mainIndex == 1{
             selectedIndex = 1
-            self.title = "Make Post"
         }else if MainTabBar.mainIndex == 2{
             selectedIndex = 2
-            self.title = "Profile"
         }
         
-    }
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
-        switch selectedIndex{
-        case 0:
-            self.title = "Home"
-        case 1:
-            self.title = "Make Post"
-        case 2:
-            self.title = "Profile"
-        default:
-            self.title = "Aoun"
-        }
     }
     
 }
