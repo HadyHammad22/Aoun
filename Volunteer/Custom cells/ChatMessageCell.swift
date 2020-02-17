@@ -17,7 +17,7 @@ class ChatMessageCell: UITableViewCell {
     
     @IBOutlet weak var chatText: UITextView!
     @IBOutlet weak var chatStack: UIStackView!
-    @IBOutlet weak var chatView: CustomView!
+    @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var chatImage: UIImageView!
     @IBOutlet weak var imageWidth: NSLayoutConstraint!
     

@@ -600,13 +600,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDt-IO-Rbu" customClass="CustomView" customModule="Volunteer" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDt-IO-Rbu">
                                 <rect key="frame" x="15" y="74" width="345" height="479"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="osJ-EG-B0h">
                                         <rect key="frame" x="18" y="215" width="309" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR4-WG-CG0" customClass="CustomButton" customModule="Volunteer" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DR4-WG-CG0">
                                                 <rect key="frame" x="0.0" y="0.0" width="134.5" height="40"/>
                                                 <color key="backgroundColor" red="0.93003177640000001" green="0.4132010639" blue="0.059775464239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -616,16 +616,11 @@
                                                 <state key="normal" title="Picture">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buSelectPicture:" destination="l0M-aN-Vmr" eventType="touchUpInside" id="2C4-Xw-0j5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujo-0N-JZa" customClass="CustomButton" customModule="Volunteer" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujo-0N-JZa">
                                                 <rect key="frame" x="174.5" y="0.0" width="134.5" height="40"/>
                                                 <color key="backgroundColor" red="0.93003177640000001" green="0.4132010639" blue="0.059775464239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -635,11 +630,6 @@
                                                 <state key="normal" title="Donation Type">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="buSelectType:" destination="l0M-aN-Vmr" eventType="touchUpInside" id="Os2-kk-upM"/>
                                                 </connections>
@@ -653,18 +643,13 @@
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="needed" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-V9-wbd" customClass="CustomImageView" customModule="Volunteer" customModuleProvider="target">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="needed" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-V9-wbd">
                                         <rect key="frame" x="18" y="20" width="309" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="nJr-vn-ysW"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLL-yK-nf4" customClass="CustomButton" customModule="Volunteer" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLL-yK-nf4">
                                         <rect key="frame" x="227" y="428.5" width="100" height="40"/>
                                         <color key="backgroundColor" red="0.93003177640000001" green="0.4132010639" blue="0.059775464239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -675,11 +660,6 @@
                                         <state key="normal" title="Add Files">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="buAddFile:" destination="l0M-aN-Vmr" eventType="touchUpInside" id="a07-Et-JGF"/>
                                             <action selector="buEdit:" destination="kDt-BK-Da4" eventType="touchUpInside" id="NhJ-oO-F8g"/>
@@ -702,16 +682,8 @@
                                     <constraint firstItem="0e2-V9-wbd" firstAttribute="width" secondItem="osJ-EG-B0h" secondAttribute="width" id="l0c-LK-q7D"/>
                                     <constraint firstItem="0e2-V9-wbd" firstAttribute="centerX" secondItem="gDt-IO-Rbu" secondAttribute="centerX" id="sET-yk-oLk"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-vc-tS7" customClass="CustomButton" customModule="Volunteer" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhs-vc-tS7">
                                 <rect key="frame" x="15" y="563" width="345" height="45"/>
                                 <color key="backgroundColor" red="0.2223234177" green="0.59840756650000004" blue="0.84787756199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -721,11 +693,6 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buPost:" destination="l0M-aN-Vmr" eventType="touchUpInside" id="ozH-Ks-c7n"/>
                                     <action selector="buSave:" destination="kDt-BK-Da4" eventType="touchUpInside" id="Cn1-V6-60q"/>
@@ -781,7 +748,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Er-VH-SPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="i4A-qG-tH9" customClass="CustomView" customModule="Volunteer" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="i4A-qG-tH9">
                     <rect key="frame" x="0.0" y="0.0" width="237" height="190"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -797,13 +764,8 @@
                         <constraint firstItem="hfB-84-ljx" firstAttribute="leading" secondItem="qHb-5U-LHJ" secondAttribute="leading" id="Qiq-eI-JrD"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="qHb-5U-LHJ"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" id="Qui-xg-ucr" customClass="CustomView" customModule="Volunteer" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="Qui-xg-ucr">
                     <rect key="frame" x="0.0" y="0.0" width="277" height="132"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -840,11 +802,6 @@
                         <constraint firstItem="goR-0W-BXa" firstAttribute="top" secondItem="Ycl-hm-gyo" secondAttribute="top" constant="5" id="uPR-vJ-Ulc"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Ycl-hm-gyo"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="8"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </objects>
             <point key="canvasLocation" x="3825" y="1573"/>
@@ -1073,17 +1030,12 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user image" translatesAutoresizingMaskIntoConstraints="NO" id="AwT-dN-IzO" customClass="CustomImageView" customModule="Volunteer" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user image" translatesAutoresizingMaskIntoConstraints="NO" id="AwT-dN-IzO">
                                                             <rect key="frame" x="15" y="6" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Z1S-I6-M2L"/>
                                                                 <constraint firstAttribute="width" constant="50" id="h9Z-z8-CNb"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="25"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

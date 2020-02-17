@@ -23,11 +23,11 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     @IBOutlet weak var type_Picker: UIPickerView!
     @IBOutlet weak var selectType: UIButton!
     @IBOutlet weak var postImage: UIImageView!
-    @IBOutlet var mapView: CustomView!
+    @IBOutlet var mapView: UIView!
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var VisualEffect: UIVisualEffectView!
     
-    @IBOutlet var progView: CustomView!
+    @IBOutlet var progView: UIView!
     @IBOutlet weak var lblProgress: UILabel!
     @IBOutlet weak var prog: UIProgressView!
     
