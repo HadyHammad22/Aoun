@@ -38,10 +38,19 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="charity" translatesAutoresizingMaskIntoConstraints="NO" id="tIC-2f-aLT">
+                                                        <rect key="frame" x="137.5" y="81.5" width="100" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="LuE-zL-kOJ"/>
+                                                            <constraint firstAttribute="height" constant="100" id="liJ-QI-jn0"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="tIC-2f-aLT" firstAttribute="centerY" secondItem="z4c-mH-a7P" secondAttribute="centerY" id="Ioz-Qq-sW5"/>
                                                     <constraint firstAttribute="bottom" secondItem="8RH-dB-ewH" secondAttribute="bottom" constant="16" id="mbu-gn-OFV"/>
+                                                    <constraint firstItem="tIC-2f-aLT" firstAttribute="centerX" secondItem="z4c-mH-a7P" secondAttribute="centerX" id="p9T-RZ-tuf"/>
                                                     <constraint firstAttribute="trailing" secondItem="8RH-dB-ewH" secondAttribute="trailing" constant="16" id="xcQ-Og-q3P"/>
                                                 </constraints>
                                             </view>
@@ -1163,11 +1172,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="charity" translatesAutoresizingMaskIntoConstraints="NO" id="ne3-ZO-D4t">
+                                        <rect key="frame" x="137.5" y="66.5" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="i2w-bQ-dhv"/>
+                                            <constraint firstAttribute="height" constant="100" id="jti-Wa-ubj"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="STR-yz-rqi" secondAttribute="trailing" constant="16" id="3Tj-Hh-MiQ"/>
+                                    <constraint firstItem="ne3-ZO-D4t" firstAttribute="centerY" secondItem="Gth-Cr-svr" secondAttribute="centerY" id="7v4-WG-gVo"/>
                                     <constraint firstAttribute="bottom" secondItem="STR-yz-rqi" secondAttribute="bottom" constant="16" id="rJg-Db-nR8"/>
+                                    <constraint firstItem="ne3-ZO-D4t" firstAttribute="centerX" secondItem="Gth-Cr-svr" secondAttribute="centerX" id="xkZ-3M-ASz"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGk-Po-Aoz">
@@ -1708,7 +1726,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7f-yh-yHU">
                                                 <rect key="frame" x="217.5" y="129" width="36" height="36"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bV6-Y4-6Wm">
+                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bV6-Y4-6Wm">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                         <state key="normal" image="photo_camera"/>
                                                     </button>
@@ -1726,7 +1744,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZG2-wg-ICa">
                                                 <rect key="frame" x="37.5" y="210" width="300" height="228"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-B5-lTk" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K0H-B5-lTk" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -1747,14 +1765,14 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sf-ny-5Zx" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sf-ny-5Zx" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="61" width="300" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="textColor"/>
@@ -1772,14 +1790,14 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-EP-sKp" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-EP-sKp" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="122" width="300" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="textColor"/>
@@ -1797,14 +1815,14 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-Lc-q45" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-Lc-q45" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="183" width="300" height="45"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="textColor"/>
@@ -1822,7 +1840,7 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1839,7 +1857,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHk-fe-VUb">
                                                 <rect key="frame" x="37.5" y="454" width="300" height="45"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Cu-TfD" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
+                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-Cu-TfD" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="259" height="45"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
@@ -1854,7 +1872,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRp-lB-2zQ">
+                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRp-lB-2zQ">
                                                         <rect key="frame" x="267" y="10" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="G3Y-z8-YqB"/>
@@ -1886,8 +1904,8 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="G4R-bQ-UXk"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
-                                                        <state key="normal" title="SAVE">
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                                        <state key="normal" title="Edit">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -1900,7 +1918,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="eHQ-lf-Ox0"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                                         <state key="normal" title="Sign Out">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -2149,6 +2167,7 @@
         <image name="attach" width="512" height="512"/>
         <image name="blog" width="512" height="512"/>
         <image name="cancer" width="524" height="568"/>
+        <image name="charity" width="512" height="512"/>
         <image name="clear" width="24" height="24"/>
         <image name="contact_phone" width="24" height="24"/>
         <image name="dislike" width="512" height="512"/>

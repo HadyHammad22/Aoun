@@ -43,7 +43,7 @@ class ProfileVC: BaseViewController {
     
     // MARK :- SetupUI
     func setupComponents(){
-        passwordView.addBorderWith(width: 1, color: UIColor.selectedBorderColor)
+        passwordView.addBorderWith(width: 1, color: .borderColor)
         passwordView.addCornerRadius(20)
         saveBtn.addBtnCornerRadius(22)
         saveBtn.addBtnNormalShadow()
@@ -57,7 +57,9 @@ class ProfileVC: BaseViewController {
     // MARK :- Load Profile
     func configureProfile() {
         guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else{return}
+        ProgressHUD.show()
         DataService.db.getUserWithId(id: uid, completion: { (user) in
+            ProgressHUD.dismiss()
             guard let user = user else{return}
             DispatchQueue.main.async {
                 self.emailTxtField.text = user.email
@@ -71,24 +73,62 @@ class ProfileVC: BaseViewController {
     
     // MARK :- Save
     @IBAction func buSave(_ sender: Any) {
-        guard let email = emailTxtField.text,
-            let pwd    = passwordTxtField.text,
-            let phone  = phoneTxtField.text,
-            let city   = cityTxtField.text,
-            let name   = nameTxtField.text,
-            let uid    = UserDefaults.standard.string(forKey: KEY_UID) else {return}
-        
-        let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
-        ProgressHUD.show()
-        DataService.db.REF_USERS.child(uid).updateChildValues(dataDict, withCompletionBlock: { (error, result) in
-            ProgressHUD.dismiss()
-            if error == nil{
-                self.showAlertsuccess(title: "Update success")
-            }else{
-                self.showAlertWiring(title: "Update faild")
-            }
-        })
+        if saveBtn.title(for: .normal) == "Edit" {
+            interactionEnable()
+        }else{
+            guard let email = emailTxtField.text,
+                let pwd    = passwordTxtField.text,
+                let phone  = phoneTxtField.text,
+                let city   = cityTxtField.text,
+                let name   = nameTxtField.text,
+                let uid    = UserDefaults.standard.string(forKey: KEY_UID) else {return}
+            
+            let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
+            ProgressHUD.show()
+            DataService.db.REF_USERS.child(uid).updateChildValues(dataDict, withCompletionBlock: { (error, result) in
+                ProgressHUD.dismiss()
+                if error == nil{
+                    self.showAlertsuccess(title: "Update success")
+                    self.interactionDisable()
+                }else{
+                    self.showAlertWiring(title: "Update faild")
+                }
+            })
+        }
     }
+    
+    func interactionEnable() {
+        saveBtn.setTitle("Save", for: .normal)
+        nameTxtField.isUserInteractionEnabled = true
+        emailTxtField.isUserInteractionEnabled = true
+        phoneTxtField.isUserInteractionEnabled = true
+        cityTxtField.isUserInteractionEnabled = true
+        passwordTxtField.isUserInteractionEnabled = true
+        imageEditBtn.isUserInteractionEnabled = true
+        passwordVisibilityBtn.isUserInteractionEnabled = true
+        nameTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
+        emailTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
+        phoneTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
+        cityTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
+        passwordView.addBorderWith(width: 1, color: .selectedBorderColor)
+    }
+    
+    func interactionDisable() {
+        saveBtn.setTitle("Edit", for: .normal)
+        nameTxtField.isUserInteractionEnabled = false
+        emailTxtField.isUserInteractionEnabled = false
+        phoneTxtField.isUserInteractionEnabled = false
+        cityTxtField.isUserInteractionEnabled = false
+        passwordTxtField.isUserInteractionEnabled = false
+        imageEditBtn.isUserInteractionEnabled = false
+        passwordVisibilityBtn.isUserInteractionEnabled = false
+        nameTxtField.addBorderWith(width: 1, color: .borderColor)
+        emailTxtField.addBorderWith(width: 1, color: .borderColor)
+        phoneTxtField.addBorderWith(width: 1, color: .borderColor)
+        cityTxtField.addBorderWith(width: 1, color: .borderColor)
+        passwordView.addBorderWith(width: 1, color: .borderColor)
+    }
+    
     @IBAction func buPasswordVisibility(_ sender: Any) {
         if secure{
             passwordTxtField.isSecureTextEntry = false
