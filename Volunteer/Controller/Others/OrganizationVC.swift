@@ -22,7 +22,6 @@ class OrganizationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
         listOfOrganization = Organization.loadOrganizations()
         loadURLs()
     }
@@ -40,21 +39,17 @@ class OrganizationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listOfOrganization.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrgInfo", for: indexPath) as! OrganizationCell
-        cell.setCell(Org: listOfOrganization[indexPath.row])
+        cell.setCell(organiztion: listOfOrganization[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 360
+        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

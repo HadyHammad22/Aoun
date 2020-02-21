@@ -45,7 +45,7 @@ class SignUpVC: BaseViewController {
         phoneTxtField.delegate = self
         cityTxtField.delegate = self
         passwordTxtField.delegate = self
-        passwordView.addBorderWith(width: 1.5, color: UIColor.borderColor)
+        passwordView.addBorderWith(width: 1, color: UIColor.borderColor)
         passwordView.addCornerRadius(20)
         signUpBtn.addCornerRadius(20)
         signUpBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)

@@ -8,20 +8,35 @@
 
 import Foundation
 import Firebase
-struct Post: Decodable{
-    var Id:String
-    var ImageUrl:String
-    var PDFURL:String
-    var Text:String
-    var Likes:Int
-    var donationType:String
-    var postKey:String
+struct Post{
+    var id:String?
+    var imgUrl:String?
+    var pdfUrl:String?
+    var postText:String?
+    var likes:Int?
+    var type:String?
+    var createdAt:Date?
+    var postKey:String?
+    
+    init(postKey: String, post: Dictionary<String,Any>) {
+        self.postKey = postKey
+        self.id = post["Id"] as? String
+        self.type = post["donationType"] as? String
+        self.imgUrl = post["ImageUrl"] as? String
+        self.pdfUrl = post["PDFURL"] as? String
+        self.postText = post["Text"] as? String
+        self.likes = post["Likes"] as? Int
+        if let timestamp = post["timestamp"] as? Double{
+            self.createdAt = Date(timeIntervalSince1970: timestamp / 1000)
+        }
+    }
+    
     mutating func adjustLikes(addLike: Bool){
         if addLike{
-            Likes = Likes + 1
+            likes = likes! + 1
         }else{
-            Likes = Likes - 1
+            likes = likes! - 1
         }
-        DataService.db.REF_POST.child(postKey).child("Likes").setValue(Likes)
+        DataService.db.REF_POST.child(postKey!).child("Likes").setValue(likes)
     }
 }

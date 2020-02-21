@@ -18,11 +18,12 @@ class ProfileVC: BaseViewController {
     }
     
     // MARK :- Outlets
-    @IBOutlet weak var emailTxtField:UITextField!
-    @IBOutlet weak var nameTxtField: UITextField!
-    @IBOutlet weak var cityTxtField: UITextField!
-    @IBOutlet weak var phoneTxtField: UITextField!
-    @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var emailTxtField:CustomTextField!
+    @IBOutlet weak var nameTxtField: CustomTextField!
+    @IBOutlet weak var cityTxtField: CustomTextField!
+    @IBOutlet weak var phoneTxtField: CustomTextField!
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var passwordTxtField: CustomTextField!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet weak var userImage: UIImageView!
@@ -42,9 +43,11 @@ class ProfileVC: BaseViewController {
     
     // MARK :- SetupUI
     func setupComponents(){
-        saveBtn.addBtnCornerRadius(20)
+        passwordView.addBorderWith(width: 1, color: UIColor.selectedBorderColor)
+        passwordView.addCornerRadius(20)
+        saveBtn.addBtnCornerRadius(22)
         saveBtn.addBtnNormalShadow()
-        signOutBtn.addBtnCornerRadius(20)
+        signOutBtn.addBtnCornerRadius(22)
         signOutBtn.addBtnNormalShadow()
         userImage.addCornerRadius(userImage.frame.height/2)
         imageEditView.addCornerRadius(imageEditView.frame.height/2)

@@ -42,10 +42,14 @@ class HomeCell: UITableViewCell {
     
     func configureCell(post: Post){
         self.post = post
-        likeRef = DataService.db.REF_CURRENT_USERS.child("likes").child(post.postKey)
-        self.postTextView.text = post.Text
-        self.donationTypeLbl.text = post.donationType
-        self.postImageView.setImage(imageUrl: post.ImageUrl)
+        likeRef = DataService.db.REF_CURRENT_USERS.child("likes").child(post.postKey!)
+        self.postTextView.text = post.postText!
+        self.donationTypeLbl.text = post.type!
+        self.postImageView.setImage(imageUrl: post.imgUrl!)
+        self.postTimeLbl.text = post.createdAt?.calendarTimeSinceNow()
+        DataService.db.getUserWithId(id: post.id!, completion: { (user) in
+            self.userNameLbl.text = user?.name
+        })
         setupLikes()
     }
     

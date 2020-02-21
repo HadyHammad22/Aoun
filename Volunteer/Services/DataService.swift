@@ -77,7 +77,6 @@ class DataService {
     }
     
     func sendMessgaeToFirebase(toId: String, properties: [String:Any], completeion: (_ result:Bool)->()){
-        
         guard let fromId = Auth.auth().currentUser?.uid else{return}
         let timestamp = Int(NSDate().timeIntervalSince1970)
         let childRef = REF_MESSAGES.childByAutoId()
@@ -100,7 +99,6 @@ class DataService {
             self.observeNotification(fromId: fromId, toId: toId)
         })
         completeion(true)
-        
     }
     
     private func observeNotification(fromId: String, toId: String){
@@ -139,19 +137,35 @@ class DataService {
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
                 for snap in snapshot{
                     if let postDict = snap.value as? Dictionary<String,AnyObject>{
-                        do{
-                            let data = try JSONSerialization.data(withJSONObject: postDict, options: [])
-                            let post = try JSONDecoder().decode(Post.self, from: data)
-                            posts.append(post)
-                        }catch let err{
-                            print("Error In Decode Data \(err.localizedDescription)")
-                        }
+                        let key = snap.key
+                        let post = Post(postKey: key, post: postDict)
+                        posts.append(post)
                     }
                 }
             }
-            posts = posts.sorted(by: { $0.Likes > $1.Likes})
+            posts = posts.sorted(by: { $0.likes! > $1.likes!})
             completion(posts)
         })
+    }
+    
+    func uploadPDF(url: URL, completion: @escaping (_ error:Error?, _ url:String?) ->()){
+        do{
+            let data = try Data.init(contentsOf: url)
+            let fileId = NSUUID().uuidString
+            let metaData = StorageMetadata()
+            metaData.contentType = "application/pdf"
+            DataService.db.REF_POST_PDF.child(fileId).putData(data, metadata: metaData, completion: { (metadata,error) in
+                if error != nil{
+                    completion(error,nil)
+                }else{
+                    DataService.db.REF_POST_PDF.child(fileId).downloadURL(completion: { (url,error) in
+                        completion(nil,url?.absoluteString)
+                    })
+                }
+            })
+        }catch let error{
+            completion(error,nil)
+        }
     }
     
 }
