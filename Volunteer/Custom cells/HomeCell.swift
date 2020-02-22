@@ -36,6 +36,8 @@ class HomeCell: UITableViewCell {
         shadowView.addCornerRadius(10)
         shadowView.addNormalShadow()
         userImage.addCornerRadius(userImage.frame.height / 2)
+        postImageView.layer.cornerRadius = 5
+        postImageView.clipsToBounds = true
         postTextBackView.addCornerRadius(5)
         postTextBackView.addBorderWith(width: 0.3, color: .darkGray)
     }

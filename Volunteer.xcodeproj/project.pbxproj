@@ -32,7 +32,6 @@
 		74B3C00623F98B9F00D2E14E /* PopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B3C00523F98B9F00D2E14E /* PopAnimation.swift */; };
 		74B8FFCB2337939F0056F620 /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FFCA2337939F0056F620 /* MessagesVC.swift */; };
 		74B8FFCD233796090056F620 /* MessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FFCC233796090056F620 /* MessagesCell.swift */; };
-		74B8FFD62337A9AB0056F620 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8FFD52337A9AB0056F620 /* CustomImageView.swift */; };
 		74C4D83A23F56A5700295734 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4D83923F56A5700295734 /* UIView+Extension.swift */; };
 		74C4D83C23F56A7D00295734 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4D83B23F56A7D00295734 /* UITextField+Extension.swift */; };
 		74C4D83E23F56A8D00295734 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C4D83D23F56A8D00295734 /* UILabel+Extension.swift */; };
@@ -78,7 +77,6 @@
 		74B3C00523F98B9F00D2E14E /* PopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimation.swift; sourceTree = "<group>"; };
 		74B8FFCA2337939F0056F620 /* MessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
 		74B8FFCC233796090056F620 /* MessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCell.swift; sourceTree = "<group>"; };
-		74B8FFD52337A9AB0056F620 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		74C4D83923F56A5700295734 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		74C4D83B23F56A7D00295734 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		74C4D83D23F56A8D00295734 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				74C4D84323F56ADE00295734 /* UICollectionView+Extension.swift */,
 				74C4D84523F56AF000295734 /* String+Extension.swift */,
 				74496F3D23F6E97500CD6D2F /* UIColor+Extension.swift */,
-				74B8FFD52337A9AB0056F620 /* CustomImageView.swift */,
 				7427D1D923157C4A00FA0D36 /* CustomTextField.swift */,
 			);
 			path = Extensions;
@@ -450,7 +447,6 @@
 				74C4D83E23F56A8D00295734 /* UILabel+Extension.swift in Sources */,
 				74E30EA523363EF5004AC85E /* ChatVC.swift in Sources */,
 				7427D1C623157C4400FA0D36 /* SignUpVC.swift in Sources */,
-				74B8FFD62337A9AB0056F620 /* CustomImageView.swift in Sources */,
 				74E6D847231829F70091EDE3 /* SideMenuVC.swift in Sources */,
 				7427D1C423157C4400FA0D36 /* AppDelegate.swift in Sources */,
 				7427D1DA23157C4A00FA0D36 /* CustomTextField.swift in Sources */,
