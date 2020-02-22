@@ -10,21 +10,25 @@ import UIKit
 import Firebase
 import MobileCoreServices
 
-class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class ChatVC: UIViewController{
     
+    // MARK :- Outlets
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var inputContainerView: UIView!
+    @IBOutlet var selectImage: UITapGestureRecognizer!
+    
+    // MARK :- Instance Variables
+    var messages = [Message]()
     var postOwnerID:String? {
         didSet{
             DataService.db.getUserWithId(id: postOwnerID!, completion: { (user) in
                 self.navigationItem.title = user!.name
             })
-        } 
+        }
     }
     
-    var messages = [Message]()
-    @IBOutlet weak var messageTextField: UITextField!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var inputContainerView: UIView!
-    @IBOutlet var selectImage: UITapGestureRecognizer!
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 58, right: 0)
@@ -34,36 +38,30 @@ class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource,UIIma
         selectImage.addTarget(self, action: #selector(handleSendImage))
     }
     
+    func observeMessages(){
+        guard let id = Auth.auth().currentUser?.uid, let toId = postOwnerID else{return}
+        DataService.db.REF_USER_MESSAGES.child(id).child(toId).observe(.childAdded, with: { (snapshot) in
+            DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot) in
+                if let dict = snapshot.value as? Dictionary<String,Any>{
+                    let msg = Message(msg: dict)
+                    self.messages.append(msg)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                    }
+                }
+            })
+        })
+    }
+    
+    // MARK :- Send Message With Image
     @objc func handleSendImage(){
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         imagePicker.mediaTypes = [kUTTypeImage,kUTTypeMovie] as [String]
         self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let videoUrl = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-            //we selected video
-            //handleVideoSelectedForURL(videoUrl)
-        }else{
-            //we selected image
-            handleImageSelectedForInfo(info: info)
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    private func handleImageSelectedForInfo(info: [UIImagePickerController.InfoKey:Any]){
-        
-        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-            uploadImageToFirebase(image: image, completeion: { (imageUrl) in
-                self.sendMessagesWithImage(imageUrl: imageUrl, image: image)
-            })
-        }else{
-            print("JESS: A Valid Image Wasn't Selected")
-        }
-        
     }
     
     func uploadImageToFirebase(image: UIImage, completeion: @escaping (_ imageUrl: String)->()){
@@ -85,7 +83,6 @@ class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource,UIIma
                     })
                 }
             })
-            
         }
     }
     
@@ -98,6 +95,7 @@ class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource,UIIma
         })
     }
     
+    // MARK :- Setup Keyboard Hide And Show
     func setupKeyboardObserves(){
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardDidShow), name: UIResponder.keyboardDidShowNotification, object: nil)
     }
@@ -119,33 +117,27 @@ class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource,UIIma
         return true
     }
     
-    func observeMessages(){
-        guard let id = Auth.auth().currentUser?.uid, let toId = postOwnerID else{return}
-        DataService.db.REF_USER_MESSAGES.child(id).child(toId).observe(.childAdded, with: { (snapshot) in
-            DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot) in
-                if let dict = snapshot.value as? Dictionary<String,Any>{
-                    let msg = Message(msg: dict)
-                    self.messages.append(msg)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
-                        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-
-                    }
-                }
-            })
-        })
-    }
-    
-    func removeNotification(){
-        guard let uid = Auth.auth().currentUser?.uid else{return}
-        DataService.db.NOTIFICATION.child(uid).child(postOwnerID!).removeValue(completionBlock: { (err,ref) in
-            if err == nil{
-                print("notification removed successfully...")
+    // MARK :- Buttons Actions
+    @IBAction func buSend(_ sender: Any) {
+        guard let msgText = messageTextField.text, let ownerID = postOwnerID else {
+            return
+        }
+        
+        DataService.db.sendMessgaeToFirebase(toId: ownerID, properties: ["text": msgText] ,completeion: { result in
+            if result{
+                messageTextField.text = nil
+                print("Messgae Send Successfully")
             }
         })
     }
     
+    @IBAction func buBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+extension ChatVC: UITableViewDelegate ,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -161,26 +153,21 @@ class ChatVC: UIViewController ,UITableViewDelegate ,UITableViewDataSource,UIIma
         
         return cell
     }
-    
-    @IBAction func buSend(_ sender: Any) {
-        guard let msgText = messageTextField.text else {
-            return
-        }
-        
-        guard let ownerID = postOwnerID else {
-            return
-        }
-        DataService.db.sendMessgaeToFirebase(toId: ownerID, properties: ["text": msgText] ,completeion: { result in
-            if result{
-                messageTextField.text = nil
-                print("Messgae Send Successfully")
-            }
-        })
+}
+
+extension ChatVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        handleImageSelectedForInfo(info: info)
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func buBack(_ sender: Any) {
-        self.dismiss(animated: true, completion: {
-            self.removeNotification()
-        })
+    private func handleImageSelectedForInfo(info: [UIImagePickerController.InfoKey:Any]){
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            uploadImageToFirebase(image: image, completeion: { (imageUrl) in
+                self.sendMessagesWithImage(imageUrl: imageUrl, image: image)
+            })
+        }else{
+            print("JESS: A Valid Image Wasn't Selected")
+        }
     }
 }

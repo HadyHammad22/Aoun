@@ -80,7 +80,7 @@ class DataService {
         guard let fromId = Auth.auth().currentUser?.uid else{return}
         let timestamp = Int(NSDate().timeIntervalSince1970)
         let childRef = REF_MESSAGES.childByAutoId()
-        var dict:[String : Any] = ["toId":toId, "fromId":fromId,"timeStamp":timestamp]
+        var dict:[String : Any] = ["toId": toId, "fromId": fromId,"timeStamp": timestamp]
         
         properties.forEach({dict[$0] = $1})
         
@@ -96,24 +96,8 @@ class DataService {
             
             let userMessagesRef = self.REF_USER_MESSAGES.child(fromId).child(toId)
             userMessagesRef.updateChildValues([msgID!: true])
-            self.observeNotification(fromId: fromId, toId: toId)
         })
         completeion(true)
-    }
-    
-    private func observeNotification(fromId: String, toId: String){
-        
-        self.NOTIFICATION.child(toId).child(fromId).setValue(true, withCompletionBlock: { (err,ref) in
-            
-            if err == nil{
-                print("Notification sent successfully")
-            }else{
-                print("Notification sent UnSuccessfully")
-                return
-            }
-            
-        })
-        
     }
     
     func getUserWithId(id: String, completion: @escaping (_ user: User?)->()){

@@ -15,11 +15,18 @@ class ChatMessageCell: UITableViewCell {
         case outgoing
     }
     
+    // MARK :- Outlets
     @IBOutlet weak var chatText: UITextView!
     @IBOutlet weak var chatStack: UIStackView!
     @IBOutlet weak var chatView: UIView!
     @IBOutlet weak var chatImage: UIImageView!
     @IBOutlet weak var imageWidth: NSLayoutConstraint!
+    
+    // MARK :- Lifecycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        chatView.addCornerRadius(10)
+    }
     
     func configureCell(message: Message, type: BubbleType){
         if let msgText = message.text{
