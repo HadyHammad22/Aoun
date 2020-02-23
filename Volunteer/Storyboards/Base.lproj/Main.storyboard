@@ -1163,7 +1163,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGk-Po-Aoz">
-                                <rect key="frame" x="37.5" y="459.5" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="562.5" width="300" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="clO-gt-KOH"/>
@@ -1177,7 +1177,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3yz-Rk-4PB">
-                                <rect key="frame" x="95" y="515.5" width="185" height="32.5"/>
+                                <rect key="frame" x="95" y="618.5" width="185" height="32.5"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Don't have account?">
@@ -1299,12 +1299,12 @@
                         <constraints>
                             <constraint firstItem="Gth-Cr-svr" firstAttribute="leading" secondItem="swk-Fd-xWi" secondAttribute="leading" id="2lb-dy-DR3"/>
                             <constraint firstItem="i1B-NQ-jTY" firstAttribute="top" secondItem="Gth-Cr-svr" secondAttribute="bottom" constant="50" id="4Ao-bF-TPY"/>
-                            <constraint firstItem="fGk-Po-Aoz" firstAttribute="top" secondItem="i1B-NQ-jTY" secondAttribute="bottom" constant="70" id="Ixw-rs-6dW"/>
                             <constraint firstItem="XtN-Li-gwB" firstAttribute="trailing" secondItem="Gth-Cr-svr" secondAttribute="trailing" id="Nxd-db-V55"/>
                             <constraint firstItem="fGk-Po-Aoz" firstAttribute="centerX" secondItem="swk-Fd-xWi" secondAttribute="centerX" id="R1z-ew-bYm"/>
                             <constraint firstItem="i1B-NQ-jTY" firstAttribute="centerX" secondItem="swk-Fd-xWi" secondAttribute="centerX" id="SmU-71-za6"/>
                             <constraint firstItem="JPE-Kl-D4e" firstAttribute="top" secondItem="i1B-NQ-jTY" secondAttribute="bottom" constant="8" id="Wws-mi-RrS"/>
                             <constraint firstItem="Gth-Cr-svr" firstAttribute="height" secondItem="swk-Fd-xWi" secondAttribute="height" multiplier="0.35" id="c59-ew-rO5"/>
+                            <constraint firstItem="XtN-Li-gwB" firstAttribute="bottom" secondItem="3yz-Rk-4PB" secondAttribute="bottom" constant="16" id="dqW-mR-xEX"/>
                             <constraint firstItem="3yz-Rk-4PB" firstAttribute="top" secondItem="fGk-Po-Aoz" secondAttribute="bottom" constant="16" id="eWI-gb-2gc"/>
                             <constraint firstItem="Gth-Cr-svr" firstAttribute="top" secondItem="swk-Fd-xWi" secondAttribute="top" id="fU2-FE-KiT"/>
                             <constraint firstItem="i1B-NQ-jTY" firstAttribute="width" secondItem="swk-Fd-xWi" secondAttribute="width" multiplier="0.8" id="iRu-mr-2HG"/>
