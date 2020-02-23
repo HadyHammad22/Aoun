@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct User: Decodable{
+struct AppUser: Decodable{
     var name:String
     var phone:String
     var city:String

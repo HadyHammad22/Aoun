@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import ProgressHUD
 class LoginVC:BaseViewController {
     
     // MARK :- Instance
@@ -39,7 +38,7 @@ class LoginVC:BaseViewController {
     }
     
     // MARK :- SetupUI
-    func setupComponents(){
+    func setupComponents() {
         emailTxtField.delegate = self
         passwordTxtField.delegate = self
         loginBtn.addCornerRadius(20)
@@ -48,28 +47,31 @@ class LoginVC:BaseViewController {
         passwordView.addCornerRadius(20)
     }
     
-    // MARK :- Login
+    // MARK :- Actions
     @IBAction func buLogin(_ sender: Any) {
         if validData(){
-            ProgressHUD.show()
-            guard let email = emailTxtField.text, let pwd = passwordTxtField.text else{return}
-            Auth.auth().signIn(withEmail: email, password: pwd, completion: { (result, error) in
-                ProgressHUD.dismiss()
-                if error == nil{
-                    self.showAlertsuccess(title: "Login Success")
-                    UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)
-                    self.finishEnterData()
-                    let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                    self.present(home, animated: true, completion: nil)
-                }else{
-                    self.showAlertWiring(title: "User not exist please Sign Up ")
-                    return
-                }
+            DataService.db.login(email: emailTxtField.text!, password: passwordTxtField.text!, onSuccess: { (user) in
+                self.successLogin(user: user)
+            }, onError: { (errorMessage) in
+                self.showAlertError(title: errorMessage)
             })
         }
     }
+    
+    func successLogin(user: User) {
+        self.showAlertsuccess(title: "Login Success")
+        UserDefaults.standard.set(user.uid, forKey: KEY_UID)
+        self.finishEnterData()
+        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        self.present(home, animated: true, completion: nil)
+    }
+    
     @IBAction func buRegister(_ sender: Any) {
         self.present(SignUpVC.instance(), animated: true, completion: nil)
+    }
+    
+    @IBAction func buForgetPassword(_ sender: Any) {
+        self.present(ResetPasswordVC.instance(), animated: true, completion: nil)
     }
     
     @IBAction func buPasswordVisibility(_ sender: Any) {
@@ -87,17 +89,7 @@ class LoginVC:BaseViewController {
     // MARK :- Validations
     func validData() -> Bool {
         if emailTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the email")
-            return false
-        }
-        
-        if !(emailTxtField.text!.isValidEmail){
-            self.showAlertWiring(title: "Enter valid email")
-            return false
-        }
-        
-        if passwordTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the password")
+            self.showAlertError(title: "Please enter the email")
             return false
         }
         return true

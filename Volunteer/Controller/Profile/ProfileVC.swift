@@ -80,19 +80,15 @@ class ProfileVC: BaseViewController {
                 let pwd    = passwordTxtField.text,
                 let phone  = phoneTxtField.text,
                 let city   = cityTxtField.text,
-                let name   = nameTxtField.text,
-                let uid    = UserDefaults.standard.string(forKey: KEY_UID) else {return}
+                let name   = nameTxtField.text else {return}
             
-            let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
-            ProgressHUD.show()
-            DataService.db.REF_USERS.child(uid).updateChildValues(dataDict, withCompletionBlock: { (error, result) in
-                ProgressHUD.dismiss()
-                if error == nil{
-                    self.showAlertsuccess(title: "Update success")
-                    self.interactionDisable()
-                }else{
-                    self.showAlertWiring(title: "Update faild")
-                }
+            let userData = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
+            DataService.db.updateProfile(userData: userData, onSuccess: {
+                self.showAlertsuccess(title: "Update success")
+                self.interactionDisable()
+            }, onError: { (errorMessage) in
+                print(errorMessage)
+                self.showAlertWiring(title: "Update faild")
             })
         }
     }

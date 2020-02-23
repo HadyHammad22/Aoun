@@ -13,9 +13,7 @@ import ProgressHUD
 let DB_BASE = Database.database().reference()
 let STORAGE_BASE = Storage.storage().reference()
 class DataService {
-    
     static let db = DataService()
-    
     //DB_References
     let _REF_BASE = DB_BASE
     let _REF_USERS = DB_BASE.child("users")
@@ -71,12 +69,41 @@ class DataService {
         return _REF_POST_PDF
     }
     
-    
-    func createFirebaseDBUser(uid: String, userData: Dictionary<String,String>){
-        REF_USERS.child(uid).updateChildValues(userData)
+    func login(email: String, password: String, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+        ProgressHUD.show()
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (result, error) in
+            ProgressHUD.dismiss()
+            if error == nil{
+                guard let user = result?.user else{return}
+                DataService.db.REF_USERS.child(user.uid).updateChildValues(["password": password])
+                onSuccess(user)
+            }else{
+                if let errorMessage = error?.localizedDescription {
+                    onError(errorMessage)
+                }
+            }
+        })
     }
     
-    func sendMessgaeToFirebase(toId: String, properties: [String:Any], completeion: (_ result:Bool)->()){
+    func signUp(userData: [String:String], onSuccess: @escaping (_ user: User) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
+        guard let email = userData["email"], let pwd = userData["password"] else{return}
+        ProgressHUD.show()
+        Auth.auth().createUser(withEmail: email, password: pwd, completion: { (result, error) in
+            ProgressHUD.dismiss()
+            if error == nil{
+                guard let user = result?.user else{return}
+                self.REF_USERS.child(user.uid).updateChildValues(userData)
+                onSuccess(user)
+            }else{
+                if let errorMessage = error?.localizedDescription {
+                    onError(errorMessage)
+                }
+            }
+            
+        })
+    }
+    
+    func sendMessgaeToFirebase(toId: String, properties: [String:Any], completeion: (_ result:Bool)->()) {
         guard let fromId = Auth.auth().currentUser?.uid else{return}
         let timestamp = Int(NSDate().timeIntervalSince1970)
         let childRef = REF_MESSAGES.childByAutoId()
@@ -100,12 +127,12 @@ class DataService {
         completeion(true)
     }
     
-    func getUserWithId(id: String, completion: @escaping (_ user: User?)->()){
+    func getUserWithId(id: String, completion: @escaping (_ user: AppUser?)->()) {
         REF_USERS.child(id).observe(.value, with: { snapshot in
             guard let dict = snapshot.value as? [String:Any] else{return}
             do{
                 let data = try JSONSerialization.data(withJSONObject: dict, options: [])
-                let user = try JSONDecoder().decode(User.self, from: data)
+                let user = try JSONDecoder().decode(AppUser.self, from: data)
                 completion(user)
             }catch let err{
                 print("Error In Decode Data \(err.localizedDescription)")
@@ -113,7 +140,7 @@ class DataService {
         })
     }
     
-    func getPosts(completion: @escaping (_ posts: [Post]?)->()){
+    func getPosts(onSuccess: @escaping (_ posts: [Post]?) -> Void) {
         var posts = [Post]()
         ProgressHUD.show()
         REF_POST.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -128,11 +155,11 @@ class DataService {
                 }
             }
             posts = posts.sorted(by: { $0.likes! > $1.likes!})
-            completion(posts)
+            onSuccess(posts)
         })
     }
     
-    func uploadPDF(url: URL, completion: @escaping (_ error:Error?, _ url:String?) ->()){
+    func uploadPDF(url: URL,  onSuccess: @escaping (_ url: String) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         do{
             let data = try Data.init(contentsOf: url)
             let fileId = NSUUID().uuidString
@@ -140,16 +167,56 @@ class DataService {
             metaData.contentType = "application/pdf"
             DataService.db.REF_POST_PDF.child(fileId).putData(data, metadata: metaData, completion: { (metadata,error) in
                 if error != nil{
-                    completion(error,nil)
+                    onError(error!.localizedDescription)
                 }else{
                     DataService.db.REF_POST_PDF.child(fileId).downloadURL(completion: { (url,error) in
-                        completion(nil,url?.absoluteString)
+                        guard let url = url?.absoluteString else{return}
+                        onSuccess(url)
                     })
                 }
             })
         }catch let error{
-            completion(error,nil)
+            onError(error.localizedDescription)
         }
+    }
+    
+    func resetPassword(email: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void ){
+        ProgressHUD.show()
+        Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+            ProgressHUD.dismiss()
+            if error == nil{
+                onSuccess()
+            }else{
+                onError(error!.localizedDescription)
+            }
+        })
+    }
+    
+    func updateProfile(userData: [String:Any], onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void ){
+        guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else {return}
+        ProgressHUD.show()
+        DataService.db.REF_USERS.child(uid).updateChildValues(userData, withCompletionBlock: { (error, result) in
+            ProgressHUD.dismiss()
+            if error == nil{
+                onSuccess()
+            }else{
+                onError(error!.localizedDescription)
+            }
+        })
+    }
+    
+    func updatePassword(password: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void ){
+        guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else {return}
+        ProgressHUD.show()
+        Auth.auth().currentUser?.updatePassword(to: password, completion: { (error) in
+            ProgressHUD.dismiss()
+            if error == nil{
+                DataService.db.REF_USERS.child(uid).updateChildValues(["password": password])
+                onSuccess()
+            }else{
+                onError(error!.localizedDescription)
+            }
+        })
     }
     
 }

@@ -35,7 +35,7 @@ class HomeVC: UIViewController {
     }
     
     func loadPosts() {
-        DataService.db.getPosts(completion: { (arrayOfPosts) in
+        DataService.db.getPosts(onSuccess: { (arrayOfPosts) in
             if let posts = arrayOfPosts {
                 self.posts = posts
                 self.postsTable.reloadData()

@@ -28,6 +28,9 @@ class SignUpVC: BaseViewController {
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var topView: UIView!
     
+    // MARK :- Instance Variables
+    var secure = true
+    
     // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,7 @@ class SignUpVC: BaseViewController {
     }
     
     // MARK :- SetupUI
-    func setupComponents(){
+    func setupComponents() {
         nameTxtField.delegate = self
         emailTxtField.delegate = self
         phoneTxtField.delegate = self
@@ -53,69 +56,64 @@ class SignUpVC: BaseViewController {
     
     // MARK :- Registertion
     @IBAction func buSignUp(_ sender: Any) {
-        guard let email = emailTxtField.text,
-            let pwd    = passwordTxtField.text,
-            let phone  = phoneTxtField.text,
-            let city   = cityTxtField.text,
-            let name   = nameTxtField.text else {return}
-        
-        let dataDict = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
-        if validData(){
-            ProgressHUD.show()
-            Auth.auth().createUser(withEmail: email, password: pwd, completion: { (result, error) in
-                ProgressHUD.dismiss()
-                if error == nil{
-                    DataService.db.createFirebaseDBUser(uid: result!.user.uid, userData: dataDict)
-                    self.showAlertsuccess(title: "Sign up success")
-                    UserDefaults.standard.set(result!.user.uid, forKey: KEY_UID)
-                    self.finishEnterData()
-                    let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-                    self.present(home, animated: true, completion: nil)
-                }else{
-                    self.showAlertWiring(title: "Sign up faild")
-                }
-                
+        if validData() {
+            guard let email = emailTxtField.text,
+                let pwd    = passwordTxtField.text,
+                let phone  = phoneTxtField.text,
+                let city   = cityTxtField.text,
+                let name   = nameTxtField.text else {return}
+            
+            let userData = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
+            DataService.db.signUp(userData: userData, onSuccess: { (user) in
+                self.successCreated(user: user)
+            }, onError: { (errorMessage) in
+                self.showAlertError(title: errorMessage)
             })
         }
     }
+    
+    func successCreated(user: User) {
+        self.showAlertsuccess(title: "Sign up success")
+        UserDefaults.standard.set(user.uid, forKey: KEY_UID)
+        self.finishEnterData()
+        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        self.present(home, animated: true, completion: nil)
+    }
+    
     @IBAction func buLogin(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func buPasswordVisibility(_ sender: Any) {
+        if secure{
+            passwordTxtField.isSecureTextEntry = false
+            secure = false
+            passwordVisibilityBtn.setImage(UIImage(named: "visibility"), for: .normal)
+        }else{
+            passwordTxtField.isSecureTextEntry = true
+            secure = true
+            passwordVisibilityBtn.setImage(UIImage(named: "visibility_off"), for: .normal)
+        }
     }
     
     // MARK :- validations
     func validData() -> Bool {
         if nameTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the name")
-            return false
-        }
-        
-        if emailTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the email")
-            return false
-        }
-        
-        if !(emailTxtField.text!.isValidEmail){
-            self.showAlertWiring(title: "Enter valid email")
+            self.showAlertError(title: "Please enter the name")
             return false
         }
         
         if phoneTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the phone")
+            self.showAlertError(title: "Please enter the phone")
             return false
         }
         
         if cityTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the city")
-            return false
-        }
-        
-        if passwordTxtField.text! == ""{
-            self.showAlertWiring(title: "Please enter the password")
+            self.showAlertError(title: "Please enter the city")
             return false
         }
         
         return true
-        
     }
     
     func finishEnterData(){

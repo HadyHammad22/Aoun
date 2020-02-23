@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MobileCoreServices
 import ProgressHUD
-class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     // MARK :- Outlets
     @IBOutlet weak var backView: UIView!
@@ -39,7 +39,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     }
     
     // MARK :- SetupUI
-    func setupComponents(){
+    func setupComponents() {
         backView.addCornerRadius(8)
         backView.addNormalShadow()
         mapView.addCornerRadius(8)
@@ -105,7 +105,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
             return
         }
         
-        if let img = postImage.jpegData(compressionQuality: 0.2){
+        if let img = postImage.jpegData(compressionQuality: 0.2) {
             let imgId = NSUUID().uuidString
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
@@ -126,21 +126,21 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
         }
     }
     
-    func uploadWithPDF(imageURL: String, donationType: String, postText: String){
+    func uploadWithPDF(imageURL: String, donationType: String, postText: String) {
         guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{return}
         if let pdfURL = self.pdfURL {
-            DataService.db.uploadPDF(url: pdfURL, completion: { (err, pdfURL) in
-                if err == nil{
-                    guard let pdfURL = pdfURL else{return}
-                    let post: [String:Any] = ["Id": id,
-                                              "donationType": donationType,
-                                              "Text": postText,"ImageUrl": imageURL,
-                                              "PDFURL": pdfURL,
-                                              "timestamp": [".sv":"timestamp"],
-                                              "Likes":0]
-                    DataService.db.REF_POST.childByAutoId().setValue(post)
-                    self.successPostUpload()
-                }
+            DataService.db.uploadPDF(url: pdfURL, onSuccess: { pdfURL in
+                let post: [String:Any] = ["Id": id,
+                                          "donationType": donationType,
+                                          "Text": postText,
+                                          "ImageUrl": imageURL,
+                                          "PDFURL": pdfURL,
+                                          "timestamp": [".sv": "timestamp"],
+                                          "Likes": 0]
+                DataService.db.REF_POST.childByAutoId().setValue(post)
+                self.successPostUpload()
+            }, onError: { errorMessage in
+                self.showAlertError(title: errorMessage)
             })
         }else{
             let post: [String:Any] = ["Id": id,
