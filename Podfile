@@ -17,4 +17,5 @@ target 'Volunteer' do
   pod 'TableViewReloadAnimation'
   pod 'ProgressHUD'
   pod 'SDWebImage'
+  pod 'NVActivityIndicatorView'
 end

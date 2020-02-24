@@ -89,6 +89,9 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
   - ProgressHUD (2.70)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
@@ -105,6 +108,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - NVActivityIndicatorView
   - ProgressHUD
   - SDWebImage
   - SwiftMessages
@@ -129,6 +133,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NVActivityIndicatorView
     - ProgressHUD
     - SDWebImage
     - SwiftMessages
@@ -152,11 +157,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: d42413ccc34f916ba21c6d2e11b1db3bbdb11cdd
+PODFILE CHECKSUM: e957d60d2b4158982933a1b34409d11759a51311
 
 COCOAPODS: 1.8.4
