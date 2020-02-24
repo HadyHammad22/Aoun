@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import SwiftMessages
+import NVActivityIndicatorView
 
-class BaseViewController: UIViewController{
+class BaseViewController: UIViewController, NVActivityIndicatorViewable{
     
     //MARK: Alerts
     func showAlertWiring(title: String, body: String = "") {
@@ -80,6 +81,15 @@ class BaseViewController: UIViewController{
         config.duration = SwiftMessages.Duration.seconds(seconds: 1.5)
         
         SwiftMessages.show(config: config, view: msgView)
+    }
+    
+    func showLoadingIndicator() {
+        let size = CGSize(width: 50, height: 50)
+        startAnimating(size, type: .ballClipRotate, color: UIColor.blue, backgroundColor: UIColor.clear, textColor: UIColor.black, fadeInAnimation: nil)
+    }
+    
+    func hideLoadingIndicator() {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
     }
     
 }

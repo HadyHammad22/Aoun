@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import ProgressHUD
+
 class HomeVC: UIViewController {
     
     @IBOutlet weak var postsTable: UITableView!

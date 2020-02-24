@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import ProgressHUD
+
 class ProfileVC: BaseViewController {
     
     // MARK :- Instance
@@ -57,9 +57,9 @@ class ProfileVC: BaseViewController {
     // MARK :- Load Profile
     func configureProfile() {
         guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else{return}
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         DataService.db.getUserWithId(id: uid, completion: { (user) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             guard let user = user else{return}
             DispatchQueue.main.async {
                 self.emailTxtField.text = user.email

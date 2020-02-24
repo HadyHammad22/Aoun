@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import MobileCoreServices
-import ProgressHUD
+
 class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     // MARK :- Outlets

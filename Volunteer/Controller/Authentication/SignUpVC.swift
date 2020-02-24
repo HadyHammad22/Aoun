@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import ProgressHUD
+
 class SignUpVC: BaseViewController {
     
     // MARK :- Instance

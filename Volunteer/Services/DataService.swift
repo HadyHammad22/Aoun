@@ -8,11 +8,11 @@
 
 import Foundation
 import Firebase
-import ProgressHUD
 
 let DB_BASE = Database.database().reference()
 let STORAGE_BASE = Storage.storage().reference()
-class DataService {
+
+class DataService: BaseViewController {
     static let db = DataService()
     //DB_References
     let _REF_BASE = DB_BASE
@@ -70,9 +70,9 @@ class DataService {
     }
     
     func login(email: String, password: String, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         Auth.auth().signIn(withEmail: email, password: password, completion: { (result, error) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             if error == nil{
                 guard let user = result?.user else{return}
                 DataService.db.REF_USERS.child(user.uid).updateChildValues(["password": password])
@@ -87,9 +87,9 @@ class DataService {
     
     func signUp(userData: [String:String], onSuccess: @escaping (_ user: User) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         guard let email = userData["email"], let pwd = userData["password"] else{return}
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         Auth.auth().createUser(withEmail: email, password: pwd, completion: { (result, error) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             if error == nil{
                 guard let user = result?.user else{return}
                 self.REF_USERS.child(user.uid).updateChildValues(userData)
@@ -142,9 +142,9 @@ class DataService {
     
     func getPosts(onSuccess: @escaping (_ posts: [Post]?) -> Void) {
         var posts = [Post]()
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         REF_POST.observeSingleEvent(of: .value, with: { (snapshot) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
                 for snap in snapshot{
                     if let postDict = snap.value as? Dictionary<String,AnyObject>{
@@ -181,9 +181,9 @@ class DataService {
     }
     
     func resetPassword(email: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void ){
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             if error == nil{
                 onSuccess()
             }else{
@@ -194,9 +194,9 @@ class DataService {
     
     func updateProfile(userData: [String:Any], onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void ){
         guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else {return}
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         DataService.db.REF_USERS.child(uid).updateChildValues(userData, withCompletionBlock: { (error, result) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             if error == nil{
                 onSuccess()
             }else{
@@ -207,9 +207,9 @@ class DataService {
     
     func updatePassword(password: String, onSuccess: @escaping () -> Void, onError: @escaping (_ errorMessage: String) -> Void ){
         guard let uid = UserDefaults.standard.string(forKey: KEY_UID) else {return}
-        ProgressHUD.show()
+        self.showLoadingIndicator()
         Auth.auth().currentUser?.updatePassword(to: password, completion: { (error) in
-            ProgressHUD.dismiss()
+            self.hideLoadingIndicator()
             if error == nil{
                 DataService.db.REF_USERS.child(uid).updateChildValues(["password": password])
                 onSuccess()
