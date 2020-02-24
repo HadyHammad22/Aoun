@@ -159,6 +159,26 @@ class DataService: BaseViewController {
         })
     }
     
+    func getMessages(onSuccess: @escaping (_ posts: [String:Any]?) -> Void) {
+        var messagesDictionary = [String:Any]()
+        guard let uid = Auth.auth().currentUser?.uid else{return}
+        self.showLoadingIndicator()
+        DataService.db.REF_USER_MESSAGES.child(uid).observe(.childAdded, with: { (snapshot)in
+            DataService.db.REF_USER_MESSAGES.child(uid).child(snapshot.key).observe(.childAdded, with: { (snapshot)in
+                DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot)in
+                    self.hideLoadingIndicator()
+                    if let dict = snapshot.value as? Dictionary<String,Any>{
+                        let msg = Message(msg: dict)
+                        if let id = msg.partnerID(){
+                            messagesDictionary[id] = msg
+                        }
+                        onSuccess(messagesDictionary)
+                    }
+                })
+            })
+        })
+    }
+    
     func uploadPDF(url: URL,  onSuccess: @escaping (_ url: String) -> Void, onError: @escaping (_ errorMessage: String) -> Void) {
         do{
             let data = try Data.init(contentsOf: url)
@@ -187,7 +207,9 @@ class DataService: BaseViewController {
             if error == nil{
                 onSuccess()
             }else{
-                onError(error!.localizedDescription)
+                if let errorMessage = error?.localizedDescription {
+                    onError(errorMessage)
+                }
             }
         })
     }
@@ -200,7 +222,9 @@ class DataService: BaseViewController {
             if error == nil{
                 onSuccess()
             }else{
-                onError(error!.localizedDescription)
+                if let errorMessage = error?.localizedDescription {
+                    onError(errorMessage)
+                }
             }
         })
     }
@@ -214,7 +238,9 @@ class DataService: BaseViewController {
                 DataService.db.REF_USERS.child(uid).updateChildValues(["password": password])
                 onSuccess()
             }else{
-                onError(error!.localizedDescription)
+                if let errorMessage = error?.localizedDescription {
+                    onError(errorMessage)
+                }
             }
         })
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+
 class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,23 +18,18 @@ class MessagesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.isHidden = true
         observeUserMessages()
     }
     
-    func observeUserMessages(){
-        guard let uid = Auth.auth().currentUser?.uid else{return}
-        DataService.db.REF_USER_MESSAGES.child(uid).observe(.childAdded, with: { (snapshot)in
-            DataService.db.REF_USER_MESSAGES.child(uid).child(snapshot.key).observe(.childAdded, with: { (snapshot)in
-                DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot)in
-                    if let dict = snapshot.value as? Dictionary<String,Any>{
-                        let msg = Message(msg: dict)
-                        if let id = msg.partnerID(){
-                            self.messagesDictionary[id] = msg
-                        }
-                        self.attemptReloadOfTable()
-                    }
-                })
-            })
+    func observeUserMessages() {
+        DataService.db.getMessages(onSuccess: { (messagesDictionary) in
+            guard let messagesDict = messagesDictionary else{return}
+            if !(messagesDict.isEmpty){
+                self.tableView.isHidden = false
+                self.messagesDictionary = messagesDict
+                self.attemptReloadOfTable()
+            }
         })
     }
     
