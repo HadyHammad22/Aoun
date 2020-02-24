@@ -43,7 +43,7 @@ class ProfileVC: BaseViewController {
     
     // MARK :- SetupUI
     func setupComponents(){
-        passwordView.addBorderWith(width: 1, color: .borderColor)
+        passwordView.addBorderWith(width: 1.5, color: .borderColor)
         passwordView.addCornerRadius(20)
         saveBtn.addBtnCornerRadius(22)
         saveBtn.addBtnNormalShadow()
@@ -102,11 +102,11 @@ class ProfileVC: BaseViewController {
         passwordTxtField.isUserInteractionEnabled = true
         imageEditBtn.isUserInteractionEnabled = true
         passwordVisibilityBtn.isUserInteractionEnabled = true
-        nameTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
-        emailTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
-        phoneTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
-        cityTxtField.addBorderWith(width: 1, color: .selectedBorderColor)
-        passwordView.addBorderWith(width: 1, color: .selectedBorderColor)
+        nameTxtField.addBorderWith(width: 1.5, color: .selectedBorderColor)
+        emailTxtField.addBorderWith(width: 1.5, color: .selectedBorderColor)
+        phoneTxtField.addBorderWith(width: 1.5, color: .selectedBorderColor)
+        cityTxtField.addBorderWith(width: 1.5, color: .selectedBorderColor)
+        passwordView.addBorderWith(width: 1.5, color: .selectedBorderColor)
     }
     
     func interactionDisable() {
@@ -118,11 +118,11 @@ class ProfileVC: BaseViewController {
         passwordTxtField.isUserInteractionEnabled = false
         imageEditBtn.isUserInteractionEnabled = false
         passwordVisibilityBtn.isUserInteractionEnabled = false
-        nameTxtField.addBorderWith(width: 1, color: .borderColor)
-        emailTxtField.addBorderWith(width: 1, color: .borderColor)
-        phoneTxtField.addBorderWith(width: 1, color: .borderColor)
-        cityTxtField.addBorderWith(width: 1, color: .borderColor)
-        passwordView.addBorderWith(width: 1, color: .borderColor)
+        nameTxtField.addBorderWith(width: 1.5, color: .borderColor)
+        emailTxtField.addBorderWith(width: 1.5, color: .borderColor)
+        phoneTxtField.addBorderWith(width: 1.5, color: .borderColor)
+        cityTxtField.addBorderWith(width: 1.5, color: .borderColor)
+        passwordView.addBorderWith(width: 1.5, color: .borderColor)
     }
     
     @IBAction func buPasswordVisibility(_ sender: Any) {

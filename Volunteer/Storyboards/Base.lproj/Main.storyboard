@@ -67,7 +67,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -92,7 +92,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -117,7 +117,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,7 +142,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -244,7 +244,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="81c-7H-rgS" firstAttribute="top" secondItem="Um9-ef-q1q" secondAttribute="bottom" constant="16" id="4YP-U0-dpo"/>
                                             <constraint firstItem="NWd-cZ-wxo" firstAttribute="centerX" secondItem="xZR-s3-VdC" secondAttribute="centerX" id="Ooe-NK-T8Y"/>
@@ -265,7 +265,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xZR-s3-VdC" secondAttribute="trailing" id="Pgb-bU-jFa"/>
                                     <constraint firstAttribute="bottom" secondItem="xZR-s3-VdC" secondAttribute="bottom" id="ROh-a8-eAB"/>
@@ -543,14 +543,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="156.5" height="45"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="IFS-1O-m8d">
-                                                                <rect key="frame" x="16" y="12.5" width="20" height="20"/>
+                                                                <rect key="frame" x="27" y="12.5" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="20" id="D2a-iu-mBb"/>
                                                                     <constraint firstAttribute="height" constant="20" id="hqR-kj-YOn"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzf-lH-omH">
-                                                                <rect key="frame" x="41" y="14.5" width="62.5" height="16.5"/>
+                                                                <rect key="frame" x="52" y="14.5" width="62.5" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -558,7 +558,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstItem="IFS-1O-m8d" firstAttribute="leading" secondItem="qUZ-Hx-c3c" secondAttribute="leading" constant="16" id="3xy-Cl-6Ab"/>
+                                                            <constraint firstItem="jzf-lH-omH" firstAttribute="centerX" secondItem="qUZ-Hx-c3c" secondAttribute="centerX" constant="5" id="Ap3-nX-wkr"/>
                                                             <constraint firstItem="IFS-1O-m8d" firstAttribute="centerY" secondItem="qUZ-Hx-c3c" secondAttribute="centerY" id="Jlb-5O-2A8"/>
                                                             <constraint firstItem="jzf-lH-omH" firstAttribute="leading" secondItem="IFS-1O-m8d" secondAttribute="trailing" constant="5" id="bHU-Az-cIM"/>
                                                             <constraint firstItem="jzf-lH-omH" firstAttribute="centerY" secondItem="IFS-1O-m8d" secondAttribute="centerY" id="bTK-hG-bcb"/>
@@ -570,14 +570,14 @@
                                                         <rect key="frame" x="186.5" y="0.0" width="156.5" height="45"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send" translatesAutoresizingMaskIntoConstraints="NO" id="QY0-bg-uBF">
-                                                                <rect key="frame" x="8" y="12.5" width="20" height="20"/>
+                                                                <rect key="frame" x="28" y="12.5" width="20" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="20" id="AOw-Dd-D0J"/>
                                                                     <constraint firstAttribute="height" constant="20" id="PkI-kA-hFU"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RJ-UX-fzd">
-                                                                <rect key="frame" x="31" y="14.5" width="81.5" height="16.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RJ-UX-fzd">
+                                                                <rect key="frame" x="53" y="14.5" width="61" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -586,9 +586,9 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="51X-th-aoF"/>
-                                                            <constraint firstItem="2RJ-UX-fzd" firstAttribute="leading" secondItem="QY0-bg-uBF" secondAttribute="trailing" constant="3" id="BI4-Wx-mK7"/>
+                                                            <constraint firstItem="2RJ-UX-fzd" firstAttribute="leading" secondItem="QY0-bg-uBF" secondAttribute="trailing" constant="5" id="BI4-Wx-mK7"/>
                                                             <constraint firstItem="QY0-bg-uBF" firstAttribute="centerY" secondItem="Emj-gu-ikE" secondAttribute="centerY" id="R02-u0-7Nw"/>
-                                                            <constraint firstItem="QY0-bg-uBF" firstAttribute="leading" secondItem="Emj-gu-ikE" secondAttribute="leading" constant="8" id="cvg-Du-e31"/>
+                                                            <constraint firstItem="2RJ-UX-fzd" firstAttribute="centerX" secondItem="Emj-gu-ikE" secondAttribute="centerX" constant="5" id="dFx-Zk-n47"/>
                                                             <constraint firstItem="2RJ-UX-fzd" firstAttribute="centerY" secondItem="QY0-bg-uBF" secondAttribute="centerY" id="wDf-pc-n38"/>
                                                         </constraints>
                                                     </view>
@@ -1228,7 +1228,7 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <real key="value" value="1.5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1295,7 +1295,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.93567232239999998" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Gth-Cr-svr" firstAttribute="leading" secondItem="swk-Fd-xWi" secondAttribute="leading" id="2lb-dy-DR3"/>
                             <constraint firstItem="i1B-NQ-jTY" firstAttribute="top" secondItem="Gth-Cr-svr" secondAttribute="bottom" constant="50" id="4Ao-bF-TPY"/>
@@ -1377,7 +1377,7 @@
                                         <real key="value" value="1.5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
@@ -1406,7 +1406,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eRo-cF-Ech" firstAttribute="top" secondItem="0fD-Ib-Eg0" secondAttribute="bottom" constant="50" id="A16-8r-8co"/>
                             <constraint firstItem="0fD-Ib-Eg0" firstAttribute="leading" secondItem="x9N-WM-8Kf" secondAttribute="leading" id="B5g-Cd-TnP"/>
@@ -1844,7 +1844,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1869,7 +1869,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1894,7 +1894,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1919,7 +1919,7 @@
                                                                 <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="1"/>
+                                                                <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                                 <color key="value" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
