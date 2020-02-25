@@ -131,13 +131,13 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
             return}
         if let pdfURL = self.pdfURL {
             DataService.db.uploadPDF(url: pdfURL, onSuccess: { pdfURL in
-                let post: [String:Any] = ["Id": id,
-                                          "donationType": donationType,
-                                          "Text": postText,
-                                          "ImageUrl": imageURL,
-                                          "PDFURL": pdfURL,
+                let post: [String:Any] = ["userID": id,
+                                          "type": donationType,
+                                          "text": postText,
+                                          "imageUrl": imageURL,
+                                          "pdfURL": pdfURL,
                                           "timestamp": [".sv": "timestamp"],
-                                          "Likes": 0]
+                                          "likes": 0]
                 DataService.db.REF_POST.childByAutoId().setValue(post)
                 self.successPostUpload()
             }, onError: { errorMessage in
@@ -145,12 +145,12 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
                 self.showAlertError(title: errorMessage)
             })
         }else{
-            let post: [String:Any] = ["Id": id,
-                                      "donationType": donationType,
-                                      "Text": postText,
-                                      "ImageUrl": imageURL,
+            let post: [String:Any] = ["userID": id,
+                                      "type": donationType,
+                                      "text": postText,
+                                      "imageUrl": imageURL,
                                       "timestamp": [".sv":"timestamp"],
-                                      "Likes":0]
+                                      "likes":0]
             DataService.db.REF_POST.childByAutoId().setValue(post)
             self.successPostUpload()
         }

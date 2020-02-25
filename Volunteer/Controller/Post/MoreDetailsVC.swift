@@ -28,6 +28,7 @@ class MoreDetailsVC: UIViewController {
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var userLocationLbl: UILabel!
     @IBOutlet weak var callImage: UIImageView!
+    @IBOutlet weak var backBtn: UIButton!
     
     // MARK :- Instance Variables
     var post:Post?
@@ -45,6 +46,10 @@ class MoreDetailsVC: UIViewController {
     
     // MARK :- SetupUI
     func setupComponents(){
+        let origImage = UIImage(named: "arrow_back")
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        backBtn.setImage(tintedImage, for: .normal)
+        backBtn.tintColor = .selectedBorderColor
         callView.addCornerRadius(22)
         sendMessageView.addCornerRadius(22)
         userImage.layer.cornerRadius = userImage.frame.height / 2
@@ -53,6 +58,11 @@ class MoreDetailsVC: UIViewController {
         callView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(makeCall)))
         sendMessageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(sendMessage)))
         changeImageTint()
+        guard let uid = Auth.auth().currentUser?.uid, let postOwnerID = post?.userID else{return}
+        if uid == postOwnerID {
+            callView.isUserInteractionEnabled = false
+            sendMessageView.isUserInteractionEnabled = false
+        }
     }
     
     func changeImageTint() {
@@ -63,7 +73,7 @@ class MoreDetailsVC: UIViewController {
     }
     func setupUI(){
         DispatchQueue.main.async {
-            guard let post = self.post else {return}
+            guard let post = self.post, let uid = post.userID else{return}
             self.postImage.setImage(imageUrl: post.imgUrl!)
             self.postText.text = post.postText!
             self.postTextHeight.constant = self.postText.contentSize.height
@@ -72,7 +82,7 @@ class MoreDetailsVC: UIViewController {
             }else{
                 self.attachmentBtn.isHidden = true
             }
-            DataService.db.getUserWithId(id: post.id!, completion: { (user) in
+            DataService.db.getUserWithId(id: uid, completion: { (user) in
                 self.userNameLbl.text = user?.name
                 self.userLocationLbl.text = user?.city
             })
@@ -85,8 +95,8 @@ class MoreDetailsVC: UIViewController {
     }
     
     @objc func makeCall(){
-        guard let post = self.post else {return}
-        DataService.db.getUserWithId(id: post.id!, completion: { (user) in
+        guard let post = self.post, let uid = post.userID else{return}
+        DataService.db.getUserWithId(id: uid, completion: { (user) in
             guard let user = user else {return}
             print(user.phone)
             guard let url = URL(string: "telprompt://\(user.phone)") else {return}
@@ -95,9 +105,9 @@ class MoreDetailsVC: UIViewController {
     }
     
     @objc func sendMessage(){
-        guard let post = self.post else {return}
+        guard let post = self.post, let uid = post.userID else{return}
         let chatVC = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
-        chatVC.postOwnerID = post.id!
+        chatVC.postOwnerID = uid
         let nav = UINavigationController(rootViewController: chatVC)
         self.present(nav, animated: true, completion: nil)
     }

@@ -49,7 +49,8 @@ class HomeCell: UITableViewCell {
         self.donationTypeLbl.text = post.type!
         self.postImageView.setImage(imageUrl: post.imgUrl!)
         self.postTimeLbl.text = post.createdAt?.calendarTimeSinceNow()
-        DataService.db.getUserWithId(id: post.id!, completion: { (user) in
+        guard let uid = post.userID else{return}
+        DataService.db.getUserWithId(id: uid, completion: { (user) in
             self.userNameLbl.text = user?.name
         })
         setupLikes()

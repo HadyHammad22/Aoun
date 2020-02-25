@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 struct Post{
-    var id:String?
+    var userID:String?
     var imgUrl:String?
     var pdfUrl:String?
     var postText:String?
@@ -20,12 +20,12 @@ struct Post{
     
     init(postKey: String, post: Dictionary<String,Any>) {
         self.postKey = postKey
-        self.id = post["Id"] as? String
-        self.type = post["donationType"] as? String
-        self.imgUrl = post["ImageUrl"] as? String
-        self.pdfUrl = post["PDFURL"] as? String
-        self.postText = post["Text"] as? String
-        self.likes = post["Likes"] as? Int
+        self.userID = post["userID"] as? String
+        self.type = post["type"] as? String
+        self.imgUrl = post["imageUrl"] as? String
+        self.pdfUrl = post["pdfURL"] as? String
+        self.postText = post["text"] as? String
+        self.likes = post["likes"] as? Int
         if let timestamp = post["timestamp"] as? Double{
             self.createdAt = Date(timeIntervalSince1970: timestamp / 1000)
         }
@@ -37,6 +37,6 @@ struct Post{
         }else{
             likes = likes! - 1
         }
-        DataService.db.REF_POST.child(postKey!).child("Likes").setValue(likes)
+        DataService.db.REF_POST.child(postKey!).child("likes").setValue(likes)
     }
 }
