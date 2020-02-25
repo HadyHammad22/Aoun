@@ -34,7 +34,6 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     // MARK :- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(ServerValue.timestamp())
         setupComponents()
     }
     
@@ -109,25 +108,27 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
             let imgId = NSUUID().uuidString
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
+            self.showLoadingIndicator()
             DataService.db.REF_POST_IMAGE.child(imgId).putData(img, metadata: metaData, completion: { (metadata,error) in
                 if error != nil{
+                    self.hideLoadingIndicator()
                     self.showAlertWiring(title: "Faild to upload post")
                 }else{
                     DataService.db.REF_POST_IMAGE.child(imgId).downloadURL(completion: { (url,error) in
-                        guard let imgURL = url?.absoluteString else{return}
+                        guard let imgURL = url?.absoluteString else{
+                            self.hideLoadingIndicator()
+                            return}
                         self.uploadWithPDF(imageURL: imgURL, donationType: donationType, postText: postText)
                     })
                 }
-            }).observe(.progress, handler: { (snapshot) in
-                let num = snapshot.progress!.fractionCompleted
-                let y = Double(round(100*num)/100)
-                print("\(Int(y*100))%")
             })
         }
     }
     
     func uploadWithPDF(imageURL: String, donationType: String, postText: String) {
-        guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{return}
+        guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{
+            self.hideLoadingIndicator()
+            return}
         if let pdfURL = self.pdfURL {
             DataService.db.uploadPDF(url: pdfURL, onSuccess: { pdfURL in
                 let post: [String:Any] = ["Id": id,
@@ -140,6 +141,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
                 DataService.db.REF_POST.childByAutoId().setValue(post)
                 self.successPostUpload()
             }, onError: { errorMessage in
+                self.hideLoadingIndicator()
                 self.showAlertError(title: errorMessage)
             })
         }else{
@@ -155,6 +157,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     }
     
     func successPostUpload(){
+        self.hideLoadingIndicator()
         let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
         self.present(home, animated: true, completion: nil)
         self.showAlertsuccess(title: "Post Sent Successfully")
