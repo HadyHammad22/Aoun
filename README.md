@@ -5,10 +5,7 @@ Using Aoun the user could asking for help by creating account then make post by 
 - Used SWReveal Pod for side menu.
 - Support chat feature.
 - Used version control (githup).
-- Used MOLH to make the app support both Arabic and English languages
-
-# Chat Messages Log
-<img src="https://user-images.githubusercontent.com/53533148/75497321-c12b2800-5978-11ea-9bed-66b656b52c8d.png" width="350" height="600">
+- Used MOLH to make the app support both Arabic and English languages.
 
 # SignUp
 <img src="https://user-images.githubusercontent.com/53533148/75496382-d3f02d80-5975-11ea-8381-46246ba21e35.png" width="350" height="600">
@@ -31,8 +28,11 @@ Using Aoun the user could asking for help by creating account then make post by 
 # Profile
 <img src="https://user-images.githubusercontent.com/53533148/75497243-845f3100-5978-11ea-9994-7a506c27c631.png" width="350" height="600">
 
+# Make Post
+<img src="https://user-images.githubusercontent.com/53533148/75497411-02bbd300-5979-11ea-897a-876c2ef879b1.png" width="350" height="600">
+
+# Chat Messages Log
+<img src="https://user-images.githubusercontent.com/53533148/75497321-c12b2800-5978-11ea-9bed-66b656b52c8d.png" width="350" height="600">
+
 # Charity Organizations
 <img src="https://user-images.githubusercontent.com/53533148/75496860-4ca3b980-5977-11ea-9b5b-d4927814cff9.png" width="350" height="600">
-
-# Loading Indicator
-<img src="https://user-images.githubusercontent.com/53533148/75495879-7a3b3380-5974-11ea-9f25-9b82a53e576d.png" width="350" height="600">
