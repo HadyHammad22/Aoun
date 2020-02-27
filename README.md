@@ -25,6 +25,9 @@ Using Aoun the user could asking for help by creating account then make post by 
 # Side Menu
 <img src="https://user-images.githubusercontent.com/53533148/75496705-dacb7000-5976-11ea-992f-6a92905afcfc.png" width="350" height="600">
 
+# Profile
+<img src="https://user-images.githubusercontent.com/53533148/75497243-845f3100-5978-11ea-9994-7a506c27c631.png" width="350" height="600">
+
 # Charity Organizations
 <img src="https://user-images.githubusercontent.com/53533148/75496860-4ca3b980-5977-11ea-9b5b-d4927814cff9.png" width="350" height="600">
 
