@@ -5,3 +5,6 @@ Using Aoun the user could asking for help by creating account then make post by 
 - Support chat feature.
 - Used version control (githup).
 - Used MOLH to make the app support both Arabic and English languages
+
+# Loading Indicator
+<img src="https://user-images.githubusercontent.com/53533148/75495879-7a3b3380-5974-11ea-9f25-9b82a53e576d.png" width="300" height="600">
