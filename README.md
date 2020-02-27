@@ -18,5 +18,8 @@ Using Aoun the user could asking for help by creating account then make post by 
 # Home
 <img src="https://user-images.githubusercontent.com/53533148/75496625-98099800-5976-11ea-9f9e-80132b226ebf.png" width="350" height="600">
 
+# Side Menu
+<img src="https://user-images.githubusercontent.com/53533148/75496705-dacb7000-5976-11ea-992f-6a92905afcfc.png" width="350" height="600">
+
 # Loading Indicator
 <img src="https://user-images.githubusercontent.com/53533148/75495879-7a3b3380-5974-11ea-9f25-9b82a53e576d.png" width="350" height="600">
