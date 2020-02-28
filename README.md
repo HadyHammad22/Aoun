@@ -8,7 +8,7 @@ Using Aoun the user could asking for help by creating account then make post by 
 - Used MOLH to make the app support both Arabic and English languages.
 
 # SignUp
-<img src="https://user-images.githubusercontent.com/53533148/75496382-d3f02d80-5975-11ea-8381-46246ba21e35.png" width="350" height="600">
+<img src="https://user-images.githubusercontent.com/53533148/75551880-f91e8380-59e9-11ea-82e2-959d84232fae.png" width="350" height="600">
 
 # Login
 <img src="https://user-images.githubusercontent.com/53533148/75496506-35180100-5976-11ea-863e-e7977b86dd4d.png" width="350" height="600">
