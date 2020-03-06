@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Volunteer
+
+  Created by Hady Hammad on 3/6/20.
+  Copyright © 2020 Hady Hammad. All rights reserved.
+*/
+
+"Register success"   = "Register success";
+"Register faild"     = "Register faild";
+"Login success"      = "Login success";
+"Reset faild"        = "Reset faild";
+"Please enter name"  = "Please enter name";
+"Please enter phone" = "Please enter phone";
+"Please enter city"  = "Please enter city";
+"Please enter email" = "Please enter email";
+"Enter valid email"  = "Enter valid email";
+"Post sent success"  = "Post sent success";
+"Update success"     = "Update success";
+"Update faild"       = "Update faild";
+"Faild to upload post"   = "Faild to upload post";
+"Image must be selected" = "Image must be selected";
+"Please enter the text"  = "Please enter the text";
+"Please enter password"  = "Please enter password";
+"Please check your email inbox" = "Please check your email inbox";
+"Please select donation type"   = "Please select donation type";
+"Check your email or password"  = "Check your email or password";

@@ -67,13 +67,13 @@ class SignUpVC: BaseViewController {
             DataService.db.signUp(userData: userData, onSuccess: { (user) in
                 self.successCreated(user: user)
             }, onError: { (errorMessage) in
-                self.showAlertError(title: errorMessage)
+                self.showAlertError(title: "Register faild".localized)
             })
         }
     }
     
     func successCreated(user: User) {
-        self.showAlertsuccess(title: "Sign up success")
+        self.showAlertsuccess(title: "Register success".localized)
         UserDefaults.standard.set(user.uid, forKey: KEY_UID)
         self.finishEnterData()
         self.present(MainTabBar.instance(), animated: true, completion: nil)
@@ -98,17 +98,17 @@ class SignUpVC: BaseViewController {
     // MARK :- validations
     func validData() -> Bool {
         if nameTxtField.text! == ""{
-            self.showAlertError(title: "Please enter the name")
+            self.showAlertError(title: "Please enter name".localized)
             return false
         }
         
         if phoneTxtField.text! == ""{
-            self.showAlertError(title: "Please enter the phone")
+            self.showAlertError(title: "Please enter phone".localized)
             return false
         }
         
         if cityTxtField.text! == ""{
-            self.showAlertError(title: "Please enter the city")
+            self.showAlertError(title: "Please enter city".localized)
             return false
         }
         

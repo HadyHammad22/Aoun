@@ -37,10 +37,10 @@ class ResetPasswordVC: BaseViewController {
     @IBAction func buResetPassword(_ sender: Any) {
         if validData() {
             DataService.db.resetPassword(email: emailTxtField.text!, onSuccess: {
-                self.showAlertsuccess(title: "please check your email inbox")
+                self.showAlertsuccess(title: "Please check your email inbox".localized)
                 self.dismiss(animated: true, completion: nil)
             }, onError: { (errorMessage) in
-                self.showAlertError(title: errorMessage)
+                self.showAlertError(title: "Reset faild".localized)
             })
         }
     }
@@ -51,11 +51,11 @@ class ResetPasswordVC: BaseViewController {
 
     func validData() -> Bool{
         if emailTxtField.text!.isEmpty{
-            self.showAlertWiring(title: "Please enter email")
+            self.showAlertError(title: "Please enter email".localized)
             return false
         }
         if !(emailTxtField.text!.isValidEmail){
-            self.showAlertWiring(title: "Enter valid email")
+            self.showAlertError(title: "Enter valid email".localized)
             return false
         }
         return true

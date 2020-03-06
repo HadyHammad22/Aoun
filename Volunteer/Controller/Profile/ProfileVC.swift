@@ -73,7 +73,7 @@ class ProfileVC: BaseViewController {
     
     // MARK :- Save
     @IBAction func buSave(_ sender: Any) {
-        if saveBtn.title(for: .normal) == "Edit" {
+        if saveBtn.title(for: .normal) == "Edit" || saveBtn.title(for: .normal) == "تعديل" {
             interactionEnable()
         }else{
             guard let email = emailTxtField.text,
@@ -84,17 +84,21 @@ class ProfileVC: BaseViewController {
             
             let userData = ["name": name, "email": email, "password": pwd, "phone": phone, "city": city]
             DataService.db.updateProfile(userData: userData, onSuccess: {
-                self.showAlertsuccess(title: "Update success")
+                self.showAlertsuccess(title: "Update success".localized)
                 self.interactionDisable()
             }, onError: { (errorMessage) in
                 print(errorMessage)
-                self.showAlertWiring(title: "Update faild")
+                self.showAlertWiring(title: "Update faild".localized)
             })
         }
     }
     
     func interactionEnable() {
-        saveBtn.setTitle("Save", for: .normal)
+        if Language.currentLanguage == .arabic{
+            saveBtn.setTitle("حفظ", for: .normal)
+        }else{
+            saveBtn.setTitle("Save", for: .normal)
+        }
         nameTxtField.isUserInteractionEnabled = true
         emailTxtField.isUserInteractionEnabled = true
         phoneTxtField.isUserInteractionEnabled = true
@@ -110,7 +114,11 @@ class ProfileVC: BaseViewController {
     }
     
     func interactionDisable() {
-        saveBtn.setTitle("Edit", for: .normal)
+        if Language.currentLanguage == .arabic{
+            saveBtn.setTitle("تعديل", for: .normal)
+        }else{
+            saveBtn.setTitle("Edit", for: .normal)
+        }
         nameTxtField.isUserInteractionEnabled = false
         emailTxtField.isUserInteractionEnabled = false
         phoneTxtField.isUserInteractionEnabled = false

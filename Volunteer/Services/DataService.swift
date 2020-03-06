@@ -20,7 +20,7 @@ class DataService: BaseViewController {
     let _REF_POST = DB_BASE.child("post")
     let _REF_MESSAGES = DB_BASE.child("messages")
     let _REF_USER_MESSAGES = DB_BASE.child("user-messages")
-    let _NOTIFICATION = DB_BASE.child("notification")
+    let _DONATION_TYPES = DB_BASE.child("donation-types")
     
     //Storage_References
     let _REF_POST_IMAGE = STORAGE_BASE.child("post-pics")
@@ -53,8 +53,8 @@ class DataService: BaseViewController {
         return user
     }
     
-    var NOTIFICATION:DatabaseReference{
-        return _NOTIFICATION
+    var DONATION_TYPES:DatabaseReference{
+        return _DONATION_TYPES
     }
     
     var REF_POST_IMAGE: StorageReference{
@@ -159,14 +159,29 @@ class DataService: BaseViewController {
         })
     }
     
+    func getDonationTypes(onSuccess: @escaping (_ posts: [DonationType]?) -> Void) {
+        var donationArray = [DonationType]()
+        self.showLoadingIndicator()
+        DONATION_TYPES.observeSingleEvent(of: .value, with: { (snapshot) in
+            self.hideLoadingIndicator()
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                for snap in snapshot{
+                    if let dict = snap.value as? Dictionary<String,AnyObject>{
+                        let type = DonationType(id: Int(snap.key)!, DonationType: dict)
+                        donationArray.append(type)
+                    }
+                }
+            }
+            onSuccess(donationArray)
+        })
+    }
+    
     func getMessages(onSuccess: @escaping (_ posts: [String:Any]?) -> Void) {
         var messagesDictionary = [String:Any]()
         guard let uid = Auth.auth().currentUser?.uid else{return}
-        self.showLoadingIndicator()
-        DataService.db.REF_USER_MESSAGES.child(uid).observe(.childAdded, with: { (snapshot)in
-            DataService.db.REF_USER_MESSAGES.child(uid).child(snapshot.key).observe(.childAdded, with: { (snapshot)in
-                DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot)in
-                    self.hideLoadingIndicator()
+        DataService.db.REF_USER_MESSAGES.child(uid).observe(.childAdded, with: { (snapshot) in
+            DataService.db.REF_USER_MESSAGES.child(uid).child(snapshot.key).observe(.childAdded, with: { (snapshot) in
+                DataService.db.REF_MESSAGES.child(snapshot.key).observe(.value, with: { (snapshot) in
                     if let dict = snapshot.value as? Dictionary<String,Any>{
                         let msg = Message(msg: dict)
                         if let id = msg.partnerID(){

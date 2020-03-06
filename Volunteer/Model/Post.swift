@@ -9,19 +9,25 @@
 import Foundation
 import Firebase
 struct Post{
-    var userID:String?
-    var imgUrl:String?
-    var pdfUrl:String?
-    var postText:String?
-    var likes:Int?
-    var type:String?
-    var createdAt:Date?
-    var postKey:String?
+    var userID: String?
+    var imgUrl: String?
+    var pdfUrl: String?
+    var postText: String?
+    var likes: Int?
+    var donationType: String?
+    var arabicDonationType: String?
+    var createdAt: Date?
+    var postKey: String?
     
     init(postKey: String, post: Dictionary<String,Any>) {
         self.postKey = postKey
         self.userID = post["userID"] as? String
-        self.type = post["type"] as? String
+        if let donationType = post["donationType"] as? [String:Any] {
+            guard let type = donationType["type"] as? String else{return}
+            guard let arabicType = donationType["arabicType"] as? String else{return}
+            self.donationType = type
+            self.arabicDonationType = arabicType
+        }
         self.imgUrl = post["imageUrl"] as? String
         self.pdfUrl = post["pdfURL"] as? String
         self.postText = post["text"] as? String

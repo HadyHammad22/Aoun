@@ -25,16 +25,19 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     @IBOutlet weak var postBtn: UIButton!
     
     // MARK :- Instance Variables
-    var donationTypes = ["Bloods","Money","Clothes","Food","Others"]
     var imagePicker:UIImagePickerController!
     var effect:UIVisualEffect!
-    var type:String?
+    var type:DonationType?
     var pdfURL:URL?
+    var donationTypesArray:[DonationType]?
     
     // MARK :- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupComponents()
+        DataService.db.getDonationTypes(onSuccess: { arr in
+            self.donationTypesArray = arr
+        })
     }
     
     // MARK :- SetupUI
@@ -71,7 +74,6 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             postImage.image = image
-            self.showAlertsuccess(title: "Image added success")
         }
         imagePicker.dismiss(animated: true, completion: nil)
     }
@@ -90,17 +92,17 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     
     @IBAction func buPost(_ sender: Any) {
         guard let postImage = postImage.image else{
-            self.showAlertWiring(title: "Image must be selected")
+            self.showAlertWiring(title: "Image must be selected".localized)
             return
         }
         
         guard let postText = postText.text, postText != "" else{
-            self.showAlertWiring(title: "Please enter the text")
+            self.showAlertWiring(title: "Please enter the text".localized)
             return
         }
         
-        guard let donationType = type, donationType != "" else{
-            self.showAlertWiring(title: "Please select donation type")
+        guard let donationType = type else{
+            self.showAlertWiring(title: "Please select donation type".localized)
             return
         }
         
@@ -112,7 +114,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
             DataService.db.REF_POST_IMAGE.child(imgId).putData(img, metadata: metaData, completion: { (metadata,error) in
                 if error != nil{
                     self.hideLoadingIndicator()
-                    self.showAlertWiring(title: "Faild to upload post")
+                    self.showAlertWiring(title: "Faild to upload post".localized)
                 }else{
                     DataService.db.REF_POST_IMAGE.child(imgId).downloadURL(completion: { (url,error) in
                         guard let imgURL = url?.absoluteString else{
@@ -125,14 +127,14 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
         }
     }
     
-    func uploadWithPDF(imageURL: String, donationType: String, postText: String) {
+    func uploadWithPDF(imageURL: String, donationType: DonationType, postText: String) {
         guard let id = UserDefaults.standard.string(forKey: KEY_UID) else{
             self.hideLoadingIndicator()
             return}
         if let pdfURL = self.pdfURL {
             DataService.db.uploadPDF(url: pdfURL, onSuccess: { pdfURL in
                 let post: [String:Any] = ["userID": id,
-                                          "type": donationType,
+                                          "donationType": ["id": donationType.id!, "type": donationType.type!, "arabicType": donationType.arabicType!],
                                           "text": postText,
                                           "imageUrl": imageURL,
                                           "pdfURL": pdfURL,
@@ -146,7 +148,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
             })
         }else{
             let post: [String:Any] = ["userID": id,
-                                      "type": donationType,
+                                      "donationType": ["id": donationType.id!, "type": donationType.type!, "arabicType": donationType.arabicType!],
                                       "text": postText,
                                       "imageUrl": imageURL,
                                       "timestamp": [".sv":"timestamp"],
@@ -159,7 +161,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     func successPostUpload(){
         self.hideLoadingIndicator()
         self.present(MainTabBar.instance(), animated: true, completion: nil)
-        self.showAlertsuccess(title: "Post Sent Successfully")
+        self.showAlertsuccess(title: "Post sent success".localized)
     }
     
     // MARK :- Pop Up Views
@@ -196,15 +198,27 @@ extension MakePostVC:UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return donationTypes.count
+        guard let count = donationTypesArray?.count else{return 0}
+        return count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return donationTypes[row]
+        guard let arabicType = donationTypesArray?[row].arabicType, let type = donationTypesArray?[row].type else{return ""}
+        if Language.currentLanguage == .arabic{
+            return arabicType
+        }else{
+            return type
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectTypeBtn.setTitle(donationTypes[row], for: .normal)
-        self.type = donationTypes[row]
+        guard let arabicType = donationTypesArray?[row].arabicType, let type = donationTypesArray?[row].type else{return}
+        if Language.currentLanguage == .arabic{
+            selectTypeBtn.setTitle(arabicType, for: .normal)
+            self.type = donationTypesArray?[row]
+        }else{
+            selectTypeBtn.setTitle(type, for: .normal)
+            self.type = donationTypesArray?[row]
+        }
         Hide_Map_View()
     }
 }

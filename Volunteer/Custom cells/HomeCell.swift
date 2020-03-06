@@ -46,7 +46,12 @@ class HomeCell: UITableViewCell {
         self.post = post
         likeRef = DataService.db.REF_CURRENT_USERS.child("likes").child(post.postKey!)
         self.postTextView.text = post.postText!
-        self.donationTypeLbl.text = post.type!
+        guard let type = post.donationType, let arabicType = post.arabicDonationType else{return}
+        if Language.currentLanguage == .english{
+            self.donationTypeLbl.text = type
+        }else{
+            self.donationTypeLbl.text = arabicType
+        }
         self.postImageView.setImage(imageUrl: post.imgUrl!)
         self.postTimeLbl.text = post.createdAt?.calendarTimeSinceNow()
         guard let uid = post.userID else{return}

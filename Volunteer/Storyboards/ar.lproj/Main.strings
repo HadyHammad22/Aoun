@@ -1,0 +1,156 @@
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "03b-ZZ-74O"; */
+"03b-ZZ-74O.title" = "Item";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "0Qu-U8-ryN"; */
+"0Qu-U8-ryN.text" = "نوع التبرع";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "1sf-ny-5Zx"; */
+"1sf-ny-5Zx.placeholder" = "البريد الالكتروني";
+
+/* Class = "UILabel"; text = "Open Chat"; ObjectID = "2RJ-UX-fzd"; */
+"2RJ-UX-fzd.text" = "فتح محادثة";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "4Lu-A2-806"; */
+"4Lu-A2-806.normalTitle" = "تسجيل حساب";
+
+/* Class = "UITextView"; text = "hello world!"; ObjectID = "56v-Ns-bPb"; */
+"56v-Ns-bPb.text" = "hello world!";
+
+/* Class = "UITextView"; text = "We are here to be honest and will be happyWe are here to be honest and will be happyWe are here to be honest and will be happy"; ObjectID = "63X-9x-XAE"; */
+"63X-9x-XAE.text" = "We are here to be honest and will be happyWe are here to be honest and will be happyWe are here to be honest and will be happy";
+
+/* Class = "UITextField"; placeholder = "Enter message..."; ObjectID = "9Bj-3z-VsF"; */
+"9Bj-3z-VsF.placeholder" = "ادخل رسالتك";
+
+/* Class = "UITextField"; placeholder = "Phone Number"; ObjectID = "BgI-EP-sKp"; */
+"BgI-EP-sKp.placeholder" = "رقم الهاتف";
+
+/* Class = "UIButton"; normalTitle = "Picture"; ObjectID = "DR4-WG-CG0"; */
+"DR4-WG-CG0.normalTitle" = "اختر صورة";
+
+/* Class = "UITextField"; placeholder = "City"; ObjectID = "Dr9-Wd-I4x"; */
+"Dr9-Wd-I4x.placeholder" = "المدينة";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "EDl-NI-qov"; */
+"EDl-NI-qov.title" = "رجوع";
+
+/* Class = "UIButton"; normalTitle = "Language"; ObjectID = "EKv-IG-2zR"; */
+"EKv-IG-2zR.normalTitle" = "اللغة";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "EMI-3I-jOR"; */
+"EMI-3I-jOR.placeholder" = "الاسم بالكامل";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "EY4-0g-Woc"; */
+"EY4-0g-Woc.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "Em3-Ma-ykg"; */
+"Em3-Ma-ykg.placeholder" = "البريد الالكتروني";
+
+/* Class = "UILabel"; text = "Blood"; ObjectID = "FYv-f1-EIJ"; */
+"FYv-f1-EIJ.text" = "Blood";
+
+/* Class = "UIButton"; normalTitle = "Charities"; ObjectID = "GgO-CO-44E"; */
+"GgO-CO-44E.normalTitle" = "المنظمات الخيرية";
+
+/* Class = "UIButton"; normalTitle = "Profile"; ObjectID = "I6I-IN-TrM"; */
+"I6I-IN-TrM.normalTitle" = "الملف الشخصي";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ISN-4L-aSg"; */
+"ISN-4L-aSg.placeholder" = "كلمة السر";
+
+/* Class = "UIButton"; normalTitle = "Forgot password?"; ObjectID = "JPE-Kl-D4e"; */
+"JPE-Kl-D4e.normalTitle" = "نسيت كلمة المرور؟";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "K0H-B5-lTk"; */
+"K0H-B5-lTk.placeholder" = "الاسم بالكامل";
+
+/* Class = "UITextField"; placeholder = "City"; ObjectID = "Ksd-Lc-q45"; */
+"Ksd-Lc-q45.placeholder" = "المدينة";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "KtZ-L1-moN"; */
+"KtZ-L1-moN.placeholder" = "كلمة السر";
+
+/* Class = "UIButton"; normalTitle = "RESET"; ObjectID = "OQR-Zv-yL3"; */
+"OQR-Zv-yL3.normalTitle" = "اعادة";
+
+/* Class = "UITextField"; placeholder = "Phone Number"; ObjectID = "PSr-n4-Xsf"; */
+"PSr-n4-Xsf.placeholder" = "رقم الهاتف";
+
+/* Class = "UIButton"; normalTitle = "Make Post"; ObjectID = "Qdu-hI-MyT"; */
+"Qdu-hI-MyT.normalTitle" = "كتابة منشور";
+
+/* Class = "UILabel"; text = "Ismailia"; ObjectID = "QsD-5w-vDu"; */
+"QsD-5w-vDu.text" = "Ismailia";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "T1V-RP-7ch"; */
+"T1V-RP-7ch.title" = "الرئيسية";
+
+/* Class = "UIButton"; normalTitle = "Add Files"; ObjectID = "TLL-yK-nf4"; */
+"TLL-yK-nf4.normalTitle" = "اضافة ملف";
+
+/* Class = "UIButton"; normalTitle = "Share App"; ObjectID = "UDI-OU-8lM"; */
+"UDI-OU-8lM.normalTitle" = "شارك التطبيق";
+
+/* Class = "UILabel"; text = "Like"; ObjectID = "X4g-0y-RYH"; */
+"X4g-0y-RYH.text" = "اعجاب";
+
+/* Class = "UIButton"; normalTitle = "Post"; ObjectID = "Xhs-vc-tS7"; */
+"Xhs-vc-tS7.normalTitle" = "نشر";
+
+/* Class = "UILabel"; text = "Hady hammad"; ObjectID = "YIq-wj-l7D"; */
+"YIq-wj-l7D.text" = "Hady hammad";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "aHH-Cu-TfD"; */
+"aHH-Cu-TfD.placeholder" = "كلمة السر";
+
+/* Class = "UIButton"; normalTitle = "Home"; ObjectID = "cJx-fe-cKC"; */
+"cJx-fe-cKC.normalTitle" = "الرئيسية";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "csu-YO-OSt"; */
+"csu-YO-OSt.placeholder" = "البريد الالكتروني";
+
+/* Class = "UILabel"; text = "user name"; ObjectID = "dOc-px-VB3"; */
+"dOc-px-VB3.text" = "user name";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "eRo-cF-Ech"; */
+"eRo-cF-Ech.placeholder" = "البريد الالكتروني";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "f1T-7N-aqT"; */
+"f1T-7N-aqT.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "f7r-jD-W5R"; */
+"f7r-jD-W5R.normalTitle" = "تعديل";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "fGk-Po-Aoz"; */
+"fGk-Po-Aoz.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UINavigationItem"; title = "Home"; ObjectID = "hdA-c2-93f"; */
+"hdA-c2-93f.title" = "الرئيسية";
+
+/* Class = "UILabel"; text = "20 mins"; ObjectID = "je3-u8-oq4"; */
+"je3-u8-oq4.text" = "20 mins";
+
+/* Class = "UILabel"; text = "Make a call"; ObjectID = "jzf-lH-omH"; */
+"jzf-lH-omH.text" = "اتصال هاتفي";
+
+/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "kOA-BH-Jrf"; */
+"kOA-BH-Jrf.normalTitle" = "تسجيل خروج";
+
+/* Class = "UITabBarItem"; title = "Make Post"; ObjectID = "llC-67-c2c"; */
+"llC-67-c2c.title" = "كتابة منشور";
+
+/* Class = "UILabel"; text = "Hady hammad"; ObjectID = "pb3-Wr-DKj"; */
+"pb3-Wr-DKj.text" = "Hady hammad";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "q7d-DL-zVy"; */
+"q7d-DL-zVy.title" = "كلمة السر";
+
+/* Class = "UITabBarItem"; title = "Messages"; ObjectID = "r1V-RN-eMY"; */
+"r1V-RN-eMY.title" = "الرسائل";
+
+/* Class = "UIButton"; normalTitle = "Donation Type"; ObjectID = "ujo-0N-JZa"; */
+"ujo-0N-JZa.normalTitle" = "نوع التبرع";
+
+/* Class = "UIButton"; normalTitle = "Sign Out"; ObjectID = "xld-46-Mzi"; */
+"xld-46-Mzi.normalTitle" = "تسجيل خروج";

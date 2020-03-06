@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Volunteer
+
+  Created by Hady Hammad on 3/6/20.
+  Copyright © 2020 Hady Hammad. All rights reserved.
+*/
+
+"Register success" = "تم تسجيل حساب بنجاح";
+"Login success"   = "تم تسجيل الدخول بنجاح";
+"Please enter name"  = "من فضلك ادخل الاسم";
+"Please enter phone" = "من فضلك ادخل رقم الهاتف";
+"Please enter city"  = "من فضلك ادخل المدينة";
+"Please enter email" = "من فضلك ادخل البريد الالكتروني";
+"Enter valid email"  = "من فضلك ادخل بريد الكتروني صحيح";
+"Please check your email inbox" = "من فضلك راجع رسائل بريدك الخاص";
+"Post sent success" = "تم النشر بنجاح";
+"Faild to upload post" = "غير قادر علي ارسال المنشور";
+"Image must be selected" = "يجب عليك اختيار صورة";
+"Please enter the text" = "من فضلك ادخل النص";
+"Please select donation type" = "من فضلك اختار نوع التبرع";
+"Update success" = "تم التعديل بنجاح";
+"Update faild"  = "خطآ في التعديل";
+"Please enter password" = "من فضلك ادخل كلمة المرور";
+"Register faild"     = "خطآ في تسجيل الحساب";
+"Reset faild"        = "خطآ في العملية";
+"Check your email or password" = "خطآ في البريد الالكتروني او كلمة المرور";
