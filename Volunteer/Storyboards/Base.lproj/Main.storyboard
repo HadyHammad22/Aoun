@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J3w-Av-gCd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u8z-68-pOe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -75,6 +75,9 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Em3-Ma-ykg" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
@@ -99,6 +102,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
@@ -125,6 +131,9 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dr9-Wd-I4x" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
@@ -150,6 +159,9 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
@@ -174,6 +186,9 @@
                                                             <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="Password-1"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
@@ -244,7 +259,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="81c-7H-rgS" firstAttribute="top" secondItem="Um9-ef-q1q" secondAttribute="bottom" constant="16" id="4YP-U0-dpo"/>
                                             <constraint firstItem="NWd-cZ-wxo" firstAttribute="centerX" secondItem="xZR-s3-VdC" secondAttribute="centerX" id="Ooe-NK-T8Y"/>
@@ -265,7 +280,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xZR-s3-VdC" secondAttribute="trailing" id="Pgb-bU-jFa"/>
                                     <constraint firstAttribute="bottom" secondItem="xZR-s3-VdC" secondAttribute="bottom" id="ROh-a8-eAB"/>
@@ -473,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DeH-Qn-Bv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2319" y="1860"/>
+            <point key="canvasLocation" x="1518" y="1890"/>
         </scene>
         <!--More DetailsVC-->
         <scene sceneID="IQ1-6Y-IRY">
@@ -684,7 +699,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wZ-wF-Bwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3109.5999999999999" y="1874.6626686656673"/>
+            <point key="canvasLocation" x="2514" y="1904"/>
         </scene>
         <!--Make Post-->
         <scene sceneID="oQI-lJ-eGv">
@@ -859,7 +874,7 @@
                     <viewLayoutGuide key="safeArea" id="qHb-5U-LHJ"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="3844" y="1860"/>
+            <point key="canvasLocation" x="3518" y="1889"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="Qbu-Bs-DwF">
@@ -1136,7 +1151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rRx-V1-wrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4678" y="1860"/>
+            <point key="canvasLocation" x="4569" y="1860"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="0Lg-Bk-o20">
@@ -1237,6 +1252,9 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMn-8N-zYp">
@@ -1254,6 +1272,9 @@
                                                     <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="vpn_key"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                         <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                        <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -1296,7 +1317,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Gth-Cr-svr" firstAttribute="leading" secondItem="swk-Fd-xWi" secondAttribute="leading" id="2lb-dy-DR3"/>
                             <constraint firstItem="i1B-NQ-jTY" firstAttribute="top" secondItem="Gth-Cr-svr" secondAttribute="bottom" constant="50" id="4Ao-bF-TPY"/>
@@ -1390,6 +1411,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQR-Zv-yL3">
@@ -1407,7 +1431,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eRo-cF-Ech" firstAttribute="top" secondItem="0fD-Ib-Eg0" secondAttribute="bottom" constant="50" id="A16-8r-8co"/>
                             <constraint firstItem="0fD-Ib-Eg0" firstAttribute="leading" secondItem="x9N-WM-8Kf" secondAttribute="leading" id="B5g-Cd-TnP"/>
@@ -1433,25 +1457,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I34-ng-EGR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="161" y="57"/>
-        </scene>
-        <!--Reveal View Controller-->
-        <scene sceneID="NWp-35-gkh">
-            <objects>
-                <viewController storyboardIdentifier="SWRevealViewController" id="J3w-Av-gCd" customClass="SWRevealViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9eR-2s-dS0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="1e8-wA-OWk"/>
-                    </view>
-                    <connections>
-                        <segue destination="epD-pp-qGF" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="Y7Q-WU-xfw"/>
-                        <segue destination="u8z-68-pOe" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="u5N-In-XvF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tHl-v5-c8H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2142" y="-138"/>
         </scene>
         <!--Side MenuVC-->
         <scene sceneID="qNV-aS-Daz">
@@ -1748,17 +1753,17 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="667" id="2pT-pj-J1y"/>
                                             <constraint firstItem="jHw-Fm-h1o" firstAttribute="top" secondItem="rbv-Ea-xPn" secondAttribute="bottom" constant="40" id="7O6-7d-9jO"/>
-                                            <constraint firstItem="rbv-Ea-xPn" firstAttribute="top" secondItem="gmT-9A-IAD" secondAttribute="top" id="Djb-jg-iig"/>
                                             <constraint firstItem="rbv-Ea-xPn" firstAttribute="leading" secondItem="gmT-9A-IAD" secondAttribute="leading" id="Nxn-KD-H8U"/>
                                             <constraint firstAttribute="trailing" secondItem="rbv-Ea-xPn" secondAttribute="trailing" id="awV-Av-0fP"/>
                                             <constraint firstItem="jHw-Fm-h1o" firstAttribute="leading" secondItem="gmT-9A-IAD" secondAttribute="leading" constant="16" id="ofc-BQ-5TK"/>
+                                            <constraint firstItem="rbv-Ea-xPn" firstAttribute="top" secondItem="gmT-9A-IAD" secondAttribute="top" id="sYU-Im-cJg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="gmT-9A-IAD" firstAttribute="top" secondItem="XkI-i6-T7K" secondAttribute="top" id="Mfu-6N-gXg"/>
                                     <constraint firstAttribute="trailing" secondItem="gmT-9A-IAD" secondAttribute="trailing" id="MrW-ny-WfJ"/>
                                     <constraint firstAttribute="bottom" secondItem="gmT-9A-IAD" secondAttribute="bottom" id="Sxt-mh-5sX"/>
+                                    <constraint firstItem="gmT-9A-IAD" firstAttribute="top" secondItem="XkI-i6-T7K" secondAttribute="top" id="eJX-1o-QMB"/>
                                     <constraint firstItem="gmT-9A-IAD" firstAttribute="leading" secondItem="XkI-i6-T7K" secondAttribute="leading" id="tOq-tM-sz8"/>
                                 </constraints>
                             </scrollView>
@@ -1773,17 +1778,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6cB-X1-ScY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Kzb-L9-hEV"/>
                     <connections>
                         <outlet property="topView" destination="rbv-Ea-xPn" id="ffg-Gx-kSa"/>
                         <outlet property="userEmailLbl" destination="KtZ-ru-aEr" id="DcB-xP-0d4"/>
                         <outlet property="userImage" destination="8WX-18-rjh" id="3mm-OU-1yY"/>
                         <outlet property="userNameLbl" destination="gkZ-yL-myP" id="oIK-nU-OUe"/>
-                        <segue destination="eFy-P3-PUM" kind="custom" identifier="charities" customClass="SWRevealViewControllerSeguePushController" id="lyX-XJ-n6P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBP-8j-S3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3024.8000000000002" y="-778.56071964017997"/>
+            <point key="canvasLocation" x="2943" y="734"/>
         </scene>
         <!--Profile-->
         <scene sceneID="6FN-dk-bpV">
@@ -1853,6 +1858,9 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sf-ny-5Zx" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
@@ -1877,6 +1885,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
@@ -1903,6 +1914,9 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ksd-Lc-q45" customClass="CustomTextField" customModule="Volunteer" customModuleProvider="target">
@@ -1928,6 +1942,9 @@
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
@@ -1952,6 +1969,9 @@
                                                             <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="Password-1"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                                <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
@@ -2070,7 +2090,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfR-zh-K9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4080.8000000000002" y="162.81859070464768"/>
+            <point key="canvasLocation" x="478" y="1958"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="msX-ZY-0HO">
@@ -2080,11 +2100,10 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.20392156862745098" green="0.59215686274509804" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textShadowColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -2093,14 +2112,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZy-v6-wlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="774"/>
+            <point key="canvasLocation" x="2084" y="8"/>
         </scene>
         <!--Main Tab Bar-->
         <scene sceneID="qMf-EG-VgN">
             <objects>
                 <tabBarController storyboardIdentifier="MainTabBar" id="Ooc-Eu-pyE" customClass="MainTabBar" customModule="Volunteer" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Bpz-a3-5sS">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="menubutton" id="03b-ZZ-74O"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menubutton" id="03b-ZZ-74O">
+                            <connections>
+                                <action selector="buMenu:" destination="Ooc-Eu-pyE" id="mS5-V0-e9F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="MkK-Gw-V74">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -2110,7 +2133,6 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <outlet property="menuBtn" destination="03b-ZZ-74O" id="Lzr-D9-MrW"/>
                         <segue destination="UeI-Wf-EHv" kind="relationship" relationship="viewControllers" id="Lmg-dv-kkg"/>
                         <segue destination="l0M-aN-Vmr" kind="relationship" relationship="viewControllers" id="EVx-6j-IyB"/>
                         <segue destination="kDt-BK-Da4" kind="relationship" relationship="viewControllers" id="9Ci-jd-RJF"/>
@@ -2119,7 +2141,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZJ-H1-Hyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2988" y="736"/>
+            <point key="canvasLocation" x="2084" y="735"/>
         </scene>
         <!--OrganizationVC-->
         <scene sceneID="Aos-MK-G3O">
@@ -2130,7 +2152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ev8-TZ-qUb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="631"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OrgInfo" rowHeight="200" id="P20-lF-odD" customClass="OrganizationCell" customModule="Volunteer" customModuleProvider="target">
@@ -2189,37 +2211,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" image="menubutton" id="EDl-NI-qov"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="menuBtn" destination="EDl-NI-qov" id="TWI-Fi-v8s"/>
                         <outlet property="tableView" destination="ev8-TZ-qUb" id="XEd-sc-dy0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aY7-8j-TA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5064.8000000000002" y="-1096.1019490254873"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Wu0-r6-KcF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eFy-P3-PUM" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qSt-Mb-kRU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="IbX-bu-k6b" kind="relationship" relationship="rootViewController" id="N7K-LB-95b"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RFr-tn-3dH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4125.6000000000004" y="-1095.2023988005999"/>
+            <point key="canvasLocation" x="3846" y="734"/>
         </scene>
     </scenes>
     <resources>

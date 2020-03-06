@@ -76,8 +76,7 @@ class SignUpVC: BaseViewController {
         self.showAlertsuccess(title: "Sign up success")
         UserDefaults.standard.set(user.uid, forKey: KEY_UID)
         self.finishEnterData()
-        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        self.present(home, animated: true, completion: nil)
+        self.present(MainTabBar.instance(), animated: true, completion: nil)
     }
     
     @IBAction func buLogin(_ sender: Any) {

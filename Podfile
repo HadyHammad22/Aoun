@@ -16,4 +16,5 @@ target 'Volunteer' do
   pod 'SwiftMessages'
   pod 'SDWebImage'
   pod 'NVActivityIndicatorView'
+  pod 'SideMenu', '~> 5.0'
 end

@@ -10,6 +10,12 @@ import UIKit
 import Firebase
 class SideMenuVC: UIViewController {
     
+    // MARK :- Instance
+    static func instance () -> SideMenuVC{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+    }
+    
     // MARK :- Outlets
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var userNameLbl: UILabel!
@@ -17,15 +23,13 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     
     var counter:Int = 0
+    static var delegate: IndexChangeDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         setupComponents()
         setupUser()
-        self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
-    }
-    
-    override var prefersStatusBarHidden: Bool{
-        return true
     }
     
     // MARK :- SetupUI
@@ -42,29 +46,39 @@ class SideMenuVC: UIViewController {
     }
     
     @IBAction func buHome(_ sender: Any) {
-        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        MainTabBar.mainIndex = 0
-        self.present(home, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            SideMenuVC.delegate?.changeTabBarIndex(index: 0)
+        })
     }
     
     @IBAction func buMakePost(_ sender: Any) {
-        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        MainTabBar.mainIndex = 1
-        self.present(home, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            SideMenuVC.delegate?.changeTabBarIndex(index: 1)
+        })
     }
     
     @IBAction func buProfile(_ sender: Any) {
-        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        MainTabBar.mainIndex = 2
-        self.present(home, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            SideMenuVC.delegate?.changeTabBarIndex(index: 2)
+        })
     }
     
     @IBAction func buLanguage(_ sender: Any) {
-        
+        if Language.currentLanguage == .arabic {
+            dismiss(animated: true, completion: {
+                Language.swichLanguage()
+                UIApplication.initWindow()
+            })
+        }else{
+            dismiss(animated: true, completion: {
+                Language.swichLanguage()
+                UIApplication.initWindow()
+            })
+        }
     }
     
     @IBAction func buCharities(_ sender: Any) {
-        self.performSegue(withIdentifier: "charities", sender: nil)
+        self.navigationController?.pushViewController(OrganizationVC.instance(), animated: true)
     }
     
     @IBAction func buShare(_ sender: Any) {

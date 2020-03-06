@@ -95,6 +95,7 @@ PODS:
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
+  - SideMenu (5.0.3)
   - SwiftMessages (7.0.0):
     - SwiftMessages/App (= 7.0.0)
   - SwiftMessages/App (7.0.0)
@@ -108,6 +109,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - NVActivityIndicatorView
   - SDWebImage
+  - SideMenu (~> 5.0)
   - SwiftMessages
 
 SPEC REPOS:
@@ -131,6 +133,7 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - SDWebImage
+    - SideMenu
     - SwiftMessages
 
 SPEC CHECKSUMS:
@@ -153,8 +156,9 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+  SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
 
-PODFILE CHECKSUM: 81e31330c95b604c064277331cf186d3454355bb
+PODFILE CHECKSUM: 8b4d0ee481308af3ddf36daacb905c90b02a1f3e
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0

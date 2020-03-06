@@ -25,6 +25,9 @@
 		7449BD1F2316797E007F8DC4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7449BD1E2316797E007F8DC4 /* BaseViewController.swift */; };
 		747945D1231BDB9600B6BC86 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747945D0231BDB9600B6BC86 /* HomeCell.swift */; };
 		747945D3231BFE3900B6BC86 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747945D2231BFE3900B6BC86 /* Post.swift */; };
+		747E153D240F1D4A00C30CB9 /* Localizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E153C240F1D4A00C30CB9 /* Localizer.swift */; };
+		747E153F240F1D6E00C30CB9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E153E240F1D6E00C30CB9 /* Language.swift */; };
+		747E1541240F1F5400C30CB9 /* Cash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1540240F1F5400C30CB9 /* Cash.swift */; };
 		74826B4223197F19002DF2B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74826B4123197F19002DF2B9 /* User.swift */; };
 		749EAF97231C0D6200753BFA /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF96231C0D6200753BFA /* Organization.swift */; };
 		749EAF99231C0DC000753BFA /* OrganizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749EAF98231C0DC000753BFA /* OrganizationVC.swift */; };
@@ -43,7 +46,6 @@
 		74E30EA523363EF5004AC85E /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E30EA423363EF5004AC85E /* ChatVC.swift */; };
 		74E30EA723363F29004AC85E /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E30EA623363F29004AC85E /* ChatMessageCell.swift */; };
 		74E30EA923365715004AC85E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E30EA823365715004AC85E /* Message.swift */; };
-		74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D844231824E20091EDE3 /* SWRevealViewController.m */; };
 		74E6D847231829F70091EDE3 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E6D846231829F70091EDE3 /* SideMenuVC.swift */; };
 		74EA1F33231A7CC000195C34 /* MakePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA1F32231A7CC000195C34 /* MakePostVC.swift */; };
 		74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FE5FE723187A9E007D1251 /* ProfileVC.swift */; };
@@ -71,6 +73,11 @@
 		7449BD1E2316797E007F8DC4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		747945D0231BDB9600B6BC86 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		747945D2231BFE3900B6BC86 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		747E153C240F1D4A00C30CB9 /* Localizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizer.swift; sourceTree = "<group>"; };
+		747E153E240F1D6E00C30CB9 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		747E1540240F1F5400C30CB9 /* Cash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cash.swift; sourceTree = "<group>"; };
+		747E1542240F229000C30CB9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		747E1543240F229000C30CB9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		74826B4123197F19002DF2B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		749EAF96231C0D6200753BFA /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		749EAF98231C0DC000753BFA /* OrganizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationVC.swift; sourceTree = "<group>"; };
@@ -89,9 +96,6 @@
 		74E30EA423363EF5004AC85E /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		74E30EA623363F29004AC85E /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		74E30EA823365715004AC85E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Volunteer-Bridging-Header.h"; sourceTree = "<group>"; };
-		74E6D843231824E20091EDE3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		74E6D844231824E20091EDE3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		74E6D846231829F70091EDE3 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		74EA1F32231A7CC000195C34 /* MakePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePostVC.swift; sourceTree = "<group>"; };
 		74FE5FE723187A9E007D1251 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		7427D1C223157C4400FA0D36 /* Volunteer */ = {
 			isa = PBXGroup;
 			children = (
+				747E153B240F1D2400C30CB9 /* Localization */,
 				74B3C00423F98ACE00D2E14E /* General */,
 				74FF6426236EDBDB00962F7F /* Storyboards */,
 				7401ABCF235C42CD0052842F /* Extensions */,
@@ -221,6 +226,16 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		747E153B240F1D2400C30CB9 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				747E153C240F1D4A00C30CB9 /* Localizer.swift */,
+				747E153E240F1D6E00C30CB9 /* Language.swift */,
+				747E1540240F1F5400C30CB9 /* Cash.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		749E1D5523F4A007000926F7 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,16 +261,6 @@
 				74E6D846231829F70091EDE3 /* SideMenuVC.swift */,
 			);
 			path = Others;
-			sourceTree = "<group>";
-		};
-		749E1D5823F4A0E2000926F7 /* SWReveal */ = {
-			isa = PBXGroup;
-			children = (
-				74E6D843231824E20091EDE3 /* SWRevealViewController.h */,
-				74E6D844231824E20091EDE3 /* SWRevealViewController.m */,
-				74E6D842231824E10091EDE3 /* Volunteer-Bridging-Header.h */,
-			);
-			path = SWReveal;
 			sourceTree = "<group>";
 		};
 		74B3C00423F98ACE00D2E14E /* General */ = {
@@ -291,7 +296,6 @@
 		74E6D841231824C70091EDE3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				749E1D5823F4A0E2000926F7 /* SWReveal */,
 				7427D1CA23157C4A00FA0D36 /* Assets.xcassets */,
 				7427D1C323157C4400FA0D36 /* AppDelegate.swift */,
 				7427D1CF23157C4A00FA0D36 /* Info.plist */,
@@ -362,6 +366,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 7427D1B723157C4300FA0D36;
 			productRefGroup = 7427D1C123157C4400FA0D36 /* Products */;
@@ -435,6 +440,7 @@
 				74B8FFCD233796090056F620 /* MessagesCell.swift in Sources */,
 				7445C450236CD05E00DE775E /* MoreDetailsVC.swift in Sources */,
 				74FE5FE823187A9E007D1251 /* ProfileVC.swift in Sources */,
+				747E153F240F1D6E00C30CB9 /* Language.swift in Sources */,
 				74C4D84023F56A9D00295734 /* UIButton+Extension.swift in Sources */,
 				7427D1E823157C4A00FA0D36 /* DataService.swift in Sources */,
 				74B8FFCB2337939F0056F620 /* MessagesVC.swift in Sources */,
@@ -443,6 +449,7 @@
 				74826B4223197F19002DF2B9 /* User.swift in Sources */,
 				74C4D84223F56AB200295734 /* UITableView+Extension.swift in Sources */,
 				74C4D83A23F56A5700295734 /* UIView+Extension.swift in Sources */,
+				747E153D240F1D4A00C30CB9 /* Localizer.swift in Sources */,
 				74C4D84423F56ADE00295734 /* UICollectionView+Extension.swift in Sources */,
 				7427D1E423157C4A00FA0D36 /* LoginVC.swift in Sources */,
 				74C4D84623F56AF000295734 /* String+Extension.swift in Sources */,
@@ -462,9 +469,9 @@
 				742CB9982378116200B99FC1 /* MainTabBar.swift in Sources */,
 				74E30EA723363F29004AC85E /* ChatMessageCell.swift in Sources */,
 				749EAF97231C0D6200753BFA /* Organization.swift in Sources */,
+				747E1541240F1F5400C30CB9 /* Cash.swift in Sources */,
 				74B3C00623F98B9F00D2E14E /* PopAnimation.swift in Sources */,
 				74496F3E23F6E97500CD6D2F /* UIColor+Extension.swift in Sources */,
-				74E6D845231824E20091EDE3 /* SWRevealViewController.m in Sources */,
 				74C4D83C23F56A7D00295734 /* UITextField+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,6 +483,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7427D1C823157C4400FA0D36 /* Base */,
+				747E1542240F229000C30CB9 /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -484,6 +492,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7427D1CD23157C4A00FA0D36 /* Base */,
+				747E1543240F229000C30CB9 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -495,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -556,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -623,7 +634,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hadyhammad.Volunteer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hadyhammad/Desktop/Aoun/Volunteer/Supporting Files/SWReveal/Volunteer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -646,7 +656,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hadyhammad.Volunteer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hadyhammad/Desktop/Aoun/Volunteer/Supporting Files/SWReveal/Volunteer-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

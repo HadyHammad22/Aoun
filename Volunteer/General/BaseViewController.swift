@@ -12,7 +12,7 @@ import SwiftMessages
 import NVActivityIndicatorView
 
 class BaseViewController: UIViewController, NVActivityIndicatorViewable{
-    
+  
     //MARK: Alerts
     func showAlertWiring(title: String, body: String = "") {
         

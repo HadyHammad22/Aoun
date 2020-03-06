@@ -158,8 +158,7 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     
     func successPostUpload(){
         self.hideLoadingIndicator()
-        let home = self.storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
-        self.present(home, animated: true, completion: nil)
+        self.present(MainTabBar.instance(), animated: true, completion: nil)
         self.showAlertsuccess(title: "Post Sent Successfully")
     }
     

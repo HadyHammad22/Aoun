@@ -8,14 +8,20 @@
 
 import UIKit
 import Firebase
+import SideMenu
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Localizer.localize()
         FirebaseApp.configure()
+        
+        //... Setup Navigation
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = UIColor(red: 52/255, green: 151/255, blue: 253/255, alpha: 1)
+        
         //... Go To Login Screen
         if let _ = UserDefaults.standard.string(forKey: KEY_UID) {
             print("Already Login")
@@ -26,6 +32,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }
         return true
+    }
+    
+    func initWindow()  {
+        if Language.currentLanguage == .arabic {
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+        } else {
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        }
+        var darkMode = false
+        var preferredStatusBarStyle : UIStatusBarStyle {
+            return darkMode ? .default : .lightContent
+        }
+        setHomeAsRoot()
+    }
+    
+    func setHomeAsRoot(){
+        let nav = UINavigationController(rootViewController: MainTabBar.instance())
+        self.window?.rootViewController = nav
+        self.window?.makeKeyAndVisible()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

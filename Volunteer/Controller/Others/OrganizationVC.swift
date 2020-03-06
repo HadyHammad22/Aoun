@@ -7,21 +7,24 @@
 //
 
 import UIKit
-class OrganizationVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class OrganizationVC: BaseViewController {
     
+    // MARK :- Instance
+    static func instance () -> OrganizationVC{
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "OrganizationVC") as! OrganizationVC
+    }
+    
+    // MARK :- Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var menuBtn: UIBarButtonItem!
     
+    // MARK :- Instance Variables
     var listOfOrganization = [Organization]()
     var listOfURLs = [String]()
     
+    // MARK :- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        menuBtn.target = self.revealViewController()
-        menuBtn.action = #selector(SWRevealViewController.revealToggle(_:))
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         listOfOrganization = Organization.loadOrganizations()
         loadURLs()
     }
@@ -35,10 +38,10 @@ class OrganizationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         listOfURLs.append("https://resala.org")
         listOfURLs.append("https://www.ahl-masr.org")
         listOfURLs.append("https://aljoud-ngo.com")
-        
-        
     }
-    
+}
+
+extension OrganizationVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listOfOrganization.count
     }
@@ -57,7 +60,4 @@ class OrganizationVC: UIViewController,UITableViewDelegate,UITableViewDataSource
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-    
-    
-    
 }

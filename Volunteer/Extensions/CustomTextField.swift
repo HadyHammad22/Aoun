@@ -56,7 +56,8 @@ class CustomTextField: UITextField {
         }
     }
     
-    @IBInspectable var leftPadding: CGFloat = 0
+    @IBInspectable var leftPadding: CGFloat  = 0
+    @IBInspectable var rightPadding: CGFloat = 0
     
     @IBInspectable var color: UIColor = UIColor.white {
         didSet {
