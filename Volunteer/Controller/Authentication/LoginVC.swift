@@ -24,6 +24,7 @@ class LoginVC:BaseViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordVisibilityBtn: UIButton!
+    @IBOutlet weak var signBtn: UIButton!
     
     // MARK :- Instance Variables
     var secure = true
@@ -42,6 +43,11 @@ class LoginVC:BaseViewController {
     func setupComponents() {
         emailTxtField.delegate = self
         passwordTxtField.delegate = self
+        if Language.currentLanguage == .arabic {
+            let attributedTitle = NSMutableAttributedString(string: "ليس لديك حساب؟ ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.black])
+            attributedTitle.append(NSAttributedString(string: "انشئ حساب", attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.selectedBorderColor]))
+            signBtn.setAttributedTitle(attributedTitle, for: .normal)
+        }
         loginBtn.addCornerRadius(20)
         loginBtn.addBtnShadowWith(color: UIColor.black, radius: 2, opacity: 0.2)
         passwordView.addBorderWith(width: 1.5, color: UIColor.borderColor)

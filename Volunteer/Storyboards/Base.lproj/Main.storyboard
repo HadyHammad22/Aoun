@@ -230,26 +230,36 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NWd-cZ-wxo">
-                                                <rect key="frame" x="103.5" y="701.5" width="168" height="32.5"/>
+                                                <rect key="frame" x="60.5" y="701.5" width="254" height="32.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
-                                                        <fragment content="Already a member?">
+                                                        <fragment content="Do you already have an account">
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" size="14" name="AvenirNext-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="?">
                                                             <attributes>
                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                                                 <font key="NSOriginalFont" size="14" name="AvenirNext-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content=" ">
                                                             <attributes>
                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <font key="NSFont" size="15" name="AvenirNext-Regular"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="Login">
                                                             <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="NSColor" red="0.0" green="0.58823529411764708" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <font key="NSFont" size="15" name="AvenirNext-Medium"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -303,6 +313,7 @@
                     <connections>
                         <outlet property="cityTxtField" destination="Dr9-Wd-I4x" id="xjS-ox-cV9"/>
                         <outlet property="emailTxtField" destination="Em3-Ma-ykg" id="afW-PF-RPm"/>
+                        <outlet property="loginBtn" destination="NWd-cZ-wxo" id="hQt-VS-QQ4"/>
                         <outlet property="nameTxtField" destination="EMI-3I-jOR" id="bu8-d6-OJd"/>
                         <outlet property="passwordTxtField" destination="ISN-4L-aSg" id="r61-XF-NUG"/>
                         <outlet property="passwordView" destination="81c-7H-rgS" id="3k2-xG-XpP"/>
@@ -1179,7 +1190,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGk-Po-Aoz">
-                                <rect key="frame" x="37.5" y="562.5" width="300" height="40"/>
+                                <rect key="frame" x="37.5" y="564" width="300" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="clO-gt-KOH"/>
@@ -1193,28 +1204,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3yz-Rk-4PB">
-                                <rect key="frame" x="95" y="618.5" width="185" height="32.5"/>
+                                <rect key="frame" x="96.5" y="620" width="182" height="31"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Don't have account?">
+                                        <fragment content="Don't have account? ">
                                             <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="14" name="AvenirNext-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content=" ">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                         <fragment content="SignUp">
                                             <attributes>
-                                                <color key="NSColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <font key="NSFont" size="15" name="AvenirNext-Medium"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <color key="NSColor" red="0.0" green="0.58823529411764708" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="14" name="AvenirNext-Regular"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -1342,6 +1344,7 @@
                         <outlet property="passwordTxtField" destination="KtZ-L1-moN" id="Ook-co-pg9"/>
                         <outlet property="passwordView" destination="bMn-8N-zYp" id="DDz-0N-Txf"/>
                         <outlet property="passwordVisibilityBtn" destination="6Wk-XY-cbF" id="vM0-Ey-M36"/>
+                        <outlet property="signBtn" destination="3yz-Rk-4PB" id="IAM-mz-7gB"/>
                         <outlet property="topView" destination="Gth-Cr-svr" id="97k-tv-SJl"/>
                     </connections>
                 </viewController>

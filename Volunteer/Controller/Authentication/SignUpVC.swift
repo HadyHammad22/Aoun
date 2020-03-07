@@ -27,6 +27,7 @@ class SignUpVC: BaseViewController {
     @IBOutlet weak var passwordVisibilityBtn: UIButton!
     @IBOutlet weak var signUpBtn: UIButton!
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var loginBtn: UIButton!
     
     // MARK :- Instance Variables
     var secure = true
@@ -43,6 +44,11 @@ class SignUpVC: BaseViewController {
     
     // MARK :- SetupUI
     func setupComponents() {
+        if Language.currentLanguage == .arabic {
+            let attributedTitle = NSMutableAttributedString(string: "هل لديك حساب بالفعل؟ ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.black])
+            attributedTitle.append(NSAttributedString(string: "تسجيل الدخول", attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.selectedBorderColor]))
+            loginBtn.setAttributedTitle(attributedTitle, for: .normal)
+        }
         nameTxtField.delegate = self
         emailTxtField.delegate = self
         phoneTxtField.delegate = self
