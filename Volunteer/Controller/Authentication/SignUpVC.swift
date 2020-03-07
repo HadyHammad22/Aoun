@@ -105,17 +105,17 @@ class SignUpVC: BaseViewController {
     // MARK :- validations
     func validData() -> Bool {
         if nameTxtField.text! == ""{
-            self.showAlertError(title: "Please enter name".localized)
+            self.showAlertWiring(title: "Please enter name".localized)
             return false
         }
         
         if phoneTxtField.text! == ""{
-            self.showAlertError(title: "Please enter phone".localized)
+            self.showAlertWiring(title: "Please enter phone".localized)
             return false
         }
         
         if cityTxtField.text! == ""{
-            self.showAlertError(title: "Please enter city".localized)
+            self.showAlertWiring(title: "Please enter city".localized)
             return false
         }
         

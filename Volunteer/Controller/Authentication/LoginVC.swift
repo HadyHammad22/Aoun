@@ -60,7 +60,7 @@ class LoginVC:BaseViewController {
             DataService.db.login(email: emailTxtField.text!, password: passwordTxtField.text!, onSuccess: { (user) in
                 self.successLogin(user: user)
             }, onError: { (errorMessage) in
-                self.showAlertError(title: "Check your email or password".localized)
+                self.showAlertWiring(title: "Check your email or password".localized)
             })
         }
     }
@@ -96,15 +96,15 @@ class LoginVC:BaseViewController {
     // MARK :- Validations
     func validData() -> Bool {
         if emailTxtField.text! == ""{
-            self.showAlertError(title: "Please enter email".localized)
+            self.showAlertWiring(title: "Please enter email".localized)
             return false
         }
         if !(emailTxtField.text!.isValidEmail){
-            self.showAlertError(title: "Enter valid email".localized)
+            self.showAlertWiring(title: "Enter valid email".localized)
             return false
         }
         if passwordTxtField.text! == ""{
-            self.showAlertError(title: "Please enter password".localized)
+            self.showAlertWiring(title: "Please enter password".localized)
             return false
         }
         return true

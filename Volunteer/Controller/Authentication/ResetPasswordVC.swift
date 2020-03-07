@@ -51,11 +51,11 @@ class ResetPasswordVC: BaseViewController {
 
     func validData() -> Bool{
         if emailTxtField.text!.isEmpty{
-            self.showAlertError(title: "Please enter email".localized)
+            self.showAlertWiring(title: "Please enter email".localized)
             return false
         }
         if !(emailTxtField.text!.isValidEmail){
-            self.showAlertError(title: "Enter valid email".localized)
+            self.showAlertWiring(title: "Enter valid email".localized)
             return false
         }
         return true
