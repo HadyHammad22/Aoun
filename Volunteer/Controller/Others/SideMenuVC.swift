@@ -92,9 +92,10 @@ class SideMenuVC: UIViewController {
     }
     
     @IBAction func buLogOut(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: KEY_UID)
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        self.present(loginVC, animated: true, completion: nil)
+        self.dismiss(animated: true){ () -> Void in
+            UserDefaults.standard.removeObject(forKey: KEY_UID)
+            UIApplication.shared.keyWindow?.rootViewController = LoginVC.instance()
+        }
     }
     
 }

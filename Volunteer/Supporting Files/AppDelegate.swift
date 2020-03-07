@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Localizer.localize()
         FirebaseApp.configure()
-        
+        configSideMenu()
         //... Setup Navigation
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barTintColor = UIColor(red: 52/255, green: 151/255, blue: 253/255, alpha: 1)
@@ -33,8 +33,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+
+    func configSideMenu() {
+        let st = UIStoryboard(name: "Main", bundle: nil)
+        let menu = st.instantiateViewController(withIdentifier: "MenuNavigation") as! UISideMenuNavigationController
+        menu.menuWidth = (UIScreen.main.bounds.width) * 0.75
+        if Language.currentLanguage == .arabic{
+            SideMenuManager.default.menuRightNavigationController = menu
+        }else{
+            SideMenuManager.default.menuLeftNavigationController = menu
+        }
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuAlwaysAnimate = true
+        SideMenuManager.default.menuDismissWhenBackgrounded = true
+    }
     
-    func initWindow()  {
+    func initWindow() {
+        configSideMenu()
         if Language.currentLanguage == .arabic {
             UIView.appearance().semanticContentAttribute = .forceRightToLeft
         } else {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+
 class LoginVC:BaseViewController {
     
     // MARK :- Instance
@@ -62,7 +63,8 @@ class LoginVC:BaseViewController {
         self.showAlertsuccess(title: "Login success".localized)
         UserDefaults.standard.set(user.uid, forKey: KEY_UID)
         self.finishEnterData()
-        self.present(MainTabBar.instance(), animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: MainTabBar.instance())
+        self.present(nav, animated: true, completion: nil)
     }
     
     @IBAction func buRegister(_ sender: Any) {

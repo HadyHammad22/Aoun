@@ -76,7 +76,8 @@ class SignUpVC: BaseViewController {
         self.showAlertsuccess(title: "Register success".localized)
         UserDefaults.standard.set(user.uid, forKey: KEY_UID)
         self.finishEnterData()
-        self.present(MainTabBar.instance(), animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: MainTabBar.instance())
+        self.present(nav, animated: true, completion: nil)
     }
     
     @IBAction func buLogin(_ sender: Any) {

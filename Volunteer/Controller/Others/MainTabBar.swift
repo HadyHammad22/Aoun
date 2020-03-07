@@ -26,15 +26,6 @@ class MainTabBar: UITabBarController, IndexChangeDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         SideMenuVC.delegate = self
-        let rightMenuNavigationController = UISideMenuNavigationController(rootViewController: SideMenuVC.instance())
-        rightMenuNavigationController.menuWidth = self.view.frame.width*0.7
-        SideMenuManager.default.menuRightNavigationController = rightMenuNavigationController
-        
-        let leftMenuNavigationController = UISideMenuNavigationController(rootViewController: SideMenuVC.instance())
-        leftMenuNavigationController.menuWidth = self.view.frame.width*0.7
-        SideMenuManager.default.menuLeftNavigationController = leftMenuNavigationController
-        
-        SideMenuManager.default.menuFadeStatusBar = false
     }
     
     @IBAction func buMenu(_ sender: Any) {
@@ -44,7 +35,7 @@ class MainTabBar: UITabBarController, IndexChangeDelegate{
             present(SideMenuManager.default.menuRightNavigationController!, animated: true, completion: nil)
         }
     }
-    
+
     // MARK :- Confirm Protocol
     func changeTabBarIndex(index: Int) {
         selectedIndex = index
