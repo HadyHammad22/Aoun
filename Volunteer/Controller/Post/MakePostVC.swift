@@ -160,8 +160,9 @@ class MakePostVC: BaseViewController,UIImagePickerControllerDelegate,UINavigatio
     
     func successPostUpload(){
         self.hideLoadingIndicator()
-        self.present(MainTabBar.instance(), animated: true, completion: nil)
         self.showAlertsuccess(title: "Post sent success".localized)
+        let nav = UINavigationController(rootViewController: MainTabBar.instance())
+        self.present(nav, animated: true, completion: nil)
     }
     
     // MARK :- Pop Up Views

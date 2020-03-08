@@ -65,17 +65,21 @@ class SideMenuVC: UIViewController {
     }
     
     @IBAction func buLanguage(_ sender: Any) {
-        if Language.currentLanguage == .arabic {
-            dismiss(animated: true, completion: {
+       showLanguageAlert()
+    }
+    
+    func showLanguageAlert(){
+        let alert = UIAlertController(title: "Change Language".localized, message: "Do you want to change the app language to arabic?".localized, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm".localized, style: .default, handler: { action in
+            self.dismiss(animated: true, completion: {
                 Language.swichLanguage()
                 UIApplication.initWindow()
             })
-        }else{
-            dismiss(animated: true, completion: {
-                Language.swichLanguage()
-                UIApplication.initWindow()
-            })
-        }
+        })
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func buCharities(_ sender: Any) {

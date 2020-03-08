@@ -25,3 +25,7 @@
 "Register faild"     = "خطآ في تسجيل الحساب";
 "Reset faild"        = "خطآ في العملية";
 "Check your email or password" = "خطآ في البريد الالكتروني او كلمة المرور";
+"Change Language" = "تغيير اللغة";
+"Do you want to change the app language to arabic?" = "هل تريد تغيير لغة التطبيق الي الآنجليزية؟";
+"Confirm" = "تاكيد";
+"Cancel" = "إلغاء";
