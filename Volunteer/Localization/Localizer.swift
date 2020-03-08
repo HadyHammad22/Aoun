@@ -12,6 +12,9 @@ class Localizer: NSObject {
     static func localize() {
         MethodSwizzleGivenClassName(cls: Bundle.self, originalSelector: #selector(Bundle.localizedString(forKey:value:table:)), overrideSelector: #selector(Bundle.specialLocalizedStringForKey(_:value:table:)))
         MethodSwizzleGivenClassName(cls: UITextField.self, originalSelector: #selector(UITextField.awakeFromNib), overrideSelector: #selector(UITextField.cstmAwakeFromNib))
+        
+        MethodSwizzleGivenClassName(cls: UITextView.self, originalSelector: #selector(UITextView.awakeFromNib), overrideSelector: #selector(UITextView.cstmAwakeFromNib))
+        
         MethodSwizzleGivenClassName(cls: UILabel.self, originalSelector: #selector(UILabel.awakeFromNib), overrideSelector: #selector(UILabel.cstmAwakeFromNib))
         MethodSwizzleGivenClassName(cls: UIButton.self, originalSelector: #selector(UIButton.awakeFromNib), overrideSelector: #selector(UIButton.cstmAwakeFromNib))
     }
@@ -75,6 +78,20 @@ extension UILabel {
 }
 
 extension UITextField {
+    @objc public func cstmAwakeFromNib() {
+        self.cstmAwakeFromNib()
+        if self.textAlignment == .center { return }
+        if UIApplication.isRTL()  {
+            if self.textAlignment == .right { return }
+            self.textAlignment = .right
+        } else {
+            if self.textAlignment == .left { return }
+            self.textAlignment = .left
+        }
+    }
+}
+
+extension UITextView {
     @objc public func cstmAwakeFromNib() {
         self.cstmAwakeFromNib()
         if self.textAlignment == .center { return }
