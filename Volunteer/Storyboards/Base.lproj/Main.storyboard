@@ -1473,7 +1473,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmT-9A-IAD">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="-20" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbv-Ea-xPn">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
@@ -1766,7 +1766,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gmT-9A-IAD" secondAttribute="trailing" id="MrW-ny-WfJ"/>
                                     <constraint firstAttribute="bottom" secondItem="gmT-9A-IAD" secondAttribute="bottom" id="Sxt-mh-5sX"/>
-                                    <constraint firstItem="gmT-9A-IAD" firstAttribute="top" secondItem="XkI-i6-T7K" secondAttribute="top" id="eJX-1o-QMB"/>
+                                    <constraint firstItem="gmT-9A-IAD" firstAttribute="top" secondItem="XkI-i6-T7K" secondAttribute="top" constant="-20" id="eJX-1o-QMB"/>
                                     <constraint firstItem="gmT-9A-IAD" firstAttribute="leading" secondItem="XkI-i6-T7K" secondAttribute="leading" id="tOq-tM-sz8"/>
                                 </constraints>
                             </scrollView>

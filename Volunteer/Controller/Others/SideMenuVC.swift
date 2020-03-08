@@ -22,12 +22,13 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var userEmailLbl: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
+    // MARK: - Instance Variables
     var counter:Int = 0
     static var delegate: IndexChangeDelegate!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
         setupComponents()
         setupUser()
     }
